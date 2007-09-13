@@ -1,13 +1,9 @@
-package com.googlecode.perfs;
+package com.googlecode.perfs.blocks;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
-import java.io.InvalidObjectException;
-import java.io.NotSerializableException;
-import java.security.NoSuchAlgorithmException;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
+import java.io.InputStream;
+import java.net.MalformedURLException;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
@@ -35,9 +31,9 @@ import org.apache.log4j.Logger;
  * @author Stian Soiland
  *
  */
-public class BlockStore {
+public class SimpleBlockStore implements BlockStore {
 
-	private static Logger logger = Logger.getLogger(BlockStore.class);
+	private static Logger logger = Logger.getLogger(SimpleBlockStore.class);
 	
 
 	/**
@@ -65,17 +61,17 @@ public class BlockStore {
 	File root;
 
 	/**
-	 * Construct a BlockStore for the given directory. If the directory 
+	 * Construct a SimpleBlockStore for the given directory. If the directory 
 	 * does not yet exist or is empty, it will be initialized as a new
-	 * empty BlockStore. If the directory is an existing BlockStore
+	 * empty SimpleBlockStore. If the directory is an existing SimpleBlockStore
 	 * this instance will use the existing entries. If the directory
-	 * is not a BlockStore directory or can't be read/written properly, 
+	 * is not a SimpleBlockStore directory or can't be read/written properly, 
 	 * an IllegalArgumentException will be thrown.
 	 * 
 	 * @param root Base directory for storing blocks
-	 * @throws IllegalArgumentException if root is a non-BlockStore directory
+	 * @throws IllegalArgumentException if root is a non-SimpleBlockStore directory
 	 */
-	public BlockStore(File root) throws IllegalArgumentException {
+	public SimpleBlockStore(File root) throws IllegalArgumentException {
 		this.root = root;
 		if (! root.exists()) {
 			root.mkdirs();
@@ -88,14 +84,14 @@ public class BlockStore {
 	}
 	
 	
+	@Override
 	public String toString() {
-		return "BlockStore " + root;
+		return "SimpleBlockStore " + root;
 	}
 	
 	
-	/**
-	 * Reinitializes the block store, deletes all existing blocks.
-	 * 
+	/* (non-Javadoc)
+	 * @see com.googlecode.perfs.BlockStore#clear()
 	 */
 	public void clear() {
 		logger.warn("Clearing block store " + this);
@@ -107,53 +103,42 @@ public class BlockStore {
 		checkMeta();
 	}
 
-	/**
-	 * Default hash method for put(byte[]) is sha1
-	 * 
-	 * @param bytes Bytes to hash
-	 * @return String Hash value in hex
+	/* (non-Javadoc)
+	 * @see com.googlecode.perfs.BlockStore#hash(byte[])
 	 */
 	public String hash(byte[] bytes) {
 		return DigestUtils.shaHex(bytes);
 	}
 	
-	/**
-	 * Check if given key exists in block store. 
-	 * 
-	 * @param key The identifier to check
-	 * @return True if the key is retrievable by get(key)
+	/* (non-Javadoc)
+	 * @see com.googlecode.perfs.BlockStore#containsKey(java.lang.String)
 	 */
 	public boolean containsKey(String key) {
 		return fileFor(key).exists();
 	}
 
-	/**
-	 * Get the block data stored at given key
-	 * 
-	 * @param key Identifier of block
-	 * @return A loaded byte[] array from the given block
+	/* (non-Javadoc)
+	 * @see com.googlecode.perfs.BlockStore#get(java.lang.String)
 	 */
-	public byte[] get(String key) {
+	public InputStream get(String key) {
 		File file = fileFor(key);
 		if (! file.exists()) {
 			return null;
 		}
 		try {
-			return FileUtils.readFileToByteArray(file);
-		} catch (IOException e) {
-			logger.warn("Can't read " + file, e);
-			return null;
-		} 
+			return file.toURI().toURL().openStream();
+		} catch (MalformedURLException ex) {
+			// TODO Auto-generated catch block
+			logger.warn("An error occured", ex);
+		} catch (IOException ex) {
+			// TODO Auto-generated catch block
+			logger.warn("An error occured", ex);
+		}
+		return null;
 	}
 	
-	/**
-	 * Store block of bytes by using @link{hash(byte[])} as identifier.
-	 * If the hash already exists as an identifier, the bytes are not
-	 * rewritten to disk. Return the hash identifier.
-	 * 
-	 * @see hash(byte[]) 
-	 * @param bytes Block to store
-	 * @return Hash used as identifier.
+	/* (non-Javadoc)
+	 * @see com.googlecode.perfs.BlockStore#put(byte[])
 	 */
 	public String put(byte[] bytes) {
 		String hash = hash(bytes);
@@ -164,13 +149,8 @@ public class BlockStore {
 		return hash;
 	}
 
-	/**
-	 * Store block of bytes using given identifier. The block can later be
-	 * retrieved using get(key). If a block with identifier exists, it will
-	 * be overwritten. 
-	 * 
-	 * @param key Identifier to store bytes as.
-	 * @param bytes Block to store
+	/* (non-Javadoc)
+	 * @see com.googlecode.perfs.BlockStore#put(java.lang.String, byte[])
 	 */
 	public void put(String key, byte[] bytes) {
 		try {
@@ -180,10 +160,8 @@ public class BlockStore {
 		}
 	}
 
-	/**
-	 * Remove block stored under the given identifier.
-	 * 
-	 * @param key Identifier for block
+	/* (non-Javadoc)
+	 * @see com.googlecode.perfs.BlockStore#remove(java.lang.String)
 	 */
 	public void remove(String key) {
 		fileFor(key).delete();
@@ -222,7 +200,7 @@ public class BlockStore {
 	 * is empty.
 	 * 
 	 * @see META
-	 * @throws IllegalArgumentException if root is a non-BlockStore directory
+	 * @throws IllegalArgumentException if root is a non-SimpleBlockStore directory
 	 */
 	private void checkMeta() throws IllegalArgumentException {
 		File meta = new File(root, META);
@@ -249,6 +227,12 @@ public class BlockStore {
 		if (! header.startsWith(META_HEADER + "\n")) {
 			throw new IllegalArgumentException("Unknown header in meta file " + meta);
 		}
+	}
+
+
+	public byte[] getBytes(String key) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
