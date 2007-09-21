@@ -2,13 +2,10 @@ package com.googlecode.perfs.fs;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.Map.Entry;
 
-import com.googlecode.perfs.rdf.Filesystem;
 
 public class DirectoryResource extends Resource implements
 		Map<String, Resource> {
@@ -20,7 +17,7 @@ public class DirectoryResource extends Resource implements
 		super(filesystem, UUID.randomUUID().toString());
 	}
 
-	public DirectoryResource(Filesystem filesystem, String uuid) {
+	protected DirectoryResource(Filesystem filesystem, String uuid) {
 		super(filesystem, uuid);
 	}
 
@@ -40,18 +37,8 @@ public class DirectoryResource extends Resource implements
 		return children.entrySet();
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		return children.equals(o);
-	}
-
 	public Resource get(Object key) {
 		return children.get(key);
-	}
-
-	@Override
-	public int hashCode() {
-		return children.hashCode();
 	}
 
 	public boolean isEmpty() {
@@ -74,9 +61,9 @@ public class DirectoryResource extends Resource implements
 				subDir.setParent(this);
 			}
 		}
-		
+
 		Resource old = children.put(key, resource);
-		
+
 		if (old instanceof DirectoryResource) {
 			DirectoryResource oldDir = (DirectoryResource) old;
 			synchronized (oldDir) {

@@ -1,6 +1,5 @@
 package com.googlecode.perfs.fs;
 
-import com.googlecode.perfs.rdf.Filesystem;
 
 public class FileResource extends Resource {
 

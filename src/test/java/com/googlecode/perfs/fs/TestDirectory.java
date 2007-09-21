@@ -2,26 +2,12 @@ package com.googlecode.perfs.fs;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import com.googlecode.perfs.blocks.BlockStore;
-import com.googlecode.perfs.blocks.LargeBlockStore;
-import com.googlecode.perfs.blocks.SimpleBlockStore;
 import com.googlecode.perfs.fs.DirectoryResource;
-import com.googlecode.perfs.rdf.Filesystem;
 
 
-public class TestFilesystem extends TempDirTest {
-	
-	Filesystem fs;
-	
-	@Before
-	public void makeFilesystem() {
-		BlockStore backendStore = new SimpleBlockStore(dir);
-		BlockStore blockStore = new LargeBlockStore(backendStore);
-		fs = new Filesystem(blockStore);
-	}
+public class TestDirectory extends AbstractTestFilesystem {
 	
 	@Test
 	public void root() {
@@ -42,6 +28,7 @@ public class TestFilesystem extends TempDirTest {
 		
 		root.put("subdir", subDir);
 		assertFalse(root.isEmpty());
+		assertEquals(1, root.size());
 		assertTrue(subDir.isEmpty()); // .. does not count
 		assertEquals(root, subDir.getParent());
 		assertTrue(root.containsKey("subdir"));
@@ -76,6 +63,27 @@ public class TestFilesystem extends TempDirTest {
 		assertEquals(subSub, subDir.get("subdir"));
 	}
 	
+	@Test
+	public void threeSubdirs() {
+		DirectoryResource root = fs.getRoot();
+		DirectoryResource subDir1 = new DirectoryResource(fs);
+		root.put("fish", subDir1);
+		DirectoryResource subDir2 = new DirectoryResource(fs);
+		root.put("blah", subDir2);
+		DirectoryResource subDir3 = new DirectoryResource(fs);
+		root.put("soup", subDir3);
+		assertEquals(3, root.size());
+		
+		assertTrue("subDir1 should equal itself", subDir1.equals(subDir1));
+		assertFalse("subdir1 should not equal subdir2", subDir1.equals(subDir2));
+		assertFalse("subdir2 should not equal subdir3", subDir2.equals(subDir3));
+		
+		assertEquals(subDir1, root.get("fish"));
+		assertEquals(subDir3, root.get("soup"));
+		assertEquals(subDir2, root.get("blah"));
+
+	}
+	
 	@Test(expected=IllegalStateException.class)
 	public void subdirWithTwoParentsFails() {
 		DirectoryResource root = fs.getRoot();
@@ -91,6 +99,29 @@ public class TestFilesystem extends TempDirTest {
 		subDir2.put("another", subsub);
 	}
 	
+	@Test
+	public void modifyingCopy() {
+		DirectoryResource root = fs.getRoot();
+		DirectoryResource subDir = new DirectoryResource(fs);
+		root.put("dir1", subDir);
+		
+		DirectoryResource copy = (DirectoryResource) root.get("dir1");
+		
+		DirectoryResource child = new DirectoryResource(fs);
+		subDir.put("child", child);		
+		assertEquals(child, copy.get("child"));
+		
+		
+		DirectoryResource copyChild = new DirectoryResource(fs);
+		copy.put("copyChild", copyChild);		
+		assertEquals(copyChild, subDir.get("copyChild"));
+	}
 	
+	@Test
+	public void resourceFromFS() {
+		DirectoryResource root = fs.getRoot();
+//		assertEquals(root, fs.getResource(root.getUuid()));
+	//	assertEquals(root, fs.getResource(fs.getUuid()));
+	}
 	
 }

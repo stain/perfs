@@ -8,10 +8,11 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 
-public class TempDirTest {
+public abstract class TempDirTest {
 
 	public File dir;
 	
@@ -24,7 +25,7 @@ public class TempDirTest {
 	
 	@After
 	public void deleteDir() throws IOException {
-		//FileUtils.deleteDirectory(dir);
-		System.out.println(dir);
+		FileUtils.deleteDirectory(dir);
+		//System.out.println(dir);
 	}
 }
