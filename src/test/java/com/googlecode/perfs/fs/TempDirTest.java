@@ -26,6 +26,5 @@ public abstract class TempDirTest {
 	@After
 	public void deleteDir() throws IOException {
 		FileUtils.deleteDirectory(dir);
-		//System.out.println(dir);
 	}
 }
