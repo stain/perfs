@@ -12,9 +12,9 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.googlecode.perfs.fs.TempDirTest;
+import com.googlecode.perfs.fs.AbstractTempDirTest;
 
-public abstract class TestBlockStore extends TempDirTest {
+public abstract class TestBlockStore extends AbstractTempDirTest {
 
 	/**
 	 * Generate BlockStore instance to be tested.
