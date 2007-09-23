@@ -6,7 +6,7 @@ import com.googlecode.perfs.blocks.BlockStore;
 import com.googlecode.perfs.blocks.LargeBlockStore;
 import com.googlecode.perfs.blocks.SimpleBlockStore;
 
-public class AbstractTestFilesystem extends TempDirTest {
+public abstract class AbstractTestFilesystem extends AbstractTempDirTest {
 
 	protected Filesystem fs;
 

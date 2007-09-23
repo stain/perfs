@@ -12,7 +12,7 @@ import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 
-public abstract class TempDirTest {
+public abstract class AbstractTempDirTest {
 
 	public File dir;
 	
