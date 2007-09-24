@@ -7,7 +7,7 @@ import org.junit.Test;
 import com.googlecode.perfs.fs.DirectoryResource;
 
 
-public class TestDirectory extends AbstractTestFilesystem {
+public class TestDirectory extends AbstractFileSystemTest {
 	
 	@Test
 	public void root() {
@@ -120,8 +120,8 @@ public class TestDirectory extends AbstractTestFilesystem {
 	@Test
 	public void resourceFromFS() {
 		DirectoryResource root = fs.getRoot();
-//		assertEquals(root, fs.getResource(root.getUuid()));
-	//	assertEquals(root, fs.getResource(fs.getUuid()));
+		assertEquals(root, fs.getResource(root.getUUID()));
+		assertEquals(root, fs.getResource(fs.getUUIDString()));
 	}
 	
 }

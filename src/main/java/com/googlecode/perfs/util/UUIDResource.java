@@ -1,11 +1,21 @@
 package com.googlecode.perfs.util;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.UUID;
 
 import org.apache.log4j.Logger;
 
+/**
+ * A resource that has an {@link UUID} identifier, available from
+ * {@link #getUUID()} or {@link #getUUIDString()}, in full version a
+ * {@link URI} exported by {@link #getURI()}.
+ * <p>
+ * Two {@link UUIDResource}s are considered {@link #equals(Object)} if they
+ * have the same UUID. Subclasses might enforce further equality checks.
+ * 
+ * @author Stian Soiland
+ * 
+ */
 public class UUIDResource {
 	
 	private static Logger logger = Logger.getLogger(UUIDResource.class);
@@ -25,6 +35,9 @@ public class UUIDResource {
 	}
 
 	public UUIDResource(UUID uuid) {
+		if (uuid == null) {
+			throw new NullPointerException("UUID can't be null");
+		}
 		this.uuid = uuid;
 	}
 
@@ -35,7 +48,7 @@ public class UUIDResource {
 		return uri;
 	}
 
-	protected URI getURIPrefix() {
+	public URI getURIPrefix() {
 		return URI.create(UUID_URI_PREFIX);
 	}
 
@@ -49,11 +62,16 @@ public class UUIDResource {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((getUUID() == null) ? 0 : getUUID().hashCode());
-		return result;
+		return getUUID().hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (! (obj instanceof UUIDResource)) {
+			return false;
+		}
+		UUIDResource uuidResource = (UUIDResource) obj;
+		return getUUID().equals(uuidResource.getUUID());
 	}
 
 	@Override

@@ -6,19 +6,20 @@ import com.googlecode.perfs.blocks.BlockStore;
 import com.googlecode.perfs.blocks.LargeBlockStore;
 import com.googlecode.perfs.blocks.SimpleBlockStore;
 
-public abstract class AbstractTestFilesystem extends AbstractTempDirTest {
+public abstract class AbstractFileSystemTest extends AbstractTempDirTest {
 
-	protected Filesystem fs;
+	protected FileSystem fs;
+	protected LargeBlockStore blockStore;
 
-	public AbstractTestFilesystem() {
+	public AbstractFileSystemTest() {
 		super();
 	}
 
 	@Before
 	public void makeFilesystem() {
 		BlockStore backendStore = new SimpleBlockStore(dir);
-		BlockStore blockStore = new LargeBlockStore(backendStore);
-		fs = new Filesystem(blockStore);
+		blockStore = new LargeBlockStore(backendStore);
+		fs = new FileSystem(blockStore);
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.googlecode.perfs.fs;
 
+import java.net.URI;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,11 +14,15 @@ public class DirectoryResource extends Resource implements
 	private Map<String, Resource> children = new HashMap<String, Resource>();
 	private DirectoryResource parent;
 
-	public DirectoryResource(Filesystem filesystem) {
-		super(filesystem, UUID.randomUUID().toString());
+	public DirectoryResource(FileSystem filesystem) {
+		super(filesystem, UUID.randomUUID());
 	}
 
-	protected DirectoryResource(Filesystem filesystem, String uuid) {
+	protected DirectoryResource(FileSystem filesystem, UUID uuid) {
+		super(filesystem, uuid);
+	}
+	
+	protected DirectoryResource(FileSystem filesystem, String uuid) {
 		super(filesystem, uuid);
 	}
 
@@ -100,6 +105,11 @@ public class DirectoryResource extends Resource implements
 
 	protected void setParent(DirectoryResource parent) {
 		this.parent = parent;
+	}
+
+	@Override
+	protected URI getURIClass() {
+		return URI.create("dir/");
 	}
 
 }
