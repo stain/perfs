@@ -6,25 +6,19 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.googlecode.perfs.blocks.BlockStore;
+import com.googlecode.perfs.fs.memory.MemoryDirectoryResource;
 import com.googlecode.perfs.util.UUIDResource;
 
-public class FileSystem extends UUIDResource {
+public abstract class FileSystem extends UUIDResource {
 
-	@SuppressWarnings("unused")
-	private BlockStore blockStore;
-	
 	private DirectoryResource root;
-	
-	private Map<UUID, Resource> resources = new HashMap<UUID, Resource>();
 
-	public FileSystem(BlockStore blockStore, String uuid) {
+	public FileSystem(String uuid) {
 		super(uuid);
-		this.blockStore = blockStore;
 	}
 
-	public FileSystem(BlockStore blockStore) {
+	public FileSystem() {
 		super();
-		this.blockStore = blockStore;
 	}
 
 	@Override
@@ -34,25 +28,19 @@ public class FileSystem extends UUIDResource {
 
 	public DirectoryResource getRoot() {
 		if (root == null) {
-			root = new DirectoryResource(this, getUUIDString());
+			root = findRoot();
 		}
 		return root;
 	}
 
-	protected void registerResource(Resource resource) {
-		if (!this.equals(resource.getFileSystem())) {
-			throw new IllegalArgumentException(
-					"Resource must be bound to filesystem " + this);
-		}
-		resources.put(resource.getUUID(), resource);
-	}
+	protected abstract DirectoryResource findRoot();
 
+	protected abstract void registerResource(Resource resource);
+	
 	public Resource getResource(String string) {
 		return getResource(UUID.fromString(string));
 	}
 
-	public Resource getResource(UUID uuid) {
-		return resources.get(uuid);
-	}
+	public abstract Resource getResource(UUID uuid);
 
 }

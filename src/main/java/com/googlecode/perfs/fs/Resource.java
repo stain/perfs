@@ -3,12 +3,14 @@ package com.googlecode.perfs.fs;
 import java.net.URI;
 import java.util.UUID;
 
+import com.googlecode.perfs.fs.memory.MemoryDirectoryResource;
+import com.googlecode.perfs.fs.memory.MemoryFileResource;
 import com.googlecode.perfs.util.UUIDResource;
 
 /**
- * A file system resource, such as a {@link FileResource},
- * {@link DirectoryResource}, etc. In short, a {@link Resource} is anything
- * that can be referred from a filename in a {@link DirectoryResource}.
+ * A file system resource, such as a {@link MemoryFileResource},
+ * {@link MemoryDirectoryResource}, etc. In short, a {@link Resource} is anything
+ * that can be referred from a filename in a {@link MemoryDirectoryResource}.
  * 
  * @author Stian Soiland
  * 
@@ -30,14 +32,19 @@ public abstract class Resource extends UUIDResource {
 	 */
 	protected abstract URI getURIClass();
 
-	public Resource(FileSystem filesystem, String uuid) {
+	public Resource(FileSystem fileSystem, String uuid) {
 		super(uuid);
-		init(filesystem);
+		init(fileSystem);
 	}
 
-	public Resource(FileSystem filesystem, UUID uuid) {
+	public Resource(FileSystem fileSystem, UUID uuid) {
 		super(uuid);
-		init(filesystem);
+		init(fileSystem);
+	}
+
+	public Resource(FileSystem fileSystem) {
+		super(UUID.randomUUID());
+		init(fileSystem);
 	}
 
 	private void init(FileSystem fileSystem) {
