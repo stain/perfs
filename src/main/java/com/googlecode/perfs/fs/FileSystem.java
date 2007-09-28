@@ -1,12 +1,8 @@
 package com.googlecode.perfs.fs;
 
 import java.net.URI;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
-import com.googlecode.perfs.blocks.BlockStore;
-import com.googlecode.perfs.fs.memory.MemoryDirectoryResource;
 import com.googlecode.perfs.util.UUIDResource;
 
 public abstract class FileSystem extends UUIDResource {
