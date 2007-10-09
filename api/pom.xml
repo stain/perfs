@@ -8,6 +8,7 @@
 	</parent>
 	<groupId>com.googlecode.perfs</groupId>
 	<artifactId>api</artifactId>
+    <name>PerFS API</name>
 	<description>API of perfs</description>
 
 	<dependencies>
