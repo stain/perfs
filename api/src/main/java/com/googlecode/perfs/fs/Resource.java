@@ -3,14 +3,14 @@ package com.googlecode.perfs.fs;
 import java.net.URI;
 import java.util.UUID;
 
-import com.googlecode.perfs.fs.memory.MemoryDirectoryResource;
-import com.googlecode.perfs.fs.memory.MemoryFileResource;
 import com.googlecode.perfs.util.UUIDResource;
 
 /**
- * A file system resource, such as a {@link MemoryFileResource},
- * {@link MemoryDirectoryResource}, etc. In short, a {@link Resource} is anything
- * that can be referred from a filename in a {@link MemoryDirectoryResource}.
+ * A file system resource, such as a
+ * {@link com.googlecode.perfs.fs.memory.MemoryFileResource},
+ * {@link com.googlecode.perfs.fs.memory.MemoryDirectoryResource}, etc. In
+ * short, a {@link Resource} is anything that can be referred from a filename in
+ * a MemoryDirectoryResource.
  * 
  * @author Stian Soiland
  * 

@@ -39,4 +39,8 @@ public abstract class FileSystem extends UUIDResource {
 
 	public abstract Resource getResource(UUID uuid);
 
+	public abstract FileResource makeFile();
+
+	public abstract DirectoryResource makeDirectory();
+
 }

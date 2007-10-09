@@ -21,8 +21,6 @@ public abstract class AbstractFileSystemTest extends AbstractTempDirTest {
 		root = fs.getRoot();
 	}
 
-	protected MemoryFileSystem makeFileSystem() {
-		return new MemoryFileSystem();
-	}
+	protected abstract FileSystem makeFileSystem();
 
 }

@@ -4,9 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.googlecode.perfs.fs.memory.MemoryDirectoryResource;
-
-public class TestDirectory extends AbstractFileSystemTest {
+public abstract class TestDirectory extends AbstractFileSystemTest {
 
 	@Test
 	public void root() {
@@ -18,7 +16,7 @@ public class TestDirectory extends AbstractFileSystemTest {
 
 	@Test
 	public void addingSubDir() {
-		MemoryDirectoryResource subDir = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir = fs.makeDirectory();
 		assertTrue(root.isEmpty());
 		assertEquals(0, root.size());
 		assertTrue(subDir.isEmpty());
@@ -41,9 +39,9 @@ public class TestDirectory extends AbstractFileSystemTest {
 
 	@Test(expected = AlreadyExistsException.class)
 	public void replacingSubdir() {
-		MemoryDirectoryResource subDir = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir =fs.makeDirectory();
 		root.put("subdir", subDir);
-		MemoryDirectoryResource subDir2 = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir2 = fs.makeDirectory();
 		try {
 			root.put("subdir", subDir2);
 		} finally {
@@ -55,7 +53,7 @@ public class TestDirectory extends AbstractFileSystemTest {
 
 	@Test
 	public void deleteSubdir() {
-		MemoryDirectoryResource subDir = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir = fs.makeDirectory();
 		root.put("subdir", subDir);
 		assertEquals(subDir, root.remove("subdir"));
 		assertFalse(root.containsFilename("subdir"));
@@ -66,9 +64,9 @@ public class TestDirectory extends AbstractFileSystemTest {
 
 	@Test
 	public void cleanSubdirs() {
-		MemoryDirectoryResource subDir1 = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir1 = fs.makeDirectory();
 		root.put("subdir1", subDir1);
-		MemoryDirectoryResource subDir2 = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir2 = fs.makeDirectory();
 		root.put("subdir2", subDir2);
 		assertEquals(2, root.size());
 		root.clear();
@@ -84,9 +82,9 @@ public class TestDirectory extends AbstractFileSystemTest {
 
 	@Test
 	public void subSubDirectory() {
-		MemoryDirectoryResource subDir = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir = fs.makeDirectory();
 		root.put("subdir", subDir);
-		MemoryDirectoryResource subSub = new MemoryDirectoryResource(fs);
+		DirectoryResource subSub = fs.makeDirectory();
 		subDir.put("subdir", subSub); // Notice: Same name as parent
 		assertEquals(subDir, root.get("subdir"));
 		assertEquals(root, subDir.getParent());
@@ -97,11 +95,11 @@ public class TestDirectory extends AbstractFileSystemTest {
 
 	@Test
 	public void threeSubdirs() {
-		MemoryDirectoryResource subDir1 = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir1 = fs.makeDirectory();
 		root.put("fish", subDir1);
-		MemoryDirectoryResource subDir2 = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir2 = fs.makeDirectory();
 		root.put("blah", subDir2);
-		MemoryDirectoryResource subDir3 = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir3 = fs.makeDirectory();
 		root.put("soup", subDir3);
 		assertEquals(3, root.size());
 
@@ -117,12 +115,12 @@ public class TestDirectory extends AbstractFileSystemTest {
 
 	@Test(expected = IllegalStateException.class)
 	public void subdirWithTwoParentsFails() {
-		MemoryDirectoryResource subDir1 = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir1 = fs.makeDirectory();
 		root.put("dir1", subDir1);
-		MemoryDirectoryResource subDir2 = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir2 = fs.makeDirectory();
 		root.put("dir2", subDir2);
 
-		MemoryDirectoryResource subsub = new MemoryDirectoryResource(fs);
+		DirectoryResource subsub = fs.makeDirectory();
 		subDir1.put("subdir", subsub);
 
 		// should fail because subsub already has parent
@@ -131,16 +129,16 @@ public class TestDirectory extends AbstractFileSystemTest {
 
 	@Test
 	public void modifyingCopy() {
-		MemoryDirectoryResource subDir = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir = fs.makeDirectory();
 		root.put("dir1", subDir);
 
 		DirectoryResource copy = (DirectoryResource) root.get("dir1");
 
-		MemoryDirectoryResource child = new MemoryDirectoryResource(fs);
+		DirectoryResource child = fs.makeDirectory();
 		subDir.put("child", child);
 		assertEquals(child, copy.get("child"));
 
-		MemoryDirectoryResource copyChild = new MemoryDirectoryResource(fs);
+		DirectoryResource copyChild = fs.makeDirectory();
 		copy.put("copyChild", copyChild);
 		assertEquals(copyChild, subDir.get("copyChild"));
 	}
@@ -150,7 +148,7 @@ public class TestDirectory extends AbstractFileSystemTest {
 		assertEquals(root, fs.getResource(root.getUUID()));
 		assertEquals(root, fs.getResource(root.getUUIDString()));
 
-		MemoryDirectoryResource subDir = new MemoryDirectoryResource(fs);
+		DirectoryResource subDir = fs.makeDirectory();
 		// Even before we added it to root
 		assertEquals(subDir, fs.getResource(subDir.getUUID()));
 		assertEquals(subDir, fs.getResource(subDir.getUUIDString()));

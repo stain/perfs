@@ -5,35 +5,32 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-import com.googlecode.perfs.fs.memory.MemoryDirectoryResource;
-
-public class TestFilesystem extends AbstractFileSystemTest {
+public abstract class TestFilesystem extends AbstractFileSystemTest {
 	
 	FileSystem otherFS = makeFileSystem();
 	
 	@Test
+	public void doubleRegisterOk() throws Exception {
+		DirectoryResource dir = otherFS.makeDirectory();;		
+		otherFS.registerResource(dir);
+		assertEquals(dir, otherFS.getResource(dir.getUUID()));
+		assertEquals(dir, otherFS.getResource(dir.getUUIDString()));
+	}
+	
+	@Test
 	public void registerAndRetrieve() throws Exception {
-		MemoryDirectoryResource dir = new MemoryDirectoryResource(fs);
+		DirectoryResource dir = fs.makeDirectory();
 		assertEquals(dir, fs.getResource(dir.getUUID()));
 		assertEquals(dir, fs.getResource(dir.getUUIDString()));
 		assertNull(otherFS.getResource(dir.getUUID()));
 		assertNull(otherFS.getResource(dir.getUUIDString()));
 	}
-	
-	@Test
-	public void doubleRegisterOk() throws Exception {
-		MemoryDirectoryResource dir = new MemoryDirectoryResource(otherFS);		
-		otherFS.registerResource(dir);
-		assertEquals(dir, otherFS.getResource(dir.getUUID()));
-		assertEquals(dir, otherFS.getResource(dir.getUUIDString()));
-	}
 
-	
 	@Test(expected=IllegalArgumentException.class)
 	public void wrongFileSystem() throws Exception {
-		MemoryDirectoryResource dir = new MemoryDirectoryResource(otherFS);
+		DirectoryResource dir = otherFS.makeDirectory();
 		fs.registerResource(dir);
 	}
-	
+
 	
 }
