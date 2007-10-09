@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.googlecode.perfs</groupId>
+		<artifactId>perfs</artifactId>
+		<version>0.2-SNAPSHOT</version>
+	</parent>
+	<groupId>com.googlecode.perfs</groupId>
+	<artifactId>backend</artifactId>
+	<name>PerFS backends</name>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>file</module>
+		<module>memory</module>
+		<module>rdf</module>
+	</modules>
+
+</project>
