@@ -9,8 +9,6 @@ import java.io.OutputStream;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
-import com.googlecode.perfs.fs.memory.MemoryFileResource;
-
 public abstract class TestFile extends AbstractFileSystemTest {
 
 	@Test

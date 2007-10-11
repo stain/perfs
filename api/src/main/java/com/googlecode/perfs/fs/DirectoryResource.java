@@ -6,16 +6,16 @@ import java.util.UUID;
 
 public abstract class DirectoryResource extends Resource {
 
+	public DirectoryResource(FileSystem fileSystem) {
+		super(fileSystem);
+	}
+
 	public DirectoryResource(FileSystem fileSystem, String uuid) {
 		super(fileSystem, uuid);
 	}
 
 	public DirectoryResource(FileSystem fileSystem, UUID uuid) {
 		super(fileSystem, uuid);
-	}
-
-	public DirectoryResource(FileSystem fileSystem) {
-		super(fileSystem);
 	}
 
 	public abstract void clear();
@@ -25,6 +25,8 @@ public abstract class DirectoryResource extends Resource {
 	public abstract boolean containsResource(Resource resource);
 
 	public abstract Resource get(String filename);
+
+	public abstract DirectoryResource getParent();
 
 	public abstract boolean isEmpty();
 
@@ -56,11 +58,11 @@ public abstract class DirectoryResource extends Resource {
 
 	public abstract Resource remove(String filename);
 
-	public abstract int size();
+	public abstract Collection<String> resourceNames();
 
 	public abstract Collection<Resource> resources();
-
-	public abstract DirectoryResource getParent();
+	
+	public abstract int size();
 
 	protected abstract void setParent(DirectoryResource parent);
 

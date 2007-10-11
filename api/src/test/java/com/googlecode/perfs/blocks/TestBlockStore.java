@@ -19,7 +19,7 @@ public abstract class TestBlockStore extends AbstractTempDirTest {
 	/**
 	 * Generate BlockStore instance to be tested.
 	 * 
-	 * @return Newly initialized BlockStore instance
+	 * @return Newly initialised BlockStore instance
 	 */
 	public abstract BlockStore makeBlockStore();
 
@@ -48,9 +48,9 @@ public abstract class TestBlockStore extends AbstractTempDirTest {
 		assertNotSame(value, other);
 		assertTrue(Arrays.equals(value, other));
 		// Should (preferably) NOT be stored by hash as well
-		if (blockStore instanceof SimpleBlockStore) {
-			assertNull(blockStore.get(((SimpleBlockStore) blockStore).hash(value)));
-		}
+//		if (blockStore instanceof SimpleBlockStore) {
+//			assertNull(blockStore.get(((SimpleBlockStore) blockStore).hash(value)));
+//		}
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public abstract class TestBlockStore extends AbstractTempDirTest {
 		BlockStore blockStore = makeBlockStore();
 		byte[] value = { 0x70, 0x46, 0x53 };
 		String key = blockStore.put(value);
-		if (blockStore instanceof SimpleBlockStore) {
+/*		if (blockStore instanceof SimpleBlockStore) {
 			File file = ((SimpleBlockStore) blockStore).fileFor(key);
 			// Backdate lastModified so that we can detect changes 
 			// even after milliseconds
@@ -90,7 +90,7 @@ public abstract class TestBlockStore extends AbstractTempDirTest {
 			// Except if we explicitly give the key
 			blockStore.put(key, value);
 			assertTrue("Did not", lastMod != file.lastModified());
-		}
+		}*/
 	}
 
 	@Ignore

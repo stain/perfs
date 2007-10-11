@@ -143,6 +143,11 @@ public class MemoryDirectoryResource extends DirectoryResource {
 	}
 
 	@Override
+	public Collection<String> resourceNames() {
+		return children.keySet();
+	}
+
+	@Override
 	public DirectoryResource getParent() {
 		return parent;
 	}

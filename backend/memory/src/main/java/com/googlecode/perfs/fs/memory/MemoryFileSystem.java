@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 import com.googlecode.perfs.blocks.BlockStore;
 import com.googlecode.perfs.fs.DirectoryResource;
+import com.googlecode.perfs.fs.FileResource;
 import com.googlecode.perfs.fs.FileSystem;
 import com.googlecode.perfs.fs.Resource;
 
@@ -38,5 +39,19 @@ public class MemoryFileSystem extends FileSystem {
 	@Override
 	protected DirectoryResource findRoot() {
 		return new MemoryDirectoryResource(this);
+	}
+
+	@Override
+	public DirectoryResource makeDirectory() {
+		DirectoryResource dir = new MemoryDirectoryResource(this);
+		registerResource(dir);
+		return dir;
+	}
+
+	@Override
+	public FileResource makeFile() {
+		FileResource file = new MemoryFileResource(this);
+		registerResource(file);
+		return file;
 	}
 }

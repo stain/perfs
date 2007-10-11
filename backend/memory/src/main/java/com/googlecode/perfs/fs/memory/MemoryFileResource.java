@@ -11,9 +11,8 @@ import java.util.UUID;
 
 import com.googlecode.perfs.fs.FileResource;
 import com.googlecode.perfs.fs.FileSystem;
-import com.googlecode.perfs.fs.Resource;
 
-public class MemoryFileResource extends Resource implements FileResource {
+public class MemoryFileResource extends FileResource {
 
 	private byte[] data = new byte[0];
 
@@ -29,15 +28,18 @@ public class MemoryFileResource extends Resource implements FileResource {
 		super(fileSystem, uuid);
 	}
 
+	@Override
 	public InputStream getInputStream() {
 		return new ByteArrayInputStream(data);
 	}
 
+	@Override
 	public OutputStream getOutputStream() {
 		ByteArrayOutputStream os = new ByteArrayOutputStream(data.length);
 		return new CopyOnCloseOutputStream(os);
 	}
 
+	@Override
 	public long size() {
 		return data.length;
 	}

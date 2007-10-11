@@ -5,7 +5,7 @@ import java.io.InputStream;
 public interface BlockStore {
 
 	/**
-	 * Reinitializes the block store, deletes all existing blocks.
+	 * Reinitialise the block store, deletes all existing blocks.
 	 * 
 	 */
 	public void clear();
