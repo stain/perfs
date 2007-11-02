@@ -6,13 +6,17 @@ import java.util.Collections;
 
 import org.apache.commons.vfs.Capability;
 import org.apache.commons.vfs.FileName;
-import org.apache.commons.vfs.FileSystem;
-import org.apache.commons.vfs.FileSystemException;
 import org.apache.commons.vfs.FileSystemOptions;
 import org.apache.commons.vfs.provider.AbstractOriginatingFileProvider;
+import org.apache.log4j.Logger;
+
+import com.googlecode.perfs.fs.FileSystem;
+import com.googlecode.perfs.fs.FileSystemFactory;
 
 public class PerFSFileProvider extends AbstractOriginatingFileProvider {
 
+	private static Logger logger = Logger.getLogger(PerFSFileProvider.class);
+	
 	protected final static Collection<Capability> capabilities = Collections
 			.unmodifiableCollection(Arrays.asList(new Capability[] {
 					Capability.CREATE, Capability.DELETE, Capability.RENAME,
@@ -22,10 +26,12 @@ public class PerFSFileProvider extends AbstractOriginatingFileProvider {
 					Capability.ATTRIBUTES, Capability.RANDOM_ACCESS_READ }));
 
 	@Override
-	protected FileSystem doCreateFileSystem(FileName arg0,
-			FileSystemOptions arg1) throws FileSystemException {
-		// TODO Auto-generated method stub
-		return null;
+	protected PerFSFileSystem doCreateFileSystem(final FileName rootName,
+			final FileSystemOptions fileSystemOptions) {
+		logger.debug("Root: " + rootName);
+		logger.debug("Options:" + fileSystemOptions);
+		FileSystem backend = FileSystemFactory.getFileSystem();	
+		return new PerFSFileSystem(rootName, null, fileSystemOptions, backend);
 	}
 
 	public Collection<Capability> getCapabilities() {

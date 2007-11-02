@@ -1,0 +1,5 @@
+<providers>
+    <provider class-name="com.googlecode.perfs.frontend.vfs.PerFSFileProvider">
+        <scheme name="perfs"/>
+    </provider>
+</providers>

@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.apache.commons.vfs.FileName;
 import org.apache.commons.vfs.FileObject;
+import org.apache.commons.vfs.FileSystemOptions;
 import org.apache.commons.vfs.provider.AbstractFileSystem;
 import org.apache.log4j.Logger;
 
@@ -16,8 +17,9 @@ public class PerFSFileSystem extends AbstractFileSystem implements
 
 	private FileSystem backend;
 
-	public PerFSFileSystem(com.googlecode.perfs.fs.FileSystem backend) {
-		super(null, null, null);
+	public PerFSFileSystem(FileName rootName, FileObject parentLayer,
+			FileSystemOptions fileSystemOptions, com.googlecode.perfs.fs.FileSystem backend) {
+		super(rootName, parentLayer, fileSystemOptions);
 		this.backend = backend;
 	}
 
