@@ -7,11 +7,11 @@
 	<classpathentry kind="src" path="backend/file/src/test/java"/>
 	<classpathentry kind="src" path="backend/memory/src/main/java"/>
 	<classpathentry kind="src" path="backend/memory/src/test/java"/>
-	<classpathentry kind="src" path="backend/rdf/src/main/java"/>
-	<classpathentry kind="src" path="backend/rdf/src/test/java"/>
 	<classpathentry kind="src" path="frontend/vfs/src/main/java"/>
 	<classpathentry kind="src" path="frontend/vfs/src/test/java"/>
 	<classpathentry excluding="**" kind="src" output="frontend/vfs/src/main/resources" path="frontend/vfs/src/main/resources"/>
+	<classpathentry kind="src" path="frontend/rest/src/main/java"/>
+	<classpathentry kind="src" path="frontend/rest/src/test/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER/modules"/>
