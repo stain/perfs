@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>vfs</module>
+		<module>rest</module>
 	</modules>
 
 </project>
