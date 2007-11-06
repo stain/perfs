@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>com.googlecode.perfs</groupId>
 	<artifactId>file</artifactId>
-	<name>PerFS File backend</name>
+	<name>PerFS file backend</name>
 	<description>File-based backend for perfs</description>
 
 	<dependencies>
