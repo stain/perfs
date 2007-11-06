@@ -3,8 +3,6 @@ package com.googlecode.perfs.util;
 import java.net.URI;
 import java.util.UUID;
 
-import org.apache.log4j.Logger;
-
 /**
  * A resource that has an {@link UUID} identifier, available from
  * {@link #getUUID()} or {@link #getUUIDString()}, in full version a
@@ -17,8 +15,6 @@ import org.apache.log4j.Logger;
  * 
  */
 public class UUIDResource {
-	
-	private static Logger logger = Logger.getLogger(UUIDResource.class);
 	
 	public static final String UUID_URI_PREFIX = "urn:resource.identifier:";
 
