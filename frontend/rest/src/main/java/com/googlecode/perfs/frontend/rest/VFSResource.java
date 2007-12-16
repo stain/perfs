@@ -1,7 +1,11 @@
 package com.googlecode.perfs.frontend.rest;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Date;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.vfs.FileContent;
 import org.apache.commons.vfs.FileObject;
 import org.apache.commons.vfs.FileSystemException;
@@ -23,6 +27,7 @@ public class VFSResource extends Resource {
 
 	private FileSystemManager mgr;
 	private FileObject cwd = null;
+	private String realPath;
 
 	public VFSResource(Context context, Request request, Response response) {
 		super(context, request, response);
@@ -32,7 +37,7 @@ public class VFSResource extends Resource {
 			throw new RuntimeException("Can't initialise common-vfs", e);
 		}
 
-		String path = request.getResourceRef().getRemainingPart();
+		String path = "/" + request.getResourceRef().getRemainingPart();
 		try {
 			cwd = mgr.resolveFile("perfs://" + path);
 		} catch (FileSystemException e) {
@@ -46,6 +51,88 @@ public class VFSResource extends Resource {
 		} catch (FileSystemException e) {
 			e.printStackTrace();
 			response.setStatus(Status.SERVER_ERROR_INTERNAL, e.getMessage());
+		}
+		realPath = cwd.getName().getPath();
+		try {
+			if (cwd.getType().equals(FileType.FOLDER)
+					&& !realPath.endsWith("/")) {
+				realPath += "/";
+			}
+			if (!realPath.equals(path)
+					&& !cwd.getType().equals(FileType.IMAGINARY)) {
+				response.redirectSeeOther(realPath);
+			}
+		} catch (FileSystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public boolean allowPut() {
+		try {
+			// Not allowed on folders
+			return !(cwd.getType().equals(FileType.FOLDER));
+		} catch (FileSystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean allowPost() {
+		try {
+			// Only allowed on folders
+			return ! cwd.getType().equals(FileType.FILE);
+		} catch (FileSystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			getResponse().setStatus(Status.SERVER_ERROR_INTERNAL);
+			return false;
+		}
+	}
+
+	@Override
+	public void handlePost() {
+		try {
+			cwd.createFolder();
+			getResponse().setStatus(Status.SUCCESS_CREATED);
+		} catch (FileSystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			getResponse().setStatus(Status.SERVER_ERROR_INTERNAL);
+		}
+	}
+
+	@Override
+	public void handlePut() {
+		try {
+			cwd.createFile();
+			InputStream inStream = getRequest().getEntity().getStream();
+			OutputStream outStream = cwd.getContent().getOutputStream();
+			IOUtils.copy(inStream, outStream);
+			outStream.close();
+			inStream.close();
+			getResponse().setStatus(Status.SUCCESS_CREATED);
+		} catch (FileSystemException e) {
+			e.printStackTrace();
+			getResponse().setStatus(Status.SERVER_ERROR_INTERNAL);
+		} catch (IOException e) {
+			e.printStackTrace();
+			getResponse().setStatus(Status.SERVER_ERROR_INTERNAL);
+		}
+
+	}
+
+	@Override
+	public void handleDelete() {
+		try {
+			cwd.delete();
+		} catch (FileSystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -63,7 +150,11 @@ public class VFSResource extends Resource {
 			} else if (cwd.getType().equals(FileType.FOLDER)) {
 				StringBuffer response = new StringBuffer();
 				for (FileObject child : cwd.getChildren()) {
-					response.append(child.getName().getBaseName() + "\r\n");
+					String name = child.getName().getBaseName();
+					if (child.getType().equals(FileType.FOLDER)) {
+						name += "/";
+					}
+					response.append(name + "\r\n");
 				}
 				return new StringRepresentation(response,
 						MediaType.TEXT_URI_LIST);

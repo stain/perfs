@@ -10,6 +10,9 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.log4j.Logger;
 
+import com.googlecode.perfs.fs.FileSystemFactory;
+import com.googlecode.perfs.fs.memory.MemoryFileSystem;
+
 public class PerFSRESTServer {
 
 	private static final int DEFAULT_PORT = 6348;
