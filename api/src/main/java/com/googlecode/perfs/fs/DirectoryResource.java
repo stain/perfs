@@ -6,15 +6,15 @@ import java.util.UUID;
 
 public abstract class DirectoryResource extends Resource {
 
-	public DirectoryResource(FileSystem fileSystem) {
+	protected DirectoryResource(FileSystem fileSystem) {
 		super(fileSystem);
 	}
 
-	public DirectoryResource(FileSystem fileSystem, String uuid) {
+	protected DirectoryResource(FileSystem fileSystem, String uuid) {
 		super(fileSystem, uuid);
 	}
 
-	public DirectoryResource(FileSystem fileSystem, UUID uuid) {
+	protected DirectoryResource(FileSystem fileSystem, UUID uuid) {
 		super(fileSystem, uuid);
 	}
 

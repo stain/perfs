@@ -32,17 +32,17 @@ public abstract class Resource extends UUIDResource {
 	 */
 	protected abstract URI getURIClass();
 
-	public Resource(FileSystem fileSystem, String uuid) {
+	protected Resource(FileSystem fileSystem, String uuid) {
 		super(uuid);
 		init(fileSystem);
 	}
 
-	public Resource(FileSystem fileSystem, UUID uuid) {
+	protected Resource(FileSystem fileSystem, UUID uuid) {
 		super(uuid);
 		init(fileSystem);
 	}
 
-	public Resource(FileSystem fileSystem) {
+	protected Resource(FileSystem fileSystem) {
 		super(UUID.randomUUID());
 		init(fileSystem);
 	}
