@@ -6,6 +6,7 @@ import java.util.Date;
 
 import org.apache.commons.vfs.FileName;
 import org.apache.commons.vfs.FileObject;
+import org.apache.commons.vfs.FileSystemException;
 import org.apache.commons.vfs.FileType;
 import org.apache.commons.vfs.provider.AbstractFileObject;
 import org.apache.log4j.Logger;
@@ -50,8 +51,7 @@ public class PerFSFileObject extends AbstractFileObject {
 		}
 		FileObject parent = getFileSystem().resolveFile(parentName);
 		if (!parent.getType().equals(FileType.FOLDER)) {
-			throw new IllegalStateException("Parent was not a folder: "
-					+ parent);
+			return;
 		}
 		parentRes = (DirectoryResource) ((PerFSFileObject) parent)
 				.getPerFSResource();
@@ -80,8 +80,10 @@ public class PerFSFileObject extends AbstractFileObject {
 			// Create a new directory
 			perFSResource = parentRes.getFileSystem().makeDirectory();
 			parentRes.put(getName().getBaseName(), perFSResource);
+		} else {
+			throw new IllegalStateException("Can't create folder "
+					+ perFSResource);
 		}
-		throw new IllegalStateException("Can't create folder " + perFSResource);
 	}
 
 	@Override
@@ -94,10 +96,10 @@ public class PerFSFileObject extends AbstractFileObject {
 			perFSResource = parentRes.getFileSystem().makeFile();
 			parentRes.put(getName().getBaseName(), perFSResource);
 		}
-		if (perFSResource instanceof FileResource) {
-			return ((FileResource) perFSResource).getOutputStream();
+		if (getPerFSResource() instanceof FileResource) {
+			return ((FileResource) getPerFSResource()).getOutputStream();
 		}
-		logger.warn("Attempt to doGetOutputStream on " + perFSResource);
+		logger.warn("Attempt to doGetOutputStream on " + getPerFSResource());
 		return null;
 	}
 
@@ -110,7 +112,7 @@ public class PerFSFileObject extends AbstractFileObject {
 	protected FileType doGetType() throws Exception {
 		if (perFSResource instanceof FileResource) {
 			return FileType.FILE;
-		} else if (perFSResource instanceof DirectoryResource) {
+		} else if (getPerFSResource() instanceof DirectoryResource) {
 			return FileType.FOLDER;
 		}
 		return FileType.IMAGINARY;
@@ -118,11 +120,25 @@ public class PerFSFileObject extends AbstractFileObject {
 
 	@Override
 	protected String[] doListChildren() throws Exception {
-		if (perFSResource instanceof DirectoryResource) {
-			return ((DirectoryResource) perFSResource).resourceNames().toArray(
-					new String[0]);
+		if (getPerFSResource() instanceof DirectoryResource) {
+			return ((DirectoryResource) getPerFSResource()).resourceNames()
+					.toArray(new String[0]);
 		}
 		return null;
+	}
+
+	@Override
+	protected void doDetach() throws Exception {
+		parentRes = null;
+		perFSResource = null;
+	}
+
+	@Override
+	protected boolean doIsSameFile(FileObject destFile)
+			throws FileSystemException {
+		return getPerFSResource() != null
+				&& getPerFSResource().equals(
+						((PerFSFileObject) destFile).getPerFSResource());
 	}
 
 	public Resource getPerFSResource() {
@@ -132,6 +148,33 @@ public class PerFSFileObject extends AbstractFileObject {
 	@Override
 	protected long doGetLastModifiedTime() throws Exception {
 		return lastModTime;
+	}
+
+	@Override
+	protected void doDelete() throws Exception {
+		getPerFSParent().remove(getName().getBaseName());
+	}
+
+	@Override
+	protected void doRename(FileObject newfile) throws Exception {
+		DirectoryResource parent = getPerFSParent();
+		Resource a = parent.remove(getName().getBaseName());
+		if (!a.equals(getPerFSResource())) {
+			throw new IllegalStateException("Can't rename "
+					+ getPerFSResource());
+		}
+		DirectoryResource newParent = ((PerFSFileObject) newfile)
+				.getPerFSParent();
+		newParent.put(newfile.getName().getBaseName(), getPerFSResource());
+		System.out.println("Renamed from " + getName() + " to " + newfile);
+	}
+
+	protected DirectoryResource getPerFSParent() throws FileSystemException {
+		if (getParent() == null) {
+			return null;
+		}
+		return (DirectoryResource) ((PerFSFileObject) getParent())
+				.getPerFSResource();
 	}
 
 }

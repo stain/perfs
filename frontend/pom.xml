@@ -12,8 +12,9 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>vfs</module>
 		<module>rest</module>
+		<module>vfs</module>
+		<module>dav</module>
 	</modules>
 
 </project>

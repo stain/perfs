@@ -31,7 +31,7 @@ public class MemoryDirectoryResource extends DirectoryResource {
 	
 	private DirectoryResource parent;
 
-	public MemoryDirectoryResource(FileSystem filesystem) {
+	protected MemoryDirectoryResource(FileSystem filesystem) {
 		super(filesystem);
 	}
 
