@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.googlecode.perfs</groupId>
 	<artifactId>perfs</artifactId>
@@ -7,6 +9,7 @@
 	<packaging>pom</packaging>
 	<name>PerFS</name>
 	<description>Distributed p2p rdf-based file system</description>
+	<url>http://perfs.googlecode.com/</url>
 	<licenses>
 		<license>
 			<name>GNU Lesser General Public License</name>
@@ -14,6 +17,32 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
+	<scm>
+		<connection>
+			scm:svn:http://perfs.googlecode.com/svn/java/trunk/
+		</connection>
+		<developerConnection>
+			scm:svn:http://perfs.googlecode.com/svn/java/trunk/
+		</developerConnection>
+		<url>http://perfs.googlecode.com/svn/java/trunk/</url>
+	</scm>
+	<ciManagement>
+		<system>Google Code</system>
+		<url>http://code.google.com/p/perfs/issues/list</url>
+	</ciManagement>
+	<developers>
+		<developer>
+			<id>stain</id>
+			<name>Stian Soiland</name>
+			<email>stian@soiland.no</email>
+			<url>http://soiland.no/</url>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>0</timezone>
+		</developer>
+	</developers>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -26,6 +55,18 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jar</goal>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<executions>
 					<execution>
@@ -35,8 +76,205 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>false</skip>
+					<systemProperties>
+						<property>
+							<name>java.awt.headless</name>
+							<value>true</value>
+						</property>
+					</systemProperties>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
+	<repositories>
+		<!--<repository>
+			<id>codehaus-m2-repository</id>
+			<name>Codehaus Maven 2.x Repository</name>
+			<url>http://repository.codehaus.org</url>
+			<releases />
+			<snapshots>
+			<enabled>false</enabled>
+			</snapshots>
+			</repository>-->
+		<!--<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+			<releases />
+			<snapshots>
+			<enabled>false</enabled>
+			</snapshots>
+			</repository>-->
+		<repository>
+			<id>perfs-repository</id>
+			<name>PerFS repository</name>
+			<url>
+				http://perfs.googlecode.com/svn/maven2/repository/
+			</url>
+			<releases />
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>perfs-3rdparty</id>
+			<name>PerFS third party repository mirror</name>
+			<url>http://perfs.googlecode.com/svn/maven2/3rdparty/</url>
+			<releases />
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>perfs-snapshot-repository</id>
+			<name>PerFS snapshot repository</name>
+			<url>
+				http://perfs.googlecode.com/svn/maven2/snapshot-repository/
+			</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<releases />
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>restlet</id>
+			<name>Restlet repository</name>
+			<url>http://maven.restlet.org</url>
+		</repository>
+
+	</repositories>
+
+
+	<distributionManagement>
+		<repository>
+			<id>perfs-repository</id>
+			<name>PerFS repository</name>
+			<url>
+				file:///Users/stain/Documents/workspace/perfs-maven2/repository
+			</url>
+		</repository>
+		<snapshotRepository>
+			<id>perfs-snapshot-repository</id>
+			<name>PerFS snapshot repository</name>
+			<url>
+				file:///Users/stain/Documents/workspace/perfs-maven2/snapshot-repository
+			</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.googlecode.perfs</groupId>
+				<artifactId>api</artifactId>
+				<version>0.2-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.googlecode.perfs</groupId>
+				<artifactId>api</artifactId>
+				<version>0.2-SNAPSHOT</version>
+				<type>test-jar</type>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.googlecode.perfs</groupId>
+				<artifactId>memory</artifactId>
+				<version>0.2-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.googlecode.perfs</groupId>
+				<artifactId>file</artifactId>
+				<version>0.2-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.googlecode.perfs</groupId>
+				<artifactId>vfs</artifactId>
+				<version>0.2-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.googlecode.perfs</groupId>
+				<artifactId>vfs</artifactId>
+				<version>0.2-SNAPSHOT</version>
+				<type>test-jar</type>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.1</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>commons-vfs</groupId>
+				<artifactId>commons-vfs</artifactId>
+				<version>1.0</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-cli</groupId>
+				<artifactId>commons-cli</artifactId>
+				<version>1.0</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>1.3</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.12</version>
+			</dependency>
+			<dependency>
+				<groupId>org.restlet</groupId>
+				<artifactId>org.restlet</artifactId>
+				<version>1.0.5</version>
+			</dependency>
+			<dependency>
+				<groupId>com.noelios.restlet</groupId>
+				<artifactId>com.noelios.restlet.ext.jetty</artifactId>
+				<version>1.0.5</version>
+			</dependency>
+			<dependency>
+				<groupId>com.noelios.restlet</groupId>
+				<artifactId>
+					com.noelios.restlet.ext.httpclient
+				</artifactId>
+				<version>1.0.5</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>net.jxta.platform</groupId>
+				<artifactId>jxta-api</artifactId>
+				<version>2.4.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.ibm.adtech.boca</groupId>
+				<artifactId>boca-client</artifactId>
+				<version>2.4-SNAPSHOT</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
 
 	<modules>
 		<module>api</module>

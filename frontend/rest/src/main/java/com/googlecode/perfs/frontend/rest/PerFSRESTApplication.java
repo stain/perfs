@@ -13,8 +13,6 @@ import org.restlet.Context;
 import org.restlet.Restlet;
 import org.restlet.data.Protocol;
 
-import com.googlecode.perfs.frontend.vfs.TestVFS;
-
 public class PerFSRESTApplication extends Application {
 
 	private static Logger logger = Logger.getLogger(PerFSRESTApplication.class);
@@ -56,7 +54,7 @@ public class PerFSRESTApplication extends Application {
 	}
 
 	private void createExampleFiles() {
-		new TestVFS().createEntries();
+//		new TestVFS().createEntries();
 	}
 	
 	private void initializeRestletLogging() {
