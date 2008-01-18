@@ -1,0 +1,2398 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://soiland.no/2007/ontology/fs.owl#"
+     xml:base="http://soiland.no/2007/ontology/fs.owl"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An ontology describing files and directories of a file system (Not an ontology of different file systems)
+
+This ontology is specially crafted to be used by a distributed RDF-based file system with provenance support (http://perfs.googlecode.com/), so it includes data not normally stored by a file system, such as who created the file with what program, or tagging and dynamic folders</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //   OWL Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Application -->
+
+    <owl:Class rdf:about="#Application">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An (usually GUI) application run by a real user, for instance Firefox, Microsoft Word, etc.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Process"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isRunBy"/>
+                <owl:someValuesFrom rdf:resource="#User"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#CreatePermission -->
+
+    <owl:Class rdf:about="#CreatePermission">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Permission to create. For a Folder, such a permissions means to add a resource.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#ModifyPermission"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Creation -->
+
+    <owl:Class rdf:about="#Creation">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A creation (of a Resource). isCreatedBy is a subproperty of isModifiedBy, likewise for modifiedAt and createdAt.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isCreatedBy"/>
+                <owl:someValuesFrom rdf:resource="#ResourceUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#createdAt"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype rdf:about="&xsd;dateTime"/>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Modification"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Daemon -->
+
+    <owl:Class rdf:about="#Daemon">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A process run in the background, such as a database server, web server, etc.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Process"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#DeletePermission -->
+
+    <owl:Class rdf:about="#DeletePermission">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Permission to delete. For a Folder this means being able to remove a FileEntry.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#ModifyPermission"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Directory -->
+
+    <owl:Class rdf:about="#Directory">
+        <rdfs:comment xml:lang="en"
+            >A normal, old-fashioned directory with files and subdirectories, where new entries can be added and old ones removed and renamed (given enough permissions)
+
+One of the restrictions of an normal directory is that it can have only one name in one parent Directory (so that cd .. works)</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isResourceOf"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                <owl:valuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#isFolderEntryOf"/>
+                                <owl:someValuesFrom rdf:resource="#Directory"/>
+                            </owl:Restriction>
+                            <owl:Class rdf:about="#FolderEntry"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:valuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#FolderLike"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#DistributedFilesystem -->
+
+    <owl:Class rdf:about="#DistributedFilesystem">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A network file system which resides on more than one node (no single server).</rdfs:comment>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#NetworkFilesystem"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasHost"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+                        <owl:valuesFrom rdf:resource="#Node"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Domain_entity -->
+
+    <owl:Class rdf:about="#Domain_entity">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The &apos;real&apos; part of the ontology</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="&owl;Thing"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#DynamicFolder -->
+
+    <owl:Class rdf:about="#DynamicFolder">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A dynamic folder, for instance containing the result of a search.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#FolderLike"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#EmptyFolder -->
+
+    <owl:Class rdf:about="#EmptyFolder">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An empty folder. This is perfectly OK, a newly created folder will naturally not have any entries yet, and this class should not be inconsistent.
+
+Thus FolderLike can&apos;t have &quot;hasFolderEntry some FolderEntry&quot;.</rdfs:comment>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#FolderLike"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasFolderEntry"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#ExecutePermission -->
+
+    <owl:Class rdf:about="#ExecutePermission">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Allowed to execute resource. For a file this means executing it as a script/program. For a directory this means being able to enter it.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Permission"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#File -->
+
+    <owl:Class rdf:about="#File">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A file containing data</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#sizeBytes"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype rdf:about="&xsd;nonNegativeInteger"/>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#sizeBlocks"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype rdf:about="&xsd;nonNegativeInteger"/>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Resource"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#FileBrowser -->
+
+    <owl:Class rdf:about="#FileBrowser">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A file browser, ofte bundled with the operating system. The user normally manages his files using a file browser, doing renames, moving, making new folders, etc. 
+
+Typical examples are Windows Explorer (not Internet Explorer), Finder in OS X as well as Gnome&apos;s and Windows&apos;s file browsers. Old-stylers might remember Norton Commander.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Application"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Filesystem -->
+
+    <owl:Class rdf:about="#Filesystem">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A file system is a set of Folders containing other Resources, such as Files and Symlinks. Although a resource can technically be present in several file systems, they normally reside in one and just one file system.
+
+A file system as an entity is manifested by whatever backend store is used, traditionally a file system maps to a partition on a hard disk, and is shown to the user mounted as for instance C: or /home</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasRoot"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMountedOn"/>
+                <owl:someValuesFrom rdf:resource="#Node"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Self_standing_entity"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasHost"/>
+                <owl:someValuesFrom rdf:resource="#Node"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#FolderEntry -->
+
+    <owl:Class rdf:about="#FolderEntry">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Need to specify hasResource some Resource and hasResource exactly 1 Thing to specify that an entry maps to one and only one Resource</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An entry with one name in one folder. Maps from (file) name to resource</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isFolderEntryOf"/>
+                <owl:someValuesFrom rdf:resource="#FolderLike"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasResource"/>
+                        <owl:someValuesFrom rdf:resource="#Resource"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasResource"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Refining_entity"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#fileName"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype rdf:about="&xsd;normalizedString"/>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#FolderLike -->
+
+    <owl:Class rdf:about="#FolderLike">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Browsable (not neccesarily editable) folder-like structure containing named FolderEntries, which maps names to resources. So a folder is an (unordered) map.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFolderEntry"/>
+                <owl:allValuesFrom rdf:resource="#FolderEntry"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Resource"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Group -->
+
+    <owl:Class rdf:about="#Group">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A group of users and/or groups. A group of groups ultimately means a group of all those groups&apos; users. Every user is a member of the Group individual &apos;worldGroup&apos;</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#groupName"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype rdf:about="&xsd;normalizedString"/>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasMember"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class rdf:about="#User"/>
+                            <owl:Class rdf:about="#Group"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#ResourceUser"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#HasModification -->
+
+    <owl:Class rdf:about="#HasModification">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Should have Resource as a subclass, as a Resource hasCreation some Creation, and hasCreation is a subpropery of hasModification, and Creation is a subclass of Modification</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Probe"/>
+        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasModification"/>
+                <owl:someValuesFrom rdf:resource="#Modification"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#InADirectory -->
+
+    <owl:Class rdf:about="#InADirectory">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A resource that has a filename in one (and only one) Directory (not other FolderLike), typically this means other Directories and SymLinks, and that paths such as .. will work consistently.
+
+Classes Directory and Symlink can&apos;t directly use this class in their definition, as that would make the ontology no longer normalised.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Resource"/>
+        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isResourceOf"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                <owl:valuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#isFolderEntryOf"/>
+                                <owl:someValuesFrom rdf:resource="#Directory"/>
+                            </owl:Restriction>
+                            <owl:Class rdf:about="#FolderEntry"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:valuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#IsMountedLocal -->
+
+    <owl:Class rdf:about="#IsMountedLocal">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A node that has something isMountedLocal. Should NOT be equal to LocalFileSystem, although a LocalFileSystem is a subclass of this.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Probe"/>
+        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMountedLocalOn"/>
+                <owl:someValuesFrom rdf:resource="#Node"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Link -->
+
+    <owl:Class rdf:about="#Link">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A resource that is linking to another resource. Accessing this resource as say a file will really access the linked resource. (This is transitive, so links to links are followed).
+
+Note that this does not include several filenames for the same resource, this is achieved by adding several FolderEntries (hard linking). (By design, this is not allowed for Directories)
+
+On UNIX, links can be presented as symlinks to the resource in the &apos;old style&apos; directory tree (if such exists), even the link is not a real &apos;old style&apos; SymLink.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasLinkTo"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasLinkTo"/>
+                <owl:someValuesFrom rdf:resource="#Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Resource"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#LocalFilesystem -->
+
+    <owl:Class rdf:about="#LocalFilesystem">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A file system residing on the same node as it is mounted, normally resides on a partition, raw device (DVDs, zip drives) or disk image (.dmg, possibly .zip)
+
+Examples: FAT, NTFS, ext3, ReiserFS, Mac OS Extended
+
+This class is completely defined by a file system that isMountedLocalOn (thereby both isMountedOn and hasHost) some node, it only has one hosting node, and is only mounted on one node.</rdfs:comment>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isMountedLocalOn"/>
+                        <owl:someValuesFrom rdf:resource="#Node"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isMountedOn"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                        <owl:valuesFrom rdf:resource="#Node"/>
+                    </owl:Restriction>
+                    <owl:Class rdf:about="#Filesystem"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasHost"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                        <owl:valuesFrom rdf:resource="#Node"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Modification -->
+
+    <owl:Class rdf:about="#Modification">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A modification (normally to a Resource). A resource is done at one point in time by one or more ResourceUsers. (typically both a User and a Process)</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#modifiedAt"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype rdf:about="&xsd;dateTime"/>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Refining_entity"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isModifiedBy"/>
+                <owl:someValuesFrom rdf:resource="#ResourceUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#ModifyPermission -->
+
+    <owl:Class rdf:about="#ModifyPermission">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Allowed to modify (normally) a Resource. Modifications include Create, Delete and Write. A permission for Modify implicitly gives the other three subpermissions.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Permission"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#CreatePermission"/>
+                    <owl:Class rdf:about="#WritePermission"/>
+                    <owl:Class rdf:about="#DeletePermission"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#NetworkFilesystem -->
+
+    <owl:Class rdf:about="#NetworkFilesystem">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A file system accessed over a network by one or more nodes.
+
+Examples: NFS, SMB (Windows file sharing), WebDAV/HTTP
+
+As a simple complete definition, this is any file system that is not a local file system, ie. both &quot;hasHost node1 and isMountedOn node2&quot;, and &quot;hasHost node1 and isMountedOn node1 and isMountedOn node2&quot;</rdfs:comment>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#Filesystem"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class rdf:about="#LocalFilesystem"/>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Node -->
+
+    <owl:Class rdf:about="#Node">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A node, ie. a computer, acting as a client or server, capable of running Processes.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Self_standing_entity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#NotInAFolder -->
+
+    <owl:Class rdf:about="#NotInAFolder">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A resource that is not present in any folders. This could be because it has been deleted (however, it might still be open by a Process, not covered by this ontology)</rdfs:comment>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#isResourceOf"/>
+                                <owl:someValuesFrom rdf:resource="#FolderEntry"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Class rdf:about="#Resource"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Permission -->
+
+    <owl:Class rdf:about="#Permission">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Permission to act on something, typically a Resource. 
+
+Example permissions are read, execute, modify (including create, delete and write)
+
+This class is not determined to be self standing as it only makes sense used by hasPermission.
+
+The permission has permissions itself, which restricts who are allowed to modify the permissions.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Refining_entity"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isPermittedBy"/>
+                <owl:allValuesFrom rdf:resource="#Permission"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Probe -->
+
+    <owl:Class rdf:about="#Probe">
+        <owl:versionInfo>ProbeClass:true</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Probe classes for testing the ontology classification. Some of these are by design inconsistent.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="&owl;Thing"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#ProbeLocalFilesystem -->
+
+    <owl:Class rdf:about="#ProbeLocalFilesystem">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Should get LocalFilesystem as a subclass, as isMountedOn exactly 1 Node and hasHost exactly 1 Node does not mean it&apos;s the same node. (Unless we used the property isMountedLocallyOn as in ProbeLocalFileSystem</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Probe"/>
+        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isMountedOn"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isMountedLocalOn"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasHost"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Probe_FS_file_root -->
+
+    <owl:Class rdf:about="#Probe_FS_file_root">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A filesystem with a File as a root (which is not FolderLike). Should be inconsistent because File is disjoint with FolderLike and hasRoot has range FolderLike.</rdfs:comment>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasRoot"/>
+                        <owl:someValuesFrom rdf:resource="#File"/>
+                    </owl:Restriction>
+                    <owl:Class rdf:about="#Probe"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Probe_FS_wo_root -->
+
+    <owl:Class rdf:about="#Probe_FS_wo_root">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A filesystem without a root. Should be inconsistent because we require 1 and no more than 1 root.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Probe"/>
+        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#Filesystem"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasRoot"/>
+                                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Process -->
+
+    <owl:Class rdf:about="#Process">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A process (ie. program) run on some node that access a Resource. A process is run by a ResourceUser.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#ResourceUser"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isRunBy"/>
+                <owl:someValuesFrom rdf:resource="#ResourceUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#ReadPermission -->
+
+    <owl:Class rdf:about="#ReadPermission">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Being able to read a resource. For a folder this means being able to list the content. 
+
+(By UNIX conventions, a folder &quot;x&quot; with Execute but without Read can be accessed and entries can be looked up, say &quot;cd x&quot; and &quot;cd x/y&quot; - but you can&apos;t list the entries, &quot;ls x&quot;)</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Permission"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Refining_entity -->
+
+    <owl:Class rdf:about="#Refining_entity">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >In this ontology, entities that are *not* self-standing. (Not much quality refinement in a file system..)</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Domain_entity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Resource -->
+
+    <owl:Class rdf:about="#Resource">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Something that is accessible on a file system, normally through a file name. All resources have been created, they might also have other modifications, but &quot;hasModification some Modification&quot; is not neccessary because of &quot;hasCreation some Creation&quot; and range on hasModification.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCreation"/>
+                <owl:someValuesFrom rdf:resource="#Creation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Self_standing_entity"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isPermittedBy"/>
+                <owl:allValuesFrom rdf:resource="#Permission"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#ResourceUser -->
+
+    <owl:Class rdf:about="#ResourceUser">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Someone who can access and possibly modify a Resource or it&apos;s metadata.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Self_standing_entity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#RootFolder -->
+
+    <owl:Class rdf:about="#RootFolder">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The root folder of a file system is the top level folder, normally accessed as / in pathNames.
+
+When a file system is mounted at a mount point (such as F: or /mnt/myfilesystem), accessing the mount point will access this folder.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#FolderLike"/>
+        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isRootOf"/>
+                <owl:someValuesFrom rdf:resource="#Filesystem"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Self_standing_entity -->
+
+    <owl:Class rdf:about="#Self_standing_entity">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Entities that stand by themselves. All of these are non-physical abstract concepts, and so we don&apos;t include any deeper upper ontology.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Domain_entity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Shell -->
+
+    <owl:Class rdf:about="#Shell">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A process run through the shell, such as &apos;rm&apos;. 
+
+As it is not always easy to determine if a shell command has been executed by a live user or as part of a shell script of a daemon, this class is a subclass of either, and not marked as disjoint.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Process"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#Application"/>
+                    <owl:Class rdf:about="#Daemon"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#SymLink -->
+
+    <owl:Class rdf:about="#SymLink">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A symbolic link, as normal in UNIX. The link to the resource is indirect through a (relative) pathname, like &quot;../fish.txt&quot;.
+
+Therefore this subclass adds a restriction that the resource must be part of a folder entry.
+
+The real hasLinkTo relation will have to be calculated according to the current pathnames and should not be added to the permanent RDF store.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isResourceOf"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                <owl:valuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#isFolderEntryOf"/>
+                                <owl:someValuesFrom rdf:resource="#Directory"/>
+                            </owl:Restriction>
+                            <owl:Class rdf:about="#FolderEntry"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:valuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Link"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#symLink"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype rdf:about="&xsd;normalizedString"/>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Tag -->
+
+    <owl:Class rdf:about="#Tag">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A freetext tag as added by a user, for instance &apos;work&apos; or &apos;interesting&apos;. For reasoning purposes, each Tag should have a unique tagName (ie. all uses of the same tagName resolves to the same Tag entity. This can be achieved by using a URI http://blabhlah/tags/tagName)</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Self_standing_entity"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#tagName"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype rdf:about="&xsd;normalizedString"/>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#TagFolder -->
+
+    <owl:Class rdf:about="#TagFolder">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A folder containing resources with a given tag. In the most generic form, a TagFolder contains all resources that has at least one tag.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#DynamicFolder"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFolderEntry"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasResource"/>
+                                <owl:someValuesFrom rdf:resource="#TaggedResource"/>
+                            </owl:Restriction>
+                            <owl:Class rdf:about="#FolderEntry"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#TaggedAsSchool -->
+
+    <owl:Class rdf:about="#TaggedAsSchool">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Resources tagged as &quot;work&quot;. Should be reasoned as a subclass of TaggedResource, and not equal to TaggedAsWork</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Probe"/>
+        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasTag"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class rdf:about="#Tag"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#tagName"/>
+                                        <owl:hasValue rdf:datatype="&xsd;string">school</owl:hasValue>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Class rdf:about="#Resource"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#TaggedAsWork -->
+
+    <owl:Class rdf:about="#TaggedAsWork">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Resources tagged as &quot;work&quot;. Should be reasoned as a subclass of TaggedResource, not equal</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Probe"/>
+        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#Resource"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasTag"/>
+                        <owl:hasValue rdf:resource="#tagWork"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#TaggedResource -->
+
+    <owl:Class rdf:about="#TaggedResource">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A resource that has been tagged by a user, for example with a tag &apos;school&apos; or &apos;important&apos;</rdfs:comment>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasTag"/>
+                        <owl:someValuesFrom rdf:resource="#Tag"/>
+                    </owl:Restriction>
+                    <owl:Class rdf:about="#Resource"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#User -->
+
+    <owl:Class rdf:about="#User">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A specific user (usually with a username, identified by a password, etc, but that&apos;s outside the scope of this ontology, we only care about his URI)</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMemberOf"/>
+                <owl:hasValue rdf:resource="#worldGroup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#ResourceUser"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#userName"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype rdf:about="&xsd;normalizedString"/>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Word -->
+
+    <owl:Class rdf:about="#Word">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A popular word processor from a famous software producer</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Wordprocessor"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#WordFiles -->
+
+    <owl:Class rdf:about="#WordFiles">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Probe class for files made (or modified) by a word processor.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Probe"/>
+        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#File"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasModification"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class rdf:about="#Modification"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#isModifiedBy"/>
+                                        <owl:someValuesFrom rdf:resource="#Wordprocessor"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#Wordprocessor -->
+
+    <owl:Class rdf:about="#Wordprocessor">
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Application"/>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#Probe"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://soiland.no/2007/ontology/fs.owl#WritePermission -->
+
+    <owl:Class rdf:about="#WritePermission">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Permission to write. For a File this means to change the content of the file, for a Folder this means being able to rename/move entries. (But this could technically also be achieved by a delete+create)</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="#ModifyPermission"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //   OWL Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#Inverse_Refining_property -->
+
+    <owl:ObjectProperty rdf:about="#Inverse_Refining_property"/>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#Inverse_Relational_property -->
+
+    <owl:ObjectProperty rdf:about="#Inverse_Relational_property">
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#Relational_property"/>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#Refining_property -->
+
+    <owl:ObjectProperty rdf:about="#Refining_property"/>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#Relational_property -->
+
+    <owl:ObjectProperty rdf:about="#Relational_property"/>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasBelowFolder -->
+
+    <owl:ObjectProperty rdf:about="#hasBelowFolder">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >FolderLike has descendant Resources
+
+This is transitive to climb the links 
+FolderLike --hasFolderEntry--&gt; FolderEntry --hasResource--&gt;Resource
+
+If FolderLike hasBelowFolder Resource than the resource is one of the entries of that folder or any of its descendant FolderLikes.</rdfs:comment>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isBelowFolder"/>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasCreated -->
+
+    <owl:ObjectProperty rdf:about="#hasCreated">
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isCreatedBy"/>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasCreation -->
+
+    <owl:ObjectProperty rdf:about="#hasCreation">
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isCreationOf"/>
+        </owl:inverseOf>
+        <rdfs:range>
+            <owl:Class rdf:about="#Creation"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasFolderEntry -->
+
+    <owl:ObjectProperty rdf:about="#hasFolderEntry">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The folder has an entry (which has a file name). The FolderEntry again links to the Resource that is the destination of the folder entry.</rdfs:comment>
+        <rdfs:subPropertyOf>
+            <owl:ObjectProperty rdf:about="#hasBelowFolder"/>
+        </rdfs:subPropertyOf>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isFolderEntryOf"/>
+        </owl:inverseOf>
+        <rdfs:domain>
+            <owl:Class rdf:about="#FolderLike"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="#FolderEntry"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasHost -->
+
+    <owl:ObjectProperty rdf:about="#hasHost">
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isHostOf"/>
+        </owl:inverseOf>
+        <rdfs:domain>
+            <owl:Class rdf:about="#Filesystem"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="#Node"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasLinkTo -->
+
+    <owl:ObjectProperty rdf:about="#hasLinkTo">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isLinkedFrom"/>
+        </owl:inverseOf>
+        <rdfs:domain>
+            <owl:Class rdf:about="#Link"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasMember -->
+
+    <owl:ObjectProperty rdf:about="#hasMember">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isMemberOf"/>
+        </owl:inverseOf>
+        <rdfs:range>
+            <owl:Class rdf:about="#ResourceUser"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasModification -->
+
+    <owl:ObjectProperty rdf:about="#hasModification">
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isModificationOf"/>
+        </owl:inverseOf>
+        <rdfs:range>
+            <owl:Class rdf:about="#Modification"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasModified -->
+
+    <owl:ObjectProperty rdf:about="#hasModified">
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isModifiedBy"/>
+        </owl:inverseOf>
+        <rdfs:range>
+            <owl:Class rdf:about="#Modification"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasMounted -->
+
+    <owl:ObjectProperty rdf:about="#hasMounted">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Mounts (access) a file system</rdfs:comment>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isMountedOn"/>
+        </owl:inverseOf>
+        <rdfs:domain>
+            <owl:Class rdf:about="#Node"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="#Filesystem"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasMountedLocal -->
+
+    <owl:ObjectProperty rdf:about="#hasMountedLocal">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Has mounted a filesystem that is hosted by itself.
+
+Subproperty of both isHostOf and hasMounted in an attempt to say that the host must be the same. (Due to the lack of variables in OWL)</rdfs:comment>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isMountedLocalOn"/>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasPermission -->
+
+    <owl:ObjectProperty rdf:about="#hasPermission">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A user/group/process has a Permission (on a certain resource)</rdfs:comment>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isPermittedBy"/>
+        </owl:inverseOf>
+        <rdfs:domain>
+            <owl:Class rdf:about="#ResourceUser"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="#Permission"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasPermissionOn -->
+
+    <owl:ObjectProperty rdf:about="#hasPermissionOn">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The thing this permission is on, normally a Resource (but can also be a Permission)</rdfs:comment>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isPermittedTo"/>
+        </owl:inverseOf>
+        <rdfs:domain>
+            <owl:Class rdf:about="#Permission"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasResource -->
+
+    <owl:ObjectProperty rdf:about="#hasResource">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The resource this folder entry is referencing. Functional as one name (ie. one entry) can only match to one resource.</rdfs:comment>
+        <rdfs:subPropertyOf>
+            <owl:ObjectProperty rdf:about="#hasBelowFolder"/>
+        </rdfs:subPropertyOf>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isResourceOf"/>
+        </owl:inverseOf>
+        <rdfs:domain>
+            <owl:Class rdf:about="#FolderEntry"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="#Resource"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasRoot -->
+
+    <owl:ObjectProperty rdf:about="#hasRoot">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isRootOf"/>
+        </owl:inverseOf>
+        <rdfs:range>
+            <owl:Class rdf:about="#FolderLike"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasRun -->
+
+    <owl:ObjectProperty rdf:about="#hasRun"/>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#hasTag -->
+
+    <owl:ObjectProperty rdf:about="#hasTag">
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#isTaggedOn"/>
+        </owl:inverseOf>
+        <rdfs:range>
+            <owl:Class rdf:about="#Tag"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isBelowFolder -->
+
+    <owl:ObjectProperty rdf:about="#isBelowFolder">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Resource is ascendant of FolderLike
+
+This is transitive to climb the links 
+Resource --&gt; isResourceOf --&gt; FolderEntry --isFolderEntryOf --&gt; FolderLike
+
+If Resource isBelowFolder FolderLike than the resource is one of the entries of that folder or any of its descendant FolderLikes. Ie. the FolderLike is one of his ancestors.</rdfs:comment>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#hasBelowFolder"/>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isCreatedBy -->
+
+    <owl:ObjectProperty rdf:about="#isCreatedBy"/>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isCreationOf -->
+
+    <owl:ObjectProperty rdf:about="#isCreationOf"/>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isFolderEntryOf -->
+
+    <owl:ObjectProperty rdf:about="#isFolderEntryOf">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The FolderLike this entry is part of. Functional as an entry can only be in one FolderLike. (If you want the same file name in several folders, use several FolderEntries)</rdfs:comment>
+        <rdfs:subPropertyOf>
+            <owl:ObjectProperty rdf:about="#isBelowFolder"/>
+        </rdfs:subPropertyOf>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#hasFolderEntry"/>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isHostOf -->
+
+    <owl:ObjectProperty rdf:about="#isHostOf">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Hosting a file system, ie. storing the actual data</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isLinkedFrom -->
+
+    <owl:ObjectProperty rdf:about="#isLinkedFrom"/>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isMemberOf -->
+
+    <owl:ObjectProperty rdf:about="#isMemberOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#hasMember"/>
+        </owl:inverseOf>
+        <rdfs:range>
+            <owl:Class rdf:about="#Group"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isModificationOf -->
+
+    <owl:ObjectProperty rdf:about="#isModificationOf"/>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isModifiedBy -->
+
+    <owl:ObjectProperty rdf:about="#isModifiedBy">
+        <rdfs:range>
+            <owl:Class rdf:about="#ResourceUser"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isMountedLocalOn -->
+
+    <owl:ObjectProperty rdf:about="#isMountedLocalOn">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Is mounted on the same node that hosts the file system</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isMountedOn -->
+
+    <owl:ObjectProperty rdf:about="#isMountedOn"/>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isPermittedBy -->
+
+    <owl:ObjectProperty rdf:about="#isPermittedBy"/>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isPermittedTo -->
+
+    <owl:ObjectProperty rdf:about="#isPermittedTo"/>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isResourceOf -->
+
+    <owl:ObjectProperty rdf:about="#isResourceOf">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This Resource is pointed to by this FolderEntry, and then indirectly is an entry of a folder (isFolderEntryOf FolderLike).</rdfs:comment>
+        <rdfs:subPropertyOf>
+            <owl:ObjectProperty rdf:about="#isBelowFolder"/>
+        </rdfs:subPropertyOf>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#hasResource"/>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isRootOf -->
+
+    <owl:ObjectProperty rdf:about="#isRootOf">
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#hasRoot"/>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isRunBy -->
+
+    <owl:ObjectProperty rdf:about="#isRunBy">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <owl:inverseOf>
+            <owl:ObjectProperty rdf:about="#hasRun"/>
+        </owl:inverseOf>
+        <rdfs:domain>
+            <owl:Class rdf:about="#Process"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="#ResourceUser"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- Object property: http://soiland.no/2007/ontology/fs.owl#isTaggedOn -->
+
+    <owl:ObjectProperty rdf:about="#isTaggedOn"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //   OWL Data Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#absolutePathName -->
+
+    <owl:DatatypeProperty rdf:about="#absolutePathName">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An absolute pathname starts with /, and is relative to the RootFolder instead of the current directory</rdfs:comment>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#blockSize -->
+
+    <owl:DatatypeProperty rdf:about="#blockSize">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The blocksize, normally the same for the whole file system. sizeBlocks on a File is determined by its sizeBytes / blockSize rounded up. In some file systems each file can have a different block size, thus this property could also be applied to a File.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#createdAt -->
+
+    <owl:DatatypeProperty rdf:about="#createdAt">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Creation (a type of modification) occured at this time</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#date -->
+
+    <owl:DatatypeProperty rdf:about="#date">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The date of an event</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype rdf:about="&xsd;dateTime"/>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#fileName -->
+
+    <owl:DatatypeProperty rdf:about="#fileName">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A filename in a directory (as part of a FolderEntry). Should not contain &quot;..&quot; or &quot;/&quot; - although an escaping mechanism could later allow for this. Different file systems and operating systems have different rules for valid filenames.</rdfs:comment>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#groupName -->
+
+    <owl:DatatypeProperty rdf:about="#groupName"/>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#modifiedAt -->
+
+    <owl:DatatypeProperty rdf:about="#modifiedAt">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Modification occured at this time</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="#name">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A general name. Not much restrictions on the range except that it should not start or end with spaces.</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype rdf:about="&xsd;normalizedString"/>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#pathName -->
+
+    <owl:DatatypeProperty rdf:about="#pathName">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A (normally relative) pathname such as ../../fish/soup.xml
+.. means parent directory and / is directory separator (regardless of the OS&apos; real separator). 
+
+As an exception of the relativeness, there&apos;s the specialisation absolutePathName</rdfs:comment>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#size -->
+
+    <owl:DatatypeProperty rdf:about="#size">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A size (of typically a File)</rdfs:comment>
+        <rdfs:range>
+            <rdfs:Datatype rdf:about="&xsd;nonNegativeInteger"/>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#sizeBlocks -->
+
+    <owl:DatatypeProperty rdf:about="#sizeBlocks">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Size in number of blocks. The block size is usually determined by the Filesystem (see blockSize). Although this is normally applied to Files, in some file systems also the size of Directories can be measured in blocks.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#sizeBytes -->
+
+    <owl:DatatypeProperty rdf:about="#sizeBytes">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Size in bytes (octets)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#symLink -->
+
+    <owl:DatatypeProperty rdf:about="#symLink">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A symbolic link to another resource, nasty example ../fish/soup/../../fish in a directory &quot;fish&quot; will refer to the very same directory (given that the subdirectory soup exists). A symbolic link is a pathname.</rdfs:comment>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#tagName -->
+
+    <owl:DatatypeProperty rdf:about="#tagName">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A tag name as chosen by a user (as common in Web 2.0), for instance &apos;work&apos;, &apos;boring&apos;, &apos;fix it&apos;. 
+
+Range should be &apos;token&apos; which does not allow for instance line feed or double spaces, but this introduces an &quot;inconsistent&quot; ontology (although a token is a normalizedString)</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class rdf:about="#Tag"/>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- Data property: http://soiland.no/2007/ontology/fs.owl#userName -->
+
+    <owl:DatatypeProperty rdf:about="#userName"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //   OWL Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#dir1 -->
+
+    <owl:Thing rdf:about="#dir1">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Tagged as &apos;school&apos;, should be in TaggedAsSchool and TaggedResource, but not TaggedAsWork</rdfs:comment>
+        <hasTag rdf:resource="#tagSchool"/>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#dir1entry1 -->
+
+    <owl:Thing rdf:about="#dir1entry1">
+        <isFolderEntryOf rdf:resource="#dir1"/>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#dir2 -->
+
+    <owl:Thing rdf:about="#dir2">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Created by msword, but not a File, should not be in WordFiles</rdfs:comment>
+        <hasCreation rdf:resource="#dir2creation"/>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#dir2creation -->
+
+    <owl:Thing rdf:about="#dir2creation">
+        <isCreatedBy rdf:resource="#dummyuser"/>
+        <isCreatedBy rdf:resource="#msword"/>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#dir2entry1 -->
+
+    <owl:Thing rdf:about="#dir2entry1">
+        <isFolderEntryOf rdf:resource="#dir2"/>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#dummyuser -->
+
+    <User rdf:about="#dummyuser">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </User>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#file1 -->
+
+    <File rdf:about="#file1">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Created by dummyuser (but not with msword), should NOT be in WordFiles.
+Tagged as &apos;work&apos;, should be in TaggedAsWork and TaggedResource, but not TaggedAsSchool</rdfs:comment>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <hasCreation rdf:resource="#file1creation"/>
+        <isResourceOf rdf:resource="#dir1entry1"/>
+        <hasTag rdf:resource="#tagWork"/>
+    </File>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#file1creation -->
+
+    <owl:Thing rdf:about="#file1creation">
+        <isCreatedBy rdf:resource="#dummyuser"/>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#file2 -->
+
+    <File rdf:about="#file2">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Created by msword, should be in WordFiles</rdfs:comment>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <hasCreation rdf:resource="#file2creation"/>
+        <isResourceOf rdf:resource="#dir2entry1"/>
+    </File>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#file2creation -->
+
+    <owl:Thing rdf:about="#file2creation">
+        <isCreatedBy rdf:resource="#msword"/>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#fs -->
+
+    <DistributedFilesystem rdf:about="#fs">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <hasRoot rdf:resource="#root"/>
+    </DistributedFilesystem>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#msword -->
+
+    <owl:Thing rdf:about="#msword">
+        <rdf:type rdf:resource="#Word"/>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#root -->
+
+    <owl:Thing rdf:about="#root">
+        <hasFolderEntry rdf:resource="#rootentry1"/>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#rootentry1 -->
+
+    <owl:Thing rdf:about="#rootentry1">
+        <hasResource rdf:resource="#dir1"/>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#rootentry2 -->
+
+    <owl:Thing rdf:about="#rootentry2">
+        <hasResource rdf:resource="#dir2"/>
+        <isFolderEntryOf rdf:resource="#root"/>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#tagSchool -->
+
+    <owl:Thing rdf:about="#tagSchool">
+        <tagName rdf:datatype="&xsd;string">school</tagName>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#tagWork -->
+
+    <owl:Thing rdf:about="#tagWork">
+        <tagName rdf:datatype="&xsd;string">work</tagName>
+    </owl:Thing>
+    
+
+
+    <!-- Individual: http://soiland.no/2007/ontology/fs.owl#worldGroup -->
+
+    <Group rdf:about="#worldGroup">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The group of all users, &apos;all&apos;</rdfs:comment>
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </Group>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //   OWL Axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class rdf:about="#WritePermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#DeletePermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#DeletePermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#WritePermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Refining_entity">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Self_standing_entity"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Self_standing_entity">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Refining_entity"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Link">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#FolderLike"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#FolderLike">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Link"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Process">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#User"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#User">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Process"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#CreatePermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#DeletePermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#DeletePermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#CreatePermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Modification">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Permission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Permission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Modification"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Node">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#ResourceUser"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#ResourceUser">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Node"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#ModifyPermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#ReadPermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#ReadPermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#ModifyPermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Process">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Group"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Group">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Process"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#ExecutePermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#ModifyPermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#ModifyPermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#ExecutePermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#ResourceUser">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Resource"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Resource">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#ResourceUser"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#DynamicFolder">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Directory"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Directory">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#DynamicFolder"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Filesystem">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Tag"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Tag">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Filesystem"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Modification">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#FolderEntry"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#FolderEntry">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Modification"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#File">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#FolderLike"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#FolderLike">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#File"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#User">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Group"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Group">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#User"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#LocalFilesystem">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#NetworkFilesystem"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#NetworkFilesystem">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#LocalFilesystem"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Node">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Resource"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Resource">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Node"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#ExecutePermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#ReadPermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#ReadPermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#ExecutePermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Filesystem">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Resource"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Resource">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Filesystem"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#CreatePermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#WritePermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#WritePermission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#CreatePermission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Node">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Filesystem"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Filesystem">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Node"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Filesystem">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#ResourceUser"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#ResourceUser">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Filesystem"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Node">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Tag"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Tag">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Node"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Tag">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#ResourceUser"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#ResourceUser">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Tag"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Application">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Daemon"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Daemon">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Application"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#File">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Link"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Link">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#File"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Tag">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Resource"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Resource">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Tag"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#Permission">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#FolderEntry"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <owl:Class rdf:about="#FolderEntry">
+        <owl:disjointWith>
+            <owl:Class rdf:about="#Permission"/>
+        </owl:disjointWith>
+    </owl:Class>
+    <rdf:Description rdf:about="#hasRun">
+        <rdfs:subPropertyOf rdf:resource="#Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasPermissionOn">
+        <rdfs:subPropertyOf rdf:resource="#Refining_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isTaggedOn">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasModification">
+        <rdfs:subPropertyOf rdf:resource="#Refining_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#modifiedAt">
+        <rdfs:subPropertyOf rdf:resource="#date"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasResource">
+        <rdfs:subPropertyOf rdf:resource="#Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasHost">
+        <rdfs:subPropertyOf rdf:resource="#Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isPermittedTo">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Refining_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isMemberOf">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#groupName">
+        <rdfs:subPropertyOf rdf:resource="#name"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#tagName">
+        <rdfs:subPropertyOf rdf:resource="#name"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isModificationOf">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Refining_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#blockSize">
+        <rdfs:subPropertyOf rdf:resource="#sizeBytes"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#symLink">
+        <rdfs:subPropertyOf rdf:resource="#pathName"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isPermittedBy">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Refining_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasModified">
+        <rdfs:subPropertyOf rdf:resource="#Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isCreationOf">
+        <rdfs:subPropertyOf rdf:resource="#isModificationOf"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isResourceOf">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasRoot">
+        <rdfs:subPropertyOf rdf:resource="#Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isFolderEntryOf">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isMountedLocalOn">
+        <rdfs:subPropertyOf rdf:resource="#hasHost"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isHostOf">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#sizeBytes">
+        <rdfs:subPropertyOf rdf:resource="#size"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasFolderEntry">
+        <rdfs:subPropertyOf rdf:resource="#Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasLinkTo">
+        <rdfs:subPropertyOf rdf:resource="#Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasPermission">
+        <rdfs:subPropertyOf rdf:resource="#Refining_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasMountedLocal">
+        <rdfs:subPropertyOf rdf:resource="#hasMounted"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasBelowFolder">
+        <rdfs:subPropertyOf rdf:resource="#Refining_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasCreated">
+        <rdfs:subPropertyOf rdf:resource="#hasModified"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isModifiedBy">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasMountedLocal">
+        <rdfs:subPropertyOf rdf:resource="#isHostOf"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isRunBy">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasCreation">
+        <rdfs:subPropertyOf rdf:resource="#hasModification"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasMember">
+        <rdfs:subPropertyOf rdf:resource="#Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isMountedOn">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#userName">
+        <rdfs:subPropertyOf rdf:resource="#name"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isBelowFolder">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Refining_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasTag">
+        <rdfs:subPropertyOf rdf:resource="#Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#sizeBlocks">
+        <rdfs:subPropertyOf rdf:resource="#size"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#hasMounted">
+        <rdfs:subPropertyOf rdf:resource="#Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isMountedLocalOn">
+        <rdfs:subPropertyOf rdf:resource="#isMountedOn"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isCreatedBy">
+        <rdfs:subPropertyOf rdf:resource="#isModifiedBy"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isLinkedFrom">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Relational_property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#createdAt">
+        <rdfs:subPropertyOf rdf:resource="#modifiedAt"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#pathName">
+        <rdfs:subPropertyOf rdf:resource="#name"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#absolutePathName">
+        <rdfs:subPropertyOf rdf:resource="#pathName"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#fileName">
+        <rdfs:subPropertyOf rdf:resource="#name"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#isRootOf">
+        <rdfs:subPropertyOf rdf:resource="#Inverse_Relational_property"/>
+    </rdf:Description>
+    <owl:AllDifferent>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <owl:Thing rdf:about="#rootentry2"/>
+            <owl:Thing rdf:about="#root"/>
+            <owl:Thing rdf:about="#file1creation"/>
+            <owl:Thing rdf:about="#dir2"/>
+            <owl:Thing rdf:about="#worldGroup"/>
+            <owl:Thing rdf:about="#rootentry1"/>
+            <owl:Thing rdf:about="#file2"/>
+            <owl:Thing rdf:about="#tagWork"/>
+            <owl:Thing rdf:about="#dummyuser"/>
+            <owl:Thing rdf:about="#dir1"/>
+            <owl:Thing rdf:about="#dir2creation"/>
+            <owl:Thing rdf:about="#dir2entry1"/>
+            <owl:Thing rdf:about="#dir1entry1"/>
+            <owl:Thing rdf:about="#file2creation"/>
+            <owl:Thing rdf:about="#msword"/>
+            <owl:Thing rdf:about="#tagSchool"/>
+            <owl:Thing rdf:about="#fs"/>
+            <owl:Thing rdf:about="#file1"/>
+        </owl:distinctMembers>
+    </owl:AllDifferent>
+</rdf:RDF>
