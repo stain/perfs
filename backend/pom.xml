@@ -14,9 +14,7 @@
 	<modules>
 		<module>file</module>
 		<module>memory</module>
-        <!--
 		<module>rdf</module>
-        -->
 	</modules>
 
 </project>
