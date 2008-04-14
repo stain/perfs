@@ -11,7 +11,7 @@ import java.util.UUID;
  * Two {@link UUIDResource}s are considered {@link #equals(Object)} if they
  * have the same UUID. Subclasses might enforce further equality checks.
  * 
- * @author Stian Soiland
+ * @author Stian Soiland-Reyes
  * 
  */
 public class UUIDResource {
