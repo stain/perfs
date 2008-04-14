@@ -33,9 +33,9 @@
 	<developers>
 		<developer>
 			<id>stain</id>
-			<name>Stian Soiland</name>
-			<email>stian@soiland.no</email>
-			<url>http://soiland.no/</url>
+			<name>Stian Soiland-Reyes</name>
+			<email>stian@soiland-reyes.com</email>
+			<url>http://soiland-reyes.com/</url>
 			<roles>
 				<role>Developer</role>
 			</roles>
@@ -112,6 +112,19 @@
 			</snapshots>
 			</repository>-->
 
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>openanzo-snapshots</id>
+			<name>OpenAnzo Snapshots</name>
+			<url>
+				http://www.openanzo.org/maven-repositories/snapshot
+			</url>
+			<layout>default</layout>
+		</repository>
 
 		<repository>
 			<releases>
@@ -311,6 +324,33 @@
 				<artifactId>anzo-client</artifactId>
 				<version>2.5.1</version>
 			</dependency>
+			<dependency>
+				<groupId>org.openanzo</groupId>
+				<artifactId>anzo-repository</artifactId>
+				<version>2.5.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derby</artifactId>
+				<version>10.2.2.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derbynet</artifactId>
+				<version>10.2.2.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derbytools</artifactId>
+				<version>10.2.2.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derbyclient</artifactId>
+				<version>10.2.2.0</version>
+			</dependency>
+
+
 
 			<dependency>
 				<groupId>org.openrdf</groupId>
