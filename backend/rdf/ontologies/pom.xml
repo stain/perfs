@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.googlecode.perfs</groupId>
+		<artifactId>rdf</artifactId>
+		<version>0.2-SNAPSHOT</version>
+	</parent>
+	<groupId>com.googlecode.perfs</groupId>
+	<artifactId>ontologies</artifactId>
+	<name>Ontologies for PerFS RDF-backend</name>
+	<description>
+		Ontologies for RDF-based backend for perfs
+	</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+	</dependencies>
+</project>
