@@ -2,6 +2,7 @@ package com.googlecode.perfs.fs;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URI;
 import java.util.UUID;
 
 public abstract class FileResource extends Resource {
@@ -23,5 +24,10 @@ public abstract class FileResource extends Resource {
 	public abstract OutputStream getOutputStream();
 
 	public abstract long size();
+	
+	@Override
+	protected URI getURIClass() {
+		return URI.create("file/");
+	}
 
 }

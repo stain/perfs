@@ -1,5 +1,6 @@
 package com.googlecode.perfs.fs;
 
+import java.net.URI;
 import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
@@ -53,7 +54,7 @@ public abstract class DirectoryResource extends Resource {
 	public abstract void put(String filename, Resource resource)
 			throws AlreadyExistsException;
 
-	public abstract void putAll(Map<? extends String, ? extends Resource> t)
+	public abstract void putAll(Map<String, ? extends Resource> t)
 			throws AlreadyExistsException;
 
 	public abstract Resource remove(String filename);
@@ -65,5 +66,10 @@ public abstract class DirectoryResource extends Resource {
 	public abstract int size();
 
 	protected abstract void setParent(DirectoryResource parent);
+	
+	@Override
+	protected URI getURIClass() {
+		return URI.create("dir/");
+	}
 
 }

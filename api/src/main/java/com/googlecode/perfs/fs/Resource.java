@@ -12,7 +12,7 @@ import com.googlecode.perfs.util.UUIDResource;
  * short, a {@link Resource} is anything that can be referred from a filename in
  * a MemoryDirectoryResource.
  * 
- * @author Stian Soiland
+ * @author Stian Soiland-Reyes
  * 
  */
 public abstract class Resource extends UUIDResource {
@@ -64,6 +64,7 @@ public abstract class Resource extends UUIDResource {
 		return result;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
