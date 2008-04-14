@@ -6,16 +6,12 @@ import java.util.UUID;
 
 import org.apache.log4j.Logger;
 
-import com.googlecode.perfs.blocks.BlockStore;
 import com.googlecode.perfs.fs.DirectoryResource;
 import com.googlecode.perfs.fs.FileResource;
 import com.googlecode.perfs.fs.FileSystem;
 import com.googlecode.perfs.fs.Resource;
 
 public class MemoryFileSystem extends FileSystem {
-
-	@SuppressWarnings("unused")
-	private BlockStore blockStore;
 	
 	private Map<UUID, Resource> resources = new HashMap<UUID, Resource>();
 
@@ -37,20 +33,20 @@ public class MemoryFileSystem extends FileSystem {
 	}
 
 	@Override
-	protected DirectoryResource findRoot() {
+	protected MemoryDirectoryResource findRoot() {
 		return new MemoryDirectoryResource(this);
 	}
 
 	@Override
-	public DirectoryResource makeDirectory() {
-		DirectoryResource dir = new MemoryDirectoryResource(this);
+	public MemoryDirectoryResource makeDirectory() {
+		MemoryDirectoryResource dir = new MemoryDirectoryResource(this);
 		registerResource(dir);
 		return dir;
 	}
 
 	@Override
-	public FileResource makeFile() {
-		FileResource file = new MemoryFileResource(this);
+	public MemoryFileResource makeFile() {
+		MemoryFileResource file = new MemoryFileResource(this);
 		registerResource(file);
 		return file;
 	}

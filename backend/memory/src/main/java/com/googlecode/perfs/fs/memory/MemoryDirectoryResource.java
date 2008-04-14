@@ -1,6 +1,5 @@
 package com.googlecode.perfs.fs.memory;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -10,9 +9,7 @@ import java.util.Map.Entry;
 
 import com.googlecode.perfs.fs.AlreadyExistsException;
 import com.googlecode.perfs.fs.DirectoryResource;
-import com.googlecode.perfs.fs.FileSystem;
 import com.googlecode.perfs.fs.Resource;
-
 
 /**
  * A directory is a mapping from filenames to resources.
@@ -22,7 +19,7 @@ import com.googlecode.perfs.fs.Resource;
  * to filename/resource). In addition, put() on existing filenames is not
  * allowed.
  * 
- * @author Stian Soiland
+ * @author Stian Soiland-Reyes
  * 
  */
 public class MemoryDirectoryResource extends DirectoryResource {
@@ -31,15 +28,15 @@ public class MemoryDirectoryResource extends DirectoryResource {
 	
 	private DirectoryResource parent;
 
-	protected MemoryDirectoryResource(FileSystem filesystem) {
+	protected MemoryDirectoryResource(MemoryFileSystem filesystem) {
 		super(filesystem);
 	}
 
-	protected MemoryDirectoryResource(FileSystem filesystem, UUID uuid) {
+	protected MemoryDirectoryResource(MemoryFileSystem filesystem, UUID uuid) {
 		super(filesystem, uuid);
 	}
 	
-	protected MemoryDirectoryResource(FileSystem filesystem, String uuid) {
+	protected MemoryDirectoryResource(MemoryFileSystem filesystem, String uuid) {
 		super(filesystem, uuid);
 	}
 
@@ -73,14 +70,17 @@ public class MemoryDirectoryResource extends DirectoryResource {
 	/**
 	 * Add a resource with a given filename.
 	 * <p>
-	 * If the resource is a {@link MemoryDirectoryResource} it must not already have a
-	 * parent, ie. {@link MemoryDirectoryResource#getParent()} must be null.
+	 * If the resource is a {@link MemoryDirectoryResource} it must not already
+	 * have a parent, ie. {@link MemoryDirectoryResource#getParent()} must be
+	 * null.
 	 * <p>
 	 * The filename can't already exist in the directory, if it is an
 	 * AlreadyExistsException is thrown.
 	 * 
-	 * @param filename The filename for the resource
-	 * @param resource The referenced resource
+	 * @param filename
+	 *            The filename for the resource
+	 * @param resource
+	 *            The referenced resource
 	 * @throws AlreadyExistsException
 	 *             If a resource already exists in the directory with the given
 	 *             filename
@@ -108,8 +108,9 @@ public class MemoryDirectoryResource extends DirectoryResource {
 	}
 
 	@Override
-	public void putAll(Map<? extends String, ? extends Resource> t) throws AlreadyExistsException {
-		for (Entry<? extends String, ? extends Resource> entry : t.entrySet()) {
+	public void putAll(Map<String, ? extends Resource> t)
+			throws AlreadyExistsException {
+		for (Entry<String, ? extends Resource> entry : t.entrySet()) {
 			put(entry.getKey(), entry.getValue());
 		}
 	}
@@ -122,8 +123,8 @@ public class MemoryDirectoryResource extends DirectoryResource {
 			synchronized (dir) {
 				if (!this.equals(dir.getParent())) {
 					// Unexpected
-					throw new IllegalStateException("Removed directory "
-							+ dir + " didn't have parent " + this + ", but "
+					throw new IllegalStateException("Removed directory " + dir
+							+ " didn't have parent " + this + ", but "
 							+ dir.getParent());
 				}
 				dir.setParent(null);
@@ -166,9 +167,5 @@ public class MemoryDirectoryResource extends DirectoryResource {
 		this.parent = parent;
 	}
 
-	@Override
-	protected URI getURIClass() {
-		return URI.create("dir/");
-	}
 
 }
