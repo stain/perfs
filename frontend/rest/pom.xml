@@ -23,7 +23,9 @@
 		<dependency>
 			<groupId>com.googlecode.perfs</groupId>
 			<artifactId>memory</artifactId>
+            <!--
 			<scope>test</scope>
+            -->
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.perfs</groupId>
@@ -47,7 +49,9 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
+            <!--
 			<scope>test</scope>
+            -->
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>

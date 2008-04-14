@@ -23,7 +23,9 @@
 		<dependency>
 			<groupId>com.googlecode.perfs</groupId>
 			<artifactId>memory</artifactId>
+            <!--
 			<scope>test</scope>
+            -->
 		</dependency>
 
 		<dependency>
