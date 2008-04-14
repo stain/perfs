@@ -25,5 +25,28 @@
 			<groupId>org.openanzo</groupId>
 			<artifactId>anzo-client</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.openanzo</groupId>
+			<artifactId>anzo-repository</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbynet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbytools</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbyclient</artifactId>
+		</dependency>
+
+
 	</dependencies>
 </project>
