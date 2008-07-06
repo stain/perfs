@@ -15,10 +15,10 @@ import java.util.UUID;
  * 
  */
 public class UUIDResource {
-	
+
 	public static final String UUID_URI_PREFIX = "urn:resource.identifier:";
 
-	private final UUID uuid;
+	private UUID uuid;
 
 	private URI uri = null;
 
@@ -37,9 +37,9 @@ public class UUIDResource {
 		this.uuid = uuid;
 	}
 
-	public URI getURI() {
+	public synchronized URI getURI() {
 		if (uri == null) {
-			this.uri = getURIPrefix().resolve(uuid.toString());
+			this.uri = getURIPrefix().resolve(getUUID().toString());
 		}
 		return uri;
 	}
@@ -53,17 +53,22 @@ public class UUIDResource {
 	}
 
 	public String getUUIDString() {
-		return uuid.toString();
+		return getUUID().toString();
 	}
 
 	@Override
 	public int hashCode() {
 		return getUUID().hashCode();
 	}
-	
+
+	protected synchronized void setUUID(UUID uuid) {
+		this.uuid = uuid;
+		this.uri = null;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
-		if (! (obj instanceof UUIDResource)) {
+		if (!(obj instanceof UUIDResource)) {
 			return false;
 		}
 		UUIDResource uuidResource = (UUIDResource) obj;
