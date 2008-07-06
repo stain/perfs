@@ -4,11 +4,18 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
 
+import org.openanzo.rdf.Constants;
+import org.openanzo.rdf.URI;
+
 import com.googlecode.perfs.fs.AlreadyExistsException;
 import com.googlecode.perfs.fs.DirectoryResource;
 import com.googlecode.perfs.fs.Resource;
 
 public class AnzoDirectoryResource extends DirectoryResource {
+
+	public AnzoDirectoryResource(AnzoFileSystem fileSystem) {
+		super(fileSystem);
+	}
 
 	public AnzoDirectoryResource(AnzoFileSystem fileSystem, String uuid) {
 		super(fileSystem, uuid);
@@ -17,9 +24,14 @@ public class AnzoDirectoryResource extends DirectoryResource {
 	public AnzoDirectoryResource(AnzoFileSystem fileSystem, UUID uuid) {
 		super(fileSystem, uuid);
 	}
+	@Override
+	public AnzoFileSystem getFileSystem() {		
+		return (AnzoFileSystem) super.getFileSystem();
+	}
 
-	public AnzoDirectoryResource(AnzoFileSystem fileSystem) {
-		super(fileSystem);
+
+	public URI getResourceURI() {
+		return Constants.valueFactory.createURI(getURI().toASCIIString());
 	}
 
 	@Override
@@ -47,7 +59,7 @@ public class AnzoDirectoryResource extends DirectoryResource {
 	}
 
 	@Override
-	public AnzoDirectoryResource getParent() {
+	public DirectoryResource getParent() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -101,6 +113,5 @@ public class AnzoDirectoryResource extends DirectoryResource {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 
 }

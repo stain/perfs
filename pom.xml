@@ -144,7 +144,7 @@
 			<id>perfs-repository</id>
 			<name>PerFS repository</name>
 			<url>
-				http://perfs.googlecode.com/svn/maven2/repository/
+				http://perfs.googlecode.com/svn/maven2/repository
 			</url>
 			<releases />
 			<snapshots>
@@ -154,7 +154,7 @@
 		<repository>
 			<id>perfs-3rdparty</id>
 			<name>PerFS third party repository mirror</name>
-			<url>http://perfs.googlecode.com/svn/maven2/3rdparty/</url>
+			<url>http://perfs.googlecode.com/svn/maven2/3rdparty</url>
 			<releases />
 			<snapshots>
 				<enabled>true</enabled>
@@ -164,7 +164,7 @@
 			<id>perfs-snapshot-repository</id>
 			<name>PerFS snapshot repository</name>
 			<url>
-				http://perfs.googlecode.com/svn/maven2/snapshot-repository/
+				http://perfs.googlecode.com/svn/maven2/snapshot-repository
 			</url>
 			<releases>
 				<enabled>false</enabled>
@@ -204,7 +204,139 @@
 			<name>Aduna Repository</name>
 			<url>http://repository.aduna-software.org/maven2</url>
 		</repository>
+		
+		
+		<!--  More from openanzo 
+		<repository>
+			<id>openqa</id>
+			<name>OpenQA Repository</name>
+			<url>http://maven.openqa.org</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</repository>
 
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>OpenRdf</id>
+			<name>OpenRdf</name>
+			<url>http://repository.aduna-software.org/maven2</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<releases>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>OpenRdfSnapshots</id>
+			<name>OpenRdf Snapshots</name>
+			<url>http://repository.aduna-software.org/maven2-snapshots</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>ApacheSnapshots</id>
+			<name>Apache Snapshots</name>
+			<url>http://people.apache.org/repo/m2-snapshot-repository/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>ApacheIncubatingSnapshots</id>
+			<name>Apache Incubating Snapshots</name>
+			<url>http://people.apache.org/repo/m2-incubating-repository/</url>
+			<layout>default</layout>
+		</repository>
+
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>jetty-repository</id>
+			<url>http://repository.codehaus.org/</url>
+		</repository>
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<id>jetty-snapshot-repository</id>
+			<url>http://snapshots.repository.codehaus.org/</url>
+		</repository>
+
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>MyGrid</id>
+			<name>MyGrid Repository</name>
+			<url>http://www.mygrid.org.uk/maven/repository/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>openanzo</id>
+			<name>Open Anzo Repo</name>
+			<url>http://mavenrepo.openanzo.org/maven2</url>
+			<layout>default</layout>
+		</repository>
+		-->
 
 	</repositories>
 
@@ -321,13 +453,13 @@
 
 			<dependency>
 				<groupId>org.openanzo</groupId>
-				<artifactId>anzo-client</artifactId>
-				<version>2.5.1</version>
+				<artifactId>openanzo-client</artifactId>
+				<version>3.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.openanzo</groupId>
-				<artifactId>anzo-repository</artifactId>
-				<version>2.5.1</version>
+				<artifactId>openanzo-repository</artifactId>
+				<version>3.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.derby</groupId>

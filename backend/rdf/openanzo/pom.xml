@@ -13,6 +13,10 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.googlecode.perfs</groupId>
+			<artifactId>api</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
@@ -23,11 +27,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.openanzo</groupId>
-			<artifactId>anzo-client</artifactId>
+			<artifactId>openanzo-client</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.openanzo</groupId>
-			<artifactId>anzo-repository</artifactId>
+			<artifactId>openanzo-repository</artifactId>
 		</dependency>
 
 		<dependency>
