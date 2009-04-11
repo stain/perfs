@@ -14,6 +14,7 @@
 
 	<properties>
 		<elmo.version>1.4</elmo.version>
+		<sesame.version>2.2.3</sesame.version>
 	</properties>
 
 	<dependencies>
@@ -30,18 +31,33 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.openrdf.elmo</groupId>
 			<artifactId>elmo-api</artifactId>
 			<version>${elmo.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.openrdf.elmo</groupId>
-			<artifactId>elmo-examples</artifactId>
+			<artifactId>elmo-sesame</artifactId>
 			<version>${elmo.version}</version>
-			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.openrdf.elmo</groupId>
+			<artifactId>elmo-dynabean</artifactId>
+			<version>${elmo.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openrdf.sesame</groupId>
+			<artifactId>sesame-repository-sail</artifactId>
+			<version>${sesame.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openrdf.sesame</groupId>
+			<artifactId>sesame-sail-memory</artifactId>
+			<version>${sesame.version}</version>
+		</dependency>
+
 	</dependencies>
 	<repositories>
 		<repository>

@@ -21,8 +21,6 @@ public class AnzoFileSystem extends FileSystem {
 
 	private final File anzoDir;
 	private AnzoClient datasetService;
-	private DatasetServiceFactory datasetServiceFactory = DatasetServiceFactory
-			.getInstance();
 
 	public AnzoFileSystem(File anzoDir) throws IOException, AnzoException {
 		super();
@@ -74,8 +72,8 @@ public class AnzoFileSystem extends FileSystem {
 	}
 
 	private void setDatasetService() throws IOException, AnzoException {
-		datasetService = datasetServiceFactory
-				.getEmbeddedDatasetService(anzoDir);
+//		datasetService = datasetServiceFactory
+//				.getEmbeddedDatasetService(anzoDir);
 	}
 
 	protected URI createRoot() {
