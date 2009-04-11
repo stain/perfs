@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.googlecode.perfs</groupId>
-		<artifactId>backend</artifactId>
+		<artifactId>perfs</artifactId>
 		<version>0.2-SNAPSHOT</version>
 	</parent>
 	<groupId>com.googlecode.perfs</groupId>
-	<artifactId>file</artifactId>
+	<artifactId>perfs-backend-file</artifactId>
 	<name>PerFS file backend</name>
 	<description>File-based backend for perfs</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.googlecode.perfs</groupId>
-			<artifactId>api</artifactId>
+			<artifactId>perfs-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.perfs</groupId>
-			<artifactId>api</artifactId>
+			<artifactId>perfs-api</artifactId>
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>

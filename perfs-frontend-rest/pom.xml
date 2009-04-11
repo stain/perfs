@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.googlecode.perfs</groupId>
-		<artifactId>frontend</artifactId>
+		<artifactId>perfs</artifactId>
 		<version>0.2-SNAPSHOT</version>
 	</parent>
 	<groupId>com.googlecode.perfs</groupId>
-	<artifactId>rest</artifactId>
+	<artifactId>perfs-frontend-rest</artifactId>
 	<name>PerFS REST frontend</name>
 	<description>REST frontend for perfs using Restlet</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.googlecode.perfs</groupId>
-			<artifactId>api</artifactId>
+			<artifactId>perfs-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.perfs</groupId>
-			<artifactId>vfs</artifactId>
+			<artifactId>perfs-frontend-vfs</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.perfs</groupId>
-			<artifactId>memory</artifactId>
-            <!--
+			<artifactId>perfs-backend-memory</artifactId>
+			<!--
 			<scope>test</scope>
             -->
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.perfs</groupId>
-			<artifactId>vfs</artifactId>
+			<artifactId>perfs-frontend-vfs</artifactId>
 			<type>test-jar</type>
 			<!--            <scope>test</scope> -->
 		</dependency>
@@ -49,7 +50,7 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-            <!--
+			<!--
 			<scope>test</scope>
             -->
 		</dependency>
