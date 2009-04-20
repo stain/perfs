@@ -18,6 +18,12 @@
 			<artifactId>perfs-api</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.googlecode.perfs</groupId>
+			<artifactId>perfs-api</artifactId>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
             <scope>test</scope>
