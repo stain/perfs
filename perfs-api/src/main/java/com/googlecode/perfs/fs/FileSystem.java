@@ -7,19 +7,21 @@ import com.googlecode.perfs.util.UUIDResource;
 
 public abstract class FileSystem extends UUIDResource {
 
+	public static final String URI_BASE = "http://perfs.googlecode.com/2009/";
+	
 	private DirectoryResource root;
-
-	public FileSystem(String uuid) {
-		super(uuid);
-	}
 
 	public FileSystem() {
 		super();
 	}
 
+	public FileSystem(String uuid) {
+		super(uuid);
+	}
+	
 	@Override
 	public URI getURIPrefix() {
-		return URI.create("http://perfs.googlecode.com/").resolve("fs/");
+		return URI.create(URI_BASE).resolve("fs/resources/");
 	}
 
 	public DirectoryResource getRoot() {
