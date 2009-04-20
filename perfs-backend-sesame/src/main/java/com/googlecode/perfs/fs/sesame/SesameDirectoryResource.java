@@ -1,96 +1,159 @@
 package com.googlecode.perfs.fs.sesame;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
 
 import com.googlecode.perfs.fs.AlreadyExistsException;
 import com.googlecode.perfs.fs.DirectoryResource;
 import com.googlecode.perfs.fs.Resource;
+import com.googlecode.perfs.fs.sesame.beans.DomainEntity;
+import com.googlecode.perfs.fs.sesame.beans.Folder;
+import com.googlecode.perfs.fs.sesame.beans.FolderEntry;
 
-public class SesameDirectoryResource extends DirectoryResource {
+public class SesameDirectoryResource extends DirectoryResource implements
+		ElmoBeanBased<Folder> {
 
-	public SesameDirectoryResource(SesameFileSystem sesameFileSystem) {
+	private final Folder elmoBean;
+
+	protected SesameDirectoryResource(SesameFileSystem sesameFileSystem,
+			Folder elmoBean) {
 		super(sesameFileSystem);
+		this.elmoBean = elmoBean;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-
+		// TODO: Delete old FolderEntry's
+		elmoBean.setFolderEntries(new HashSet<FolderEntry>());
 	}
 
 	@Override
 	public boolean containsFilename(String filename) {
-		// TODO Auto-generated method stub
+		// FIXME: Make more efficient using query!
+		for (FolderEntry folderEntry : elmoBean.getFolderEntries()) {
+			if (folderEntry.getFileName().equals(filename)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
 	@Override
 	public boolean containsResource(Resource resource) {
-		// TODO Auto-generated method stub
+		// FIXME: Make more efficient using query!
+		for (FolderEntry folderEntry : elmoBean.getFolderEntries()) {
+			if (folderEntry.getResource().equals(resource)) {
+				return true;
+			}
+		}
 		return false;
+
 	}
 
 	@Override
 	public Resource get(String filename) {
-		// TODO Auto-generated method stub
+		for (FolderEntry folderEntry : elmoBean.getFolderEntries()) {
+			if (folderEntry.getFileName().equals(filename)) {
+				return getFileSystem().getResource(folderEntry.getResource());
+			}
+		}
 		return null;
 	}
 
 	@Override
+	public SesameFileSystem getFileSystem() {
+		return (SesameFileSystem) super.getFileSystem();
+	}
+
+	@Override
 	public DirectoryResource getParent() {
-		// TODO Auto-generated method stub
+		for (FolderEntry folderEntry : getFileSystem().getElmoManager()
+				.findAll(FolderEntry.class)) {
+			if (folderEntry.getResource().equals(elmoBean)) {
+				return (DirectoryResource) getFileSystem().getResource(
+						folderEntry.getFolderEntryOf());
+			}
+		}
 		return null;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return elmoBean.getFolderEntries().isEmpty();
 	}
 
 	@Override
 	public void put(String filename, Resource resource)
 			throws AlreadyExistsException {
-		// TODO Auto-generated method stub
-
+		FolderEntry folderEntry = getFileSystem().getElmoManager().create(
+				FolderEntry.class);
+		folderEntry.setFileName(filename);
+		// FIXME: Avoid this mega-casting..
+		com.googlecode.perfs.fs.sesame.beans.Resource resourceBean = 
+			((ElmoBeanBased<? extends com.googlecode.perfs.fs.sesame.beans.Resource>) resource)
+				.getElmoBean();
+		folderEntry.setResource(resourceBean);
+		folderEntry.setFolderEntryOf(getElmoBean());
+		elmoBean.getFolderEntries().add(folderEntry);
 	}
 
 	@Override
-	public void putAll(Map<String, ? extends Resource> t)
+	public void putAll(Map<String, ? extends Resource> entries)
 			throws AlreadyExistsException {
-		// TODO Auto-generated method stub
-
+		for (Entry<String, ? extends Resource> entry : entries.entrySet()) {
+			put(entry.getKey(), entry.getValue());
+		}
 	}
 
 	@Override
 	public Resource remove(String filename) {
-		// TODO Auto-generated method stub
-		return null;
+		FolderEntry deleteEntry = null;
+		for (FolderEntry folderEntry : getElmoBean().getFolderEntries()) {
+			if (folderEntry.getFileName().equals(filename)) {
+				deleteEntry = folderEntry;
+			}
+		}
+		if (deleteEntry == null) {
+			return null;
+		}
+		deleteEntry.setFolderEntryOf(null);
+		getElmoBean().getFolderEntries().remove(deleteEntry);
+		return getFileSystem().getResource(deleteEntry.getResource());
 	}
 
 	@Override
 	public Collection<String> resourceNames() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<String> fileNames = new HashSet<String>();
+		for (FolderEntry entry : getElmoBean().getFolderEntries()) {
+			fileNames.add(entry.getFileName());
+		}
+		return fileNames;
 	}
 
 	@Override
 	public Collection<Resource> resources() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Resource> resources = new HashSet<Resource>();
+		for (FolderEntry entry : getElmoBean().getFolderEntries()) {
+			resources.add(getFileSystem().getResource(entry.getResource()));
+		}
+		return resources;
 	}
 
 	@Override
 	protected void setParent(DirectoryResource parent) {
-		// TODO Auto-generated method stub
-
+		throw new IllegalStateException("Invalid method");
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public Folder getElmoBean() {
+		return elmoBean;
 	}
 
 }

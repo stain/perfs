@@ -1,0 +1,6 @@
+com.googlecode.perfs.fs.sesame.beans.DomainEntity
+com.googlecode.perfs.fs.sesame.beans.File
+com.googlecode.perfs.fs.sesame.beans.FileSystem
+com.googlecode.perfs.fs.sesame.beans.Folder
+com.googlecode.perfs.fs.sesame.beans.FolderEntry
+com.googlecode.perfs.fs.sesame.beans.Resource

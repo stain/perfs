@@ -4,11 +4,15 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import com.googlecode.perfs.fs.FileResource;
+import com.googlecode.perfs.fs.sesame.beans.File;
 
-public class SesameFileResource extends FileResource {
+public class SesameFileResource extends FileResource implements ElmoBeanBased<File> {
 
-	public SesameFileResource(SesameFileSystem sesameFileSystem) {
+	private final File elmoBean;
+
+	public SesameFileResource(SesameFileSystem sesameFileSystem, File elmoBean) {
 		super(sesameFileSystem);
+		this.elmoBean = elmoBean;
 	}
 
 	@Override
@@ -27,6 +31,10 @@ public class SesameFileResource extends FileResource {
 	public long size() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public File getElmoBean() {
+		return elmoBean;
 	}
 
 }
