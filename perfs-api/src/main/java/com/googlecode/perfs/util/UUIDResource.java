@@ -1,6 +1,7 @@
 package com.googlecode.perfs.util;
 
 import java.net.URI;
+import java.util.ConcurrentModificationException;
 import java.util.UUID;
 
 /**
@@ -37,9 +38,13 @@ public class UUIDResource {
 		this.uuid = uuid;
 	}
 
-	public synchronized URI getURI() {
+	public URI getURI() throws ConcurrentModificationException {
+		UUID originalUUID = uuid;
 		if (uri == null) {
-			this.uri = getURIPrefix().resolve(getUUID().toString());
+			this.uri = getURIPrefix().resolve(originalUUID.toString());
+		}
+		if (uuid != originalUUID) {
+			throw new ConcurrentModificationException("UUID changed while getting URI");
 		}
 		return uri;
 	}
