@@ -9,7 +9,7 @@ import org.openrdf.elmo.annotations.rdf;
 public interface Folder extends Resource {
 
 	@rdf(Ontology.URI_BASE + "hasFolderEntry")
-	@inverseOf(Ontology.URI_BASE + "entryForResource")
+	@inverseOf(Ontology.URI_BASE + "entryOfFolder")
 	public Set<FolderEntry> getFolderEntries();
 	
 	public void setFolderEntries(Set<FolderEntry> folderEntries);

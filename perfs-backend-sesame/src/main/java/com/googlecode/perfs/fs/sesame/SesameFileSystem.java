@@ -6,6 +6,7 @@ import java.util.WeakHashMap;
 
 import javax.xml.namespace.QName;
 
+import org.apache.log4j.Logger;
 import org.openrdf.elmo.ElmoManager;
 import org.openrdf.elmo.ElmoManagerFactory;
 import org.openrdf.elmo.ElmoModule;
@@ -66,6 +67,8 @@ public class SesameFileSystem extends com.googlecode.perfs.fs.FileSystem
 
 	protected WeakHashMap<Entity, Resource> resourceCache = new WeakHashMap<Entity, Resource>();
 
+	private static Logger logger = Logger.getLogger(SesameFileSystem.class);
+ 
 	protected Resource getResource(Entity entity) {
 		Resource resource = resourceCache.get(entity);
 		if (resource != null) {
@@ -77,9 +80,11 @@ public class SesameFileSystem extends com.googlecode.perfs.fs.FileSystem
 		} else if (entity instanceof File) {
 			resource = new SesameFileResource(this, (File) entity);
 		} else {
-			throw new RuntimeException("Unknown resource for entity " + entity
+			logger.info("Unknown resource for entity " + entity
 					+ " -- implements "
 					+ Arrays.asList(entity.getClass().getInterfaces()));
+			// Basically means 'not found'
+			return null;
 		}
 		synchronized (resourceCache) {
 			if (resourceCache.containsKey(entity)) {
@@ -100,7 +105,8 @@ public class SesameFileSystem extends com.googlecode.perfs.fs.FileSystem
 	protected void initialize() {
 		// TODO: Move to spring..?
 		ElmoModule module = new ElmoModule();
-		ElmoManagerFactory factory = new SesameManagerFactory(module);
+		SesameManagerFactory factory = new SesameManagerFactory(module);
+		factory.setInferencingEnabled(true);
 		setElmoManager(factory.createElmoManager());
 		// Find and/or create file system and it's root directory
 		Entity elmo = getElmoManager().find(getQName(this));
@@ -115,7 +121,7 @@ public class SesameFileSystem extends com.googlecode.perfs.fs.FileSystem
 
 	@Override
 	public SesameDirectoryResource makeDirectory() {
-		Folder entity = getElmoManager().create(getNewQName(), Folder.class);
+		Folder entity = getElmoManager().create(getNewQName(), Folder.class);		
 		return (SesameDirectoryResource) getResource(entity);
 	}
 
@@ -127,7 +133,10 @@ public class SesameFileSystem extends com.googlecode.perfs.fs.FileSystem
 
 	@Override
 	protected void registerResource(Resource resource) {
-		// Not much more to do ..
+		if (resource.getFileSystem() != this) {
+			throw new IllegalArgumentException("Resource must be using file system " + this);
+		}
+		// No further registration to be done
 	}
 
 	public void setElmoManager(ElmoManager elmoManager) {

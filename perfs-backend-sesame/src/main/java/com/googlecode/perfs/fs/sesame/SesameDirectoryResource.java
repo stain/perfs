@@ -9,7 +9,6 @@ import java.util.Map.Entry;
 import com.googlecode.perfs.fs.AlreadyExistsException;
 import com.googlecode.perfs.fs.DirectoryResource;
 import com.googlecode.perfs.fs.Resource;
-import com.googlecode.perfs.fs.sesame.beans.DomainEntity;
 import com.googlecode.perfs.fs.sesame.beans.Folder;
 import com.googlecode.perfs.fs.sesame.beans.FolderEntry;
 
@@ -20,7 +19,7 @@ public class SesameDirectoryResource extends DirectoryResource implements
 
 	protected SesameDirectoryResource(SesameFileSystem sesameFileSystem,
 			Folder elmoBean) {
-		super(sesameFileSystem);
+		super(sesameFileSystem, elmoBean.getQName().getLocalPart());
 		this.elmoBean = elmoBean;
 	}
 
@@ -97,7 +96,6 @@ public class SesameDirectoryResource extends DirectoryResource implements
 				.getElmoBean();
 		folderEntry.setResource(resourceBean);
 		folderEntry.setFolderEntryOf(getElmoBean());
-		elmoBean.getFolderEntries().add(folderEntry);
 	}
 
 	@Override

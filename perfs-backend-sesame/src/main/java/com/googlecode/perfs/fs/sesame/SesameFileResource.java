@@ -6,12 +6,13 @@ import java.io.OutputStream;
 import com.googlecode.perfs.fs.FileResource;
 import com.googlecode.perfs.fs.sesame.beans.File;
 
-public class SesameFileResource extends FileResource implements ElmoBeanBased<File> {
+public class SesameFileResource extends FileResource implements
+		ElmoBeanBased<File> {
 
 	private final File elmoBean;
 
 	public SesameFileResource(SesameFileSystem sesameFileSystem, File elmoBean) {
-		super(sesameFileSystem);
+		super(sesameFileSystem, elmoBean.getQName().getLocalPart());
 		this.elmoBean = elmoBean;
 	}
 
