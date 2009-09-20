@@ -41,10 +41,14 @@ public class SesameDirectoryResource extends DirectoryResource implements
 	}
 
 	@Override
-	public boolean containsResource(Resource resource) {
-		// FIXME: Make more efficient using query!
-		for (FolderEntry folderEntry : elmoBean.getFolderEntries()) {
-			if (folderEntry.getResource().equals(resource)) {
+	public boolean containsResource(Resource resource) {		
+		if (! (resource instanceof ElmoBeanBased)) {
+			return false;
+		}
+		com.googlecode.perfs.fs.sesame.beans.Resource elmoResource = ((ElmoBeanBased<com.googlecode.perfs.fs.sesame.beans.Resource>)resource).getElmoBean();
+		for (FolderEntry folderEntry : elmoResource.getEntriesForResource()) {
+			// Typically a resource lives only in one folder
+			if (folderEntry.getFolderEntryOf().equals(elmoBean)) {
 				return true;
 			}
 		}
@@ -147,7 +151,7 @@ public class SesameDirectoryResource extends DirectoryResource implements
 
 	@Override
 	public int size() {
-		return 0;
+		return getElmoBean().getFolderEntries().size();
 	}
 
 	public Folder getElmoBean() {

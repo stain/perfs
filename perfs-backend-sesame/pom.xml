@@ -13,8 +13,8 @@
 	<description>Sesame/Elmo RDF-based backend for perfs</description>
 
 	<properties>
-		<elmo.version>1.4</elmo.version>
-		<sesame.version>2.2.3</sesame.version>
+		<elmo.version>1.5</elmo.version>
+		<sesame.version>2.2.4</sesame.version>
 	</properties>
 
 	<dependencies>

@@ -13,7 +13,7 @@ import org.openrdf.elmo.ElmoManager;
 import org.openrdf.elmo.ElmoModule;
 import org.openrdf.elmo.sesame.SesameManagerFactory;
 
-public class ElmoTesting {
+public class ElmoBeanTest {
 
 	private static final String NAMESPACE = "urn:test:";
 	private static final QName FOLDER = new QName(NAMESPACE, "folder");
@@ -76,16 +76,17 @@ public class ElmoTesting {
 		assertFalse(root.getFolderEntries().contains(folderEntry));
 		
 		folderEntry.setFolderEntryOf(root);
-//		root.getFolderEntries().add(folderEntry);
 		
 		assertEquals(folderEntry.getFolderEntryOf(), root);
-		assertTrue(root.getFolderEntries().contains(folderEntry));
+		assertTrue("Root did not contain folder entry",
+				root.getFolderEntries().contains(folderEntry));
 		
 		Folder foundRoot = (Folder) elmoManager.find(ROOT);
 		foundRoot.getFolderEntries().isEmpty();
 		assertTrue(foundRoot.getFolderEntries().contains(folderEntry));
 	}
 
+	
 	@Test
 	public void addSubFolderByEntrySet() throws Exception {
 		Folder folder = elmoManager.create(FOLDER, Folder.class);
@@ -96,7 +97,6 @@ public class ElmoTesting {
 		
 		assertFalse(root.getFolderEntries().contains(folderEntry));
 		
-//		folderEntry.setFolderEntryOf(root);
 		root.getFolderEntries().add(folderEntry);
 		
 		assertEquals(folderEntry.getFolderEntryOf(), root);
