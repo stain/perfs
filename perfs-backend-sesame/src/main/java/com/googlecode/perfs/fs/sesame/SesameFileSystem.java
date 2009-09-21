@@ -70,11 +70,13 @@ public class SesameFileSystem extends com.googlecode.perfs.fs.FileSystem
 	private static Logger logger = Logger.getLogger(SesameFileSystem.class);
  
 	protected Resource getResource(Entity entity) {
+		if (entity == null) {
+			return null;
+		}
 		Resource resource = resourceCache.get(entity);
 		if (resource != null) {
 			return resource;
 		}
-
 		if (entity instanceof Folder) {
 			resource = new SesameDirectoryResource(this, (Folder) entity);
 		} else if (entity instanceof File) {

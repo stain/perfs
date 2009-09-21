@@ -2,15 +2,18 @@ package com.googlecode.perfs.fs.sesame;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 
+import org.openrdf.elmo.ElmoManager;
+
 import com.googlecode.perfs.fs.AlreadyExistsException;
 import com.googlecode.perfs.fs.DirectoryResource;
-import com.googlecode.perfs.fs.Resource;
 import com.googlecode.perfs.fs.sesame.beans.Folder;
 import com.googlecode.perfs.fs.sesame.beans.FolderEntry;
+import com.googlecode.perfs.fs.sesame.beans.Resource;
 
 public class SesameDirectoryResource extends DirectoryResource implements
 		ElmoBeanBased<Folder> {
@@ -41,11 +44,11 @@ public class SesameDirectoryResource extends DirectoryResource implements
 	}
 
 	@Override
-	public boolean containsResource(Resource resource) {		
+	public boolean containsResource(com.googlecode.perfs.fs.Resource resource) {		
 		if (! (resource instanceof ElmoBeanBased)) {
 			return false;
 		}
-		com.googlecode.perfs.fs.sesame.beans.Resource elmoResource = ((ElmoBeanBased<com.googlecode.perfs.fs.sesame.beans.Resource>)resource).getElmoBean();
+		Resource elmoResource = ((ElmoBeanBased<Resource>)resource).getElmoBean();
 		for (FolderEntry folderEntry : elmoResource.getEntriesForResource()) {
 			// Typically a resource lives only in one folder
 			if (folderEntry.getFolderEntryOf().equals(elmoBean)) {
@@ -57,7 +60,7 @@ public class SesameDirectoryResource extends DirectoryResource implements
 	}
 
 	@Override
-	public Resource get(String filename) {
+	public com.googlecode.perfs.fs.Resource get(String filename) {
 		for (FolderEntry folderEntry : elmoBean.getFolderEntries()) {
 			if (folderEntry.getFileName().equals(filename)) {
 				return getFileSystem().getResource(folderEntry.getResource());
@@ -73,14 +76,17 @@ public class SesameDirectoryResource extends DirectoryResource implements
 
 	@Override
 	public DirectoryResource getParent() {
-		for (FolderEntry folderEntry : getFileSystem().getElmoManager()
-				.findAll(FolderEntry.class)) {
-			if (folderEntry.getResource().equals(elmoBean)) {
-				return (DirectoryResource) getFileSystem().getResource(
-						folderEntry.getFolderEntryOf());
-			}
+		Iterator<FolderEntry> entriesIt = elmoBean.getEntriesForResource().iterator();
+		if (! entriesIt.hasNext()) {
+			return null;
 		}
-		return null;
+		FolderEntry parentEntry = entriesIt.next();
+		if (entriesIt.hasNext()) {
+			throw new IllegalStateException("Folder can't have multiple parents: " + elmoBean.getQName());
+		}
+		Folder folderEntryOf = parentEntry.getFolderEntryOf();
+		
+		return (DirectoryResource) getFileSystem().getResource(folderEntryOf);
 	}
 
 	@Override
@@ -89,41 +95,59 @@ public class SesameDirectoryResource extends DirectoryResource implements
 	}
 
 	@Override
-	public void put(String filename, Resource resource)
+	public void put(String filename, com.googlecode.perfs.fs.Resource resource)
 			throws AlreadyExistsException {
+		if (containsFilename(filename)) {
+			throw new AlreadyExistsException(filename);
+		}
+		if (resource instanceof DirectoryResource) {
+			 DirectoryResource directoryResource = (DirectoryResource)resource;
+			 if (directoryResource.getParent() != null) {
+				 throw new IllegalStateException("A directory can't have two parents");
+			 }
+		}
+		
 		FolderEntry folderEntry = getFileSystem().getElmoManager().create(
 				FolderEntry.class);
 		folderEntry.setFileName(filename);
 		// FIXME: Avoid this mega-casting..
-		com.googlecode.perfs.fs.sesame.beans.Resource resourceBean = 
-			((ElmoBeanBased<? extends com.googlecode.perfs.fs.sesame.beans.Resource>) resource)
+		Resource resourceBean = 
+			((ElmoBeanBased<? extends Resource>) resource)
 				.getElmoBean();
 		folderEntry.setResource(resourceBean);
 		folderEntry.setFolderEntryOf(getElmoBean());
+		
 	}
 
 	@Override
-	public void putAll(Map<String, ? extends Resource> entries)
+	public void putAll(Map<String, ? extends com.googlecode.perfs.fs.Resource> entries)
 			throws AlreadyExistsException {
-		for (Entry<String, ? extends Resource> entry : entries.entrySet()) {
+		for (Entry<String, ? extends com.googlecode.perfs.fs.Resource> entry : entries.entrySet()) {
 			put(entry.getKey(), entry.getValue());
 		}
 	}
 
 	@Override
-	public Resource remove(String filename) {
+	public com.googlecode.perfs.fs.Resource remove(String filename) {
 		FolderEntry deleteEntry = null;
 		for (FolderEntry folderEntry : getElmoBean().getFolderEntries()) {
 			if (folderEntry.getFileName().equals(filename)) {
 				deleteEntry = folderEntry;
+				break;
 			}
 		}
 		if (deleteEntry == null) {
 			return null;
 		}
-		deleteEntry.setFolderEntryOf(null);
-		getElmoBean().getFolderEntries().remove(deleteEntry);
-		return getFileSystem().getResource(deleteEntry.getResource());
+		
+		ElmoManager elmoManager = getElmoBean().getElmoManager();
+		Resource resource = deleteEntry.getResource();
+		Folder folderEntryOf = deleteEntry.getFolderEntryOf();
+		elmoManager.remove(deleteEntry);
+		elmoManager.refresh(resource);
+		elmoManager.refresh(folderEntryOf);
+		elmoManager.refresh(elmoBean);		
+		return getFileSystem().getResource(resource);
 	}
 
 	@Override
@@ -136,8 +160,8 @@ public class SesameDirectoryResource extends DirectoryResource implements
 	}
 
 	@Override
-	public Collection<Resource> resources() {
-		Set<Resource> resources = new HashSet<Resource>();
+	public Collection<com.googlecode.perfs.fs.Resource> resources() {
+		Set<com.googlecode.perfs.fs.Resource> resources = new HashSet<com.googlecode.perfs.fs.Resource>();
 		for (FolderEntry entry : getElmoBean().getFolderEntries()) {
 			resources.add(getFileSystem().getResource(entry.getResource()));
 		}
