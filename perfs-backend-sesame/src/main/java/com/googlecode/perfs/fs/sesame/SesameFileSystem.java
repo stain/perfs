@@ -1,5 +1,6 @@
 package com.googlecode.perfs.fs.sesame;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
 import java.util.WeakHashMap;
@@ -8,13 +9,14 @@ import javax.xml.namespace.QName;
 
 import org.apache.log4j.Logger;
 import org.openrdf.elmo.ElmoManager;
-import org.openrdf.elmo.ElmoManagerFactory;
 import org.openrdf.elmo.ElmoModule;
 import org.openrdf.elmo.Entity;
 import org.openrdf.elmo.sesame.SesameManagerFactory;
 
 import com.googlecode.perfs.fs.DirectoryResource;
 import com.googlecode.perfs.fs.Resource;
+import com.googlecode.perfs.fs.sesame.beans.Block;
+import com.googlecode.perfs.fs.sesame.beans.Blocks;
 import com.googlecode.perfs.fs.sesame.beans.File;
 import com.googlecode.perfs.fs.sesame.beans.FileSystem;
 import com.googlecode.perfs.fs.sesame.beans.Folder;
@@ -68,7 +70,7 @@ public class SesameFileSystem extends com.googlecode.perfs.fs.FileSystem
 	protected WeakHashMap<Entity, Resource> resourceCache = new WeakHashMap<Entity, Resource>();
 
 	private static Logger logger = Logger.getLogger(SesameFileSystem.class);
- 
+
 	protected Resource getResource(Entity entity) {
 		if (entity == null) {
 			return null;
@@ -115,7 +117,8 @@ public class SesameFileSystem extends com.googlecode.perfs.fs.FileSystem
 		if (elmo instanceof FileSystem) {
 			elmoBean = (FileSystem) elmo;
 		} else {
-			elmoBean = getElmoManager().create(getQName(this), FileSystem.class);
+			elmoBean = getElmoManager()
+					.create(getQName(this), FileSystem.class);
 			elmoBean.setRoot(makeDirectory().getElmoBean());
 			makeDirectory();
 		}
@@ -123,20 +126,40 @@ public class SesameFileSystem extends com.googlecode.perfs.fs.FileSystem
 
 	@Override
 	public SesameDirectoryResource makeDirectory() {
-		Folder entity = getElmoManager().create(getNewQName(), Folder.class);		
+		Folder entity = getElmoManager().create(getNewQName(), Folder.class);
 		return (SesameDirectoryResource) getResource(entity);
 	}
 
 	@Override
 	public SesameFileResource makeFile() {
 		File entity = getElmoManager().create(getNewQName(), File.class);
+		entity.setBlocks(getEmptyBlocks());
 		return (SesameFileResource) getResource(entity);
+	}
+
+	protected Blocks getEmptyBlocks() {
+		QName emptyBlocksQName = new QName(getURIPrefix().toASCIIString(),
+				"emptyBlocks");
+		Entity emptyBlocks = getElmoManager().find(emptyBlocksQName);
+		if (emptyBlocks instanceof Blocks) {
+			return (Blocks) emptyBlocks;
+		}
+		Blocks blocks = getElmoManager().create(emptyBlocksQName, Blocks.class);
+		blocks.setSize(0);
+		blocks.setBlockList(new ArrayList<Block>());
+		calculateHashes(blocks);
+		return blocks;
+	}
+
+	protected void calculateHashes(Blocks blocks) {
+		// TODO Auto-generated method stub
 	}
 
 	@Override
 	protected void registerResource(Resource resource) {
 		if (resource.getFileSystem() != this) {
-			throw new IllegalArgumentException("Resource must be using file system " + this);
+			throw new IllegalArgumentException(
+					"Resource must be using file system " + this);
 		}
 		// No further registration to be done
 	}
@@ -147,6 +170,18 @@ public class SesameFileSystem extends com.googlecode.perfs.fs.FileSystem
 
 	public ElmoManager getElmoManager() {
 		return elmoManager;
+	}
+
+	protected void calculateSize(Blocks blocks) {
+		long size = 0;
+		for (Block block : blocks.getBlockList()) {
+			size += block.getBlockData().length;
+		}
+		blocks.setSize(size);
+	}
+
+	public int getBlockSize() {
+		return 1024;
 	}
 
 }

@@ -11,6 +11,7 @@ public class PerFSDavServer {
 		Server server = new Server();
 		SelectChannelConnector selectChannelConnector = new SelectChannelConnector();
 		selectChannelConnector.setPort(8081);
+		selectChannelConnector.setHost("0.0.0.0");
 		selectChannelConnector.setMaxIdleTime(30000);
 		selectChannelConnector.setAcceptors(2);
 		selectChannelConnector.setConfidentialPort(8443);

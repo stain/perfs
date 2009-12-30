@@ -11,18 +11,20 @@ import org.apache.commons.vfs.VFS;
 
 import com.googlecode.perfs.fs.DirectoryResource;
 import com.googlecode.perfs.fs.FileResource;
+import com.googlecode.perfs.fs.FileSystem;
 import com.googlecode.perfs.fs.FileSystemFactory;
-import com.googlecode.perfs.fs.memory.MemoryFileSystem;
+import com.googlecode.perfs.fs.sesame.SesameFileSystem;
+//import com.googlecode.perfs.fs.memory.MemoryFileSystem;
 import com.thinkberg.moxo.dav.ResourceManager;
 
 public class PerFSResourceManager extends ResourceManager {
 
-	private MemoryFileSystem backend;
+	private FileSystem backend;
 	private FileSystemManager mgr;
 	private FileObject root;
 
 	public PerFSResourceManager() throws FileSystemException {
-		backend = new MemoryFileSystem();
+		backend = new SesameFileSystem();
 		FileSystemFactory.setFileSystem(backend);
 		mgr = VFS.getManager();
 		root = mgr.resolveFile("perfs:///");

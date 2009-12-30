@@ -23,7 +23,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.perfs</groupId>
-			<artifactId>perfs-backend-memory</artifactId>
+			<artifactId>perfs-backend-sesame</artifactId>
 			<!--
 			<scope>test</scope>
             -->

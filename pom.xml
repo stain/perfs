@@ -303,12 +303,18 @@
 				<artifactId>perfs-backend-file</artifactId>
 				<version>${perfs.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.googlecode.perfs</groupId>
+				<artifactId>perfs-backend-sesame</artifactId>
+				<version>${perfs.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>com.googlecode.perfs</groupId>
 				<artifactId>perfs-frontend-vfs</artifactId>
 				<version>${perfs.version}</version>
 			</dependency>
+			
 			<dependency>
 				<groupId>com.googlecode.perfs</groupId>
 				<artifactId>perfs-frontend-vfs</artifactId>
@@ -410,7 +416,7 @@
 		<module>perfs-api</module>
 		<module>perfs-backend-file</module>
 		<module>perfs-backend-memory</module>
-		<module>perfs-backend-openanzo</module>
+		<!--<module>perfs-backend-openanzo</module>-->
 		<module>perfs-backend-sesame</module>
 		<module>perfs-frontend-dav</module>
 		<module>perfs-frontend-rest</module>

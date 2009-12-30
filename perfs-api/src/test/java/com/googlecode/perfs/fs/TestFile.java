@@ -11,6 +11,9 @@ import org.junit.Test;
 
 public abstract class TestFile extends AbstractFileSystemTest {
 
+	private static final String ASCII = "ascii";
+	private static final String HELLO_THERE = "Hello there\n";
+
 	@Test
 	public void createFile() {
 		FileResource file = fs.makeFile();
@@ -32,9 +35,30 @@ public abstract class TestFile extends AbstractFileSystemTest {
 		root.put("file.txt", fs.makeFile());
 		FileResource file = (FileResource) root.get("file.txt");
 		OutputStream os = file.getOutputStream();
-		IOUtils.write("Hello there\n", os);
+		IOUtils.write(HELLO_THERE, os, ASCII);
 		os.close();
-		assertEquals("Hello there\n", IOUtils.toString(file.getInputStream()));
+		assertEquals(HELLO_THERE, IOUtils.toString(file.getInputStream(), ASCII));
 	}
 
+	@Test
+	public void writeLotsToFile() throws Exception {
+		root.put("bigFile.txt", fs.makeFile());
+		FileResource file = (FileResource) root.get("bigFile.txt");
+		OutputStream os = file.getOutputStream();
+		
+		
+		int maxSize = 1000;
+		StringBuffer megaString = new StringBuffer();
+		for (int i=0 ; i<maxSize  ; i++) {
+			megaString.append(HELLO_THERE);
+			IOUtils.write(HELLO_THERE, os, ASCII);
+		}
+		os.close();
+		System.out.println("Wrote " + megaString.length());
+		for (int i=0 ; i<maxSize  ; i++) {
+			assertEquals(megaString.toString(), IOUtils.toString(file.getInputStream(), ASCII));
+		}
+	}
+
+	
 }
