@@ -13,10 +13,10 @@ import org.openrdf.rio.n3.N3Writer;
 import org.openrdf.rio.rdfxml.util.OrganizedRDFXMLWriter;
 
 import com.googlecode.perfs.fs.FileSystem;
-import com.googlecode.perfs.fs.TestDirectory;
+import com.googlecode.perfs.fs.AbstractTestDirectory;
 import com.googlecode.perfs.fs.sesame.beans.Ontology;
 
-public class TestSesameDirectory extends TestDirectory {
+public class TestSesameDirectory extends AbstractTestDirectory {
 
 	@Override
 	protected FileSystem makeFileSystem() {

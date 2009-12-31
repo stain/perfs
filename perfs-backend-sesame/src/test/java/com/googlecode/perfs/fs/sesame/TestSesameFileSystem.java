@@ -9,9 +9,9 @@ import org.openrdf.rio.RDFHandlerException;
 import org.openrdf.rio.rdfxml.util.OrganizedRDFXMLWriter;
 
 import com.googlecode.perfs.fs.FileSystem;
-import com.googlecode.perfs.fs.TestFilesystem;
+import com.googlecode.perfs.fs.AbstractTestFilesystem;
 
-public class TestSesameFileSystem extends TestFilesystem {
+public class TestSesameFileSystem extends AbstractTestFilesystem {
 
 	@Override
 	protected FileSystem makeFileSystem() {

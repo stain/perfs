@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-public abstract class TestFilesystem extends AbstractFileSystemTest {
+public abstract class AbstractTestFilesystem extends AbstractFileSystemTest {
 	
 	FileSystem otherFS = makeFileSystem();
 	

@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public abstract class TestDirectory extends AbstractFileSystemTest {
+public abstract class AbstractTestDirectory extends AbstractFileSystemTest {
 
 	@Test
 	public void root() {

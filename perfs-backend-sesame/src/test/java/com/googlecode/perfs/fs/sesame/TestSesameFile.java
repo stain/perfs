@@ -2,9 +2,9 @@ package com.googlecode.perfs.fs.sesame;
 
 
 import com.googlecode.perfs.fs.FileSystem;
-import com.googlecode.perfs.fs.TestFile;
+import com.googlecode.perfs.fs.AbstractTestFile;
 
-public class TestSesameFile extends TestFile {
+public class TestSesameFile extends AbstractTestFile {
 
 	@Override
 	protected FileSystem makeFileSystem() {

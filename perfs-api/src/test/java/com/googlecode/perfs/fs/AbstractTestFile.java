@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
-public abstract class TestFile extends AbstractFileSystemTest {
+public abstract class AbstractTestFile extends AbstractFileSystemTest {
 
 	private static final String ASCII = "ascii";
 	private static final String HELLO_THERE = "Hello there\n";
