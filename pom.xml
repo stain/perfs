@@ -21,7 +21,7 @@
 			scm:svn:http://perfs.googlecode.com/svn/java/trunk/
 		</connection>
 		<developerConnection>
-			scm:svn:http://perfs.googlecode.com/svn/java/trunk/
+			scm:svn:https://perfs.googlecode.com/svn/java/trunk/
 		</developerConnection>
 		<url>http://code.google.com/p/perfs/source/browse#svn/java/trunk</url>
 	</scm>
@@ -198,67 +198,139 @@
 		</repository>
 
 
-		<!--
-			More from openanzo <repository> <id>openqa</id> <name>OpenQA
-			Repository</name> <url>http://maven.openqa.org</url>
-			<layout>default</layout> <releases> <enabled>true</enabled>
-			<updatePolicy>never</updatePolicy>
-			<checksumPolicy>warn</checksumPolicy> </releases> <snapshots>
-			<enabled>false</enabled> <updatePolicy>never</updatePolicy>
-			<checksumPolicy>fail</checksumPolicy> </snapshots> </repository>
+		<!-- More from openanzo - disabled -->
+		<!-- 
+		<repository>
+			<id>openqa</id>
+			<name>OpenQA
+				Repository</name>
+			<url>http://maven.openqa.org</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</repository>
 
-			<repository> <releases> <enabled>true</enabled>
-			<updatePolicy>never</updatePolicy>
-			<checksumPolicy>warn</checksumPolicy> </releases> <snapshots>
-			<enabled>false</enabled> <updatePolicy>never</updatePolicy>
-			<checksumPolicy>fail</checksumPolicy> </snapshots> <id>OpenRdf</id>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>OpenRdf</id>
 			<name>OpenRdf</name>
 			<url>http://repository.aduna-software.org/maven2</url>
-			<layout>default</layout> </repository> <repository> <releases>
-			<enabled>false</enabled> <updatePolicy>never</updatePolicy>
-			<checksumPolicy>warn</checksumPolicy> </releases> <snapshots>
-			<enabled>false</enabled> <updatePolicy>never</updatePolicy>
-			<checksumPolicy>fail</checksumPolicy> </snapshots>
-			<id>OpenRdfSnapshots</id> <name>OpenRdf Snapshots</name>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<releases>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>OpenRdfSnapshots</id>
+			<name>OpenRdf Snapshots</name>
 			<url>http://repository.aduna-software.org/maven2-snapshots</url>
-			<layout>default</layout> </repository> <repository> <releases>
-			<enabled>true</enabled> <updatePolicy>never</updatePolicy>
-			<checksumPolicy>warn</checksumPolicy> </releases> <snapshots>
-			<enabled>true</enabled> <updatePolicy>never</updatePolicy>
-			<checksumPolicy>fail</checksumPolicy> </snapshots>
-			<id>ApacheSnapshots</id> <name>Apache Snapshots</name>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>ApacheSnapshots</id>
+			<name>Apache Snapshots</name>
 			<url>http://people.apache.org/repo/m2-snapshot-repository/</url>
-			<layout>default</layout> </repository> <repository> <releases>
-			<enabled>true</enabled> <updatePolicy>never</updatePolicy>
-			<checksumPolicy>warn</checksumPolicy> </releases> <snapshots>
-			<enabled>true</enabled> <updatePolicy>never</updatePolicy>
-			<checksumPolicy>fail</checksumPolicy> </snapshots>
-			<id>ApacheIncubatingSnapshots</id> <name>Apache Incubating
-			Snapshots</name>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>ApacheIncubatingSnapshots</id>
+			<name>Apache Incubating
+				Snapshots</name>
 			<url>http://people.apache.org/repo/m2-incubating-repository/</url>
-			<layout>default</layout> </repository> <repository> <snapshots>
-			<enabled>false</enabled> </snapshots> <id>jetty-repository</id>
-			<url>http://repository.codehaus.org/</url> </repository> <repository>
-			<snapshots> <enabled>true</enabled> </snapshots>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>jetty-repository</id>
+			<url>http://repository.codehaus.org/</url>
+		</repository>
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 			<id>jetty-snapshot-repository</id>
-			<url>http://snapshots.repository.codehaus.org/</url> </repository>
+			<url>http://snapshots.repository.codehaus.org/</url>
+		</repository>
 
-			<repository> <releases> <enabled>true</enabled>
-			<updatePolicy>never</updatePolicy>
-			<checksumPolicy>warn</checksumPolicy> </releases> <snapshots>
-			<enabled>false</enabled> <updatePolicy>never</updatePolicy>
-			<checksumPolicy>fail</checksumPolicy> </snapshots> <id>MyGrid</id>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>MyGrid</id>
 			<name>MyGrid Repository</name>
 			<url>http://www.mygrid.org.uk/maven/repository/</url>
-			<layout>default</layout> </repository> <repository> <releases>
-			<enabled>true</enabled> <updatePolicy>never</updatePolicy>
-			<checksumPolicy>warn</checksumPolicy> </releases> <snapshots>
-			<enabled>false</enabled> <updatePolicy>never</updatePolicy>
-			<checksumPolicy>fail</checksumPolicy> </snapshots> <id>openanzo</id>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<id>openanzo</id>
 			<name>Open Anzo Repo</name>
 			<url>http://mavenrepo.openanzo.org/maven2</url>
-			<layout>default</layout> </repository>
-		-->
+			<layout>default</layout>
+		</repository>
+	-->
 
 	</repositories>
 
@@ -314,7 +386,7 @@
 				<artifactId>perfs-frontend-vfs</artifactId>
 				<version>${perfs.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>com.googlecode.perfs</groupId>
 				<artifactId>perfs-frontend-vfs</artifactId>
@@ -424,6 +496,7 @@
 		<module>perfs-ontologies</module>
 		<module>perfs-transport-jain-sip</module>
 		<module>perfs-transport-jxta</module>
+		<module>perfs-transport-azureus</module>
 	</modules>
 	<properties>
 		<perfs.version>${project.version}</perfs.version>
