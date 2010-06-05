@@ -14,7 +14,7 @@
 
 	<properties>
 		<elmo.version>1.5</elmo.version>
-		<sesame.version>2.2.4</sesame.version>
+		<sesame.version>2.3.1</sesame.version>
 	</properties>
 
 	<dependencies>
@@ -47,6 +47,12 @@
 			<groupId>org.openrdf.elmo</groupId>
 			<artifactId>elmo-api</artifactId>
 			<version>${elmo.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openrdf.sesame</groupId>
+			<artifactId>sesame-runtime</artifactId>
+			<version>${sesame.version}</version>
 		</dependency>
 
 		<dependency>
@@ -83,6 +89,15 @@
 		</dependency>
 
 	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.openrdf.sesame</groupId>
+				<artifactId>sesame</artifactId>
+				<version>${sesame.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<repositories>
 		<repository>
 			<releases>
@@ -107,4 +122,5 @@
 			<url>http://repo.aduna-software.org/maven2/snapshots</url>
 		</repository>
 	</repositories>
+
 </project>
