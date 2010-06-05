@@ -177,19 +177,6 @@
 
 		<repository>
 			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</snapshots>
-			<id>openanzo-snapshots</id>
-			<name>OpenAnzo Snapshots</name>
-			<url>
-				http://www.openanzo.org/maven-repositories/snapshot
-			</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
 			<id>aduna-repo</id>
