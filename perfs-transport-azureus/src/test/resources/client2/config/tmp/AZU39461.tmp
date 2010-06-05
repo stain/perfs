@@ -1,0 +1,14 @@
+[17:48:17] Waiting for Distributed Database initialisation
+[17:48:49] DDB Available
+[17:48:49] Monitoring 'perfs-rendezvous': decentralised
+[17:49:04] Registering download 'perfs-rendezvous' as Downloading
+[17:49:04] Registration of 'perfs-rendezvous' completed (elapsed=18)
+[17:49:04] Get of 'perfs-rendezvous' completed (elapsed=25), addresses=0, seeds=0, leechers=0
+[17:51:04] Get of 'perfs-rendezvous' completed (elapsed=2), addresses=0, seeds=0, leechers=0
+[17:51:22] Not monitoring 'perfs-rendezvous': not running
+[17:51:34] Unregistering download 'perfs-rendezvous'
+[17:51:34] Unregistration of 'perfs-rendezvous'  completed (elapsed=6)
+[17:51:51] Monitoring 'perfs-rendezvous': decentralised
+[17:52:04] Registering download 'perfs-rendezvous' as Seeding
+[17:52:04] Registration of 'perfs-rendezvous' completed (elapsed=5)
+[17:52:04] Get of 'perfs-rendezvous' completed (elapsed=0), addresses=0, seeds=0, leechers=0

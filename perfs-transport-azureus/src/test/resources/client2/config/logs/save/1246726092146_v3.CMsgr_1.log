@@ -1,0 +1,27 @@
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 16:47:19] [fakeContext] Reseting sequence number
+[0407 16:47:24] [welcome] SUCCESS: browser.execute( clientSetLoadTime(314); )
+[0407 16:47:24] [welcome] 1 javascripts queued.  Executing now..
+[0407 16:47:24] [welcome] SUCCESS: browser.execute( az.msg.dispatch('browser', 'shown') )
+[0407 16:47:27] [fakeContext] Reseting sequence number
+[0407 16:47:31] [fakeContext] Reseting sequence number
+[0407 16:47:31] [fakeContext] Reseting sequence number
+[0407 16:47:31] [fakeContext] Reseting sequence number
+[0407 16:47:31] [fakeContext] Reseting sequence number
+[0407 16:47:32] [fakeContext] Reseting sequence number
+[0407 17:34:20] [welcome] SUCCESS: browser.execute( az.msg.dispatch('browser', 'hidden') )
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:41:53] [fakeContext] Reseting sequence number
+[0407 17:41:57] [browse] SUCCESS: browser.execute( clientSetLoadTime(313); )
+[0407 17:41:57] [browse] 1 javascripts queued.  Executing now..
+[0407 17:41:57] [browse] SUCCESS: browser.execute( az.msg.dispatch('browser', 'shown') )
+[0407 17:41:57] [browse] Received [1] dispatcher.reset-sequence(null)
+[0407 17:41:57] [browse]    browser url: http://www.vuze.com:80/browse.start?azid=MJHBJQOGHWYH7NJ5O4JR42ACE6CHF3CF&azv=4.2.0.2&locale=en
+[0407 17:41:57] [browse] Reseting sequence number
+[0407 17:41:58] [browse] Received [2] status.login-status({"registration-open":true})
+[0407 17:41:58] [browse]    browser url: http://www.vuze.com:80/browse.start?azid=MJHBJQOGHWYH7NJ5O4JR42ACE6CHF3CF&azv=4.2.0.2&locale=en
+[0407 17:42:00] [browse] SUCCESS: browser.execute( az.msg.dispatch('browser', 'hidden') )
+[0407 17:42:01] [fakeContext] Reseting sequence number
+[0407 17:42:04] [fakeContext] Reseting sequence number

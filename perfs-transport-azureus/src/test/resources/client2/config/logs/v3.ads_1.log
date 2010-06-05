@@ -1,0 +1,137 @@
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 16:47:37] DCAdManager: enter - downloadManagerAddedHook
+[0407 16:47:37] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 16:47:37] DCAdManager: azupdater_1.8.8.zip reasons: 
+[0407 16:47:38] DCAdManager: enter - downloadManagerAddedHook
+[0407 16:47:38] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 16:47:38] DCAdManager: azemp-osx_2.1.03.zip reasons: 
+[0407 16:47:44] DCAdManager: enter - downloadManagerAddedHook
+[0407 16:47:44] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 16:47:44] DCAdManager: azupnpav_0.2.17.zip reasons: 
+[0407 16:49:19] DCAdManager: determineASXFileLocation
+[0407 16:49:19] DCAdManager: determineASXFileLocation
+[0407 16:49:19] DCAdManager: determineASXFileLocation
+[0407 17:26:45] DCAdManager: azpdFileExpireThread: exit. Nothing to check.
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:51:22] DCAdManager: determineASXFileLocation
+[0407 17:51:50] DCAdManager: enter - downloadManagerAddedHook
+[0407 17:51:50] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 17:51:50] DCAdManager: perfs-rendezvous reasons: 
+[0407 17:53:18] DCAdManager: azpdFileExpireThread: starting.
+[0407 17:53:18] DCAdManager: azpdFileExpireThread: finished.
+[0407 18:01:51] DCAdManager: enter - downloadManagerAddedHook
+[0407 18:01:51] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 18:01:51] DCAdManager: Azureus4.2.0.2.jar reasons: 
+[0407 18:02:49] DCAdManager: enter - downloadManagerAddedHook
+[0407 18:02:49] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 18:02:49] DCAdManager: channel reasons: 
+[0407 18:21:36] DCAdManager: determineASXFileLocation
+[0407 18:23:02] DCAdManager: enter - downloadManagerAddedHook
+[0407 18:23:02] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 18:23:02] DCAdManager: Azureus4.2.0.0.jar reasons: 
+[0407 18:24:28] DCAdManager: determineASXFileLocation
+[0407 20:41:41] DCAdManager: determineASXFileLocation
+[0407 22:55:43] DCAdManager: enter - downloadManagerAddedHook
+[0407 22:55:43] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 22:55:43] DCAdManager: slowly_provenance.t2flow reasons: 
+[0407 23:03:21] DCAdManager: determineASXFileLocation
+[0407 23:03:21] DCAdManager: enter - downloadManagerAddedHook
+[0407 23:03:21] DCAdManager: sending ad request for 1 pieces of content.  We already have 0 ads
+[0407 23:03:21] enter - PlatformDCDdManager.getAdvert
+[0407 23:03:21] DCAdManager: There are 0 ads. including incomplete.
+[0407 23:03:21] temp data=_{"ad_hash":[],"playlist":"<ASX version=\"3.0\">\n<ENTRY ClientSkip=\"yes\">\n<TITLE>Default<\/TITLE>\n<PARAM NAME=\"Prebuffer\" VALUE=\"true\"\/>\n<REF HREF=\"<##-CONTENT-PATH-##>\"\/>\n<\/ENTRY>\n<\/ASX>"}_  to azpd file=/Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client2/config/media/azpd/WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN.azpd
+[0407 23:03:21] leave - PlatformDCDdManager.getAdvert
+[0407 23:03:21] DCAdManager: exit - downloadManagerAddedHook
+[0407 23:03:21] getAdvert - replyReceived
+[0407 23:03:21] ------ PlatformDCAdManager.getAdvert()  PlatformMessageListener.reply()  ------
+[0407 23:03:21] response
+[0407 23:03:21] PlaformMessage {cn1, 0, AZMSG, asxads, get-advert, {"ads":[],"hashes":["WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN"]}}
+[0407 23:03:21] web_ord: 129385935
+[0407 23:03:21] web_ad_id: 215167128
+[0407 23:03:21] playlist: <ASX version="3.0"><ENTRY ClientSkip="no">
+<TITLE>Vuze</TITLE>
+<AUTHOR>Vuze</AUTHOR>
+<COPYRIGHT>(c)2008 Vuze</COPYRIGHT>
+<PARAM NAME="Prebuffer" VALUE="true"/>
+<PARAM NAME="ShowWhileBuffering" VALUE="false"/>
+<REF HREF="<##-AD-PATH-##>"/>
+</ENTRY>
+<ENTRY ClientSkip="no">
+<TITLE>Vuze</TITLE>
+<AUTHOR>Vuze</AUTHOR>
+<COPYRIGHT>(c)2008 Vuze</COPYRIGHT>
+<PARAM NAME="Prebuffer" VALUE="false"/>
+<PARAM NAME="ShowWhileBuffering" VALUE="false"/>
+<DURATION VALUE="00:00:00.00"/>
+<REF HREF="http://www.vuze.com/imp;v7;x;215167128;0-0;4;29089759;1000/1000;31571631/31589507/1;;~okv=;dcmt=text/xml;vord=129385935;veg=1;vzone=p_20849235;uid=39219445;reso=hd;chan=688;cat=194;cat=195;uage=m;hash=WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN;azv=gt41;u=39219445,124494,93.97.30.189;dur=adhd;inaz=true;cca2=gb;pcat=194;cage=n;slot=t_pre;cont=124494;publ=20849235;sz=1000x1000;~cs=i%3frand=0.9273517867543682"/>
+</ENTRY>
+<ENTRY ClientSkip="yes">
+<TITLE>Content</TITLE>
+<PARAM NAME="Prebuffer" VALUE="true"/>
+<PARAM NAME="ShowWhileBuffering" VALUE="false"/>
+<REF HREF="<##-CONTENT-PATH-##>"/>
+</ENTRY>
+</ASX>
+[0407 23:03:21] -------------------------------------------------------------------------------
+[0407 23:03:21] data=_{"playlist":"<ASX version=\"3.0\"><ENTRY ClientSkip=\"no\">\n<TITLE>Vuze<\/TITLE>\n<AUTHOR>Vuze<\/AUTHOR>\n<COPYRIGHT>(c)2008 Vuze<\/COPYRIGHT>\n<PARAM NAME=\"Prebuffer\" VALUE=\"true\"\/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"\/>\n<REF HREF=\"<##-AD-PATH-##>\"\/>\n<\/ENTRY>\n<ENTRY ClientSkip=\"no\">\n<TITLE>Vuze<\/TITLE>\n<AUTHOR>Vuze<\/AUTHOR>\n<COPYRIGHT>(c)2008 Vuze<\/COPYRIGHT>\n<PARAM NAME=\"Prebuffer\" VALUE=\"false\"\/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"\/>\n<DURATION VALUE=\"00:00:00.00\"\/>\n<REF HREF=\"http:\/\/www.vuze.com\/imp;v7;x;215167128;0-0;4;29089759;1000\/1000;31571631\/31589507\/1;;~okv=;dcmt=text\/xml;vord=129385935;veg=1;vzone=p_20849235;uid=39219445;reso=hd;chan=688;cat=194;cat=195;uage=m;hash=WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN;azv=gt41;u=39219445,124494,93.97.30.189;dur=adhd;inaz=true;cca2=gb;pcat=194;cage=n;slot=t_pre;cont=124494;publ=20849235;sz=1000x1000;~cs=i%3frand=0.9273517867543682\"\/>\n<\/ENTRY>\n<ENTRY ClientSkip=\"yes\">\n<TITLE>Content<\/TITLE>\n<PARAM NAME=\"Prebuffer\" VALUE=\"true\"\/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"\/>\n<REF HREF=\"<##-CONTENT-PATH-##>\"\/>\n<\/ENTRY>\n<\/ASX>","web_ord":"129385935","az-expire-time":"1247349801351","web_nti":"","az-create-time":"1246745001351","ad_hash":["VNWDWWERKCNIKOAFV4ZFV5QF4OXBBJDX"],"web_ad_id":"215167128"}_  to azpd file=/Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client2/config/media/azpd/WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN.azpd
+[0407 23:03:21] DCAdManager: enter - adsReceived has #1 torrents
+[0407 23:03:21] DCAdManager: Ad: BCL-PALU024-030_Vuze.mkv
+[0407 23:03:21] DCAdManager:   Writing to /tmp/AZ_39469.torrent
+[0407 23:03:21] DCAdManager: Force Start DownloadManagerImpl#3d@efa2ca60/Waiting/AB6C3B5891509A853805AF325AF605E3AE10A477
+[0407 23:03:21] DCAdManager: enter - downloadManagerAddedHook
+[0407 23:03:21] DCAdManager: found ad DownloadManagerImpl#3d@efa2ca60/Waiting/AB6C3B5891509A853805AF325AF605E3AE10A477: AB6C3B5891509A853805AF325AF605E3AE10A477: VNWDWWERKCNIKOAFV4ZFV5QF4OXBBJDX
+[0407 23:03:21] DCAdManager:   ADDED ad Media for Ad Supported Content
+[0407 23:03:21] DCAdManager: exit - adsReceived
+[0407 23:03:21] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 23:03:21] DCAdManager: BCL-PALU024-030_Vuze.mkv reasons: 
+[0407 23:03:26] DCAdManager: enter - downloadManagerAddedHook
+[0407 23:03:26] DCAdManager: sending ad request for 1 pieces of content.  We already have 1 ads
+[0407 23:03:26] enter - PlatformDCDdManager.getAdvert
+[0407 23:03:26] DCAdManager: There are 1 ads. including incomplete.
+[0407 23:03:26] leave - PlatformDCDdManager.getAdvert
+[0407 23:03:26] DCAdManager: exit - downloadManagerAddedHook
+[0407 23:03:26] getAdvert - replyReceived
+[0407 23:03:26] ------ PlatformDCAdManager.getAdvert()  PlatformMessageListener.reply()  ------
+[0407 23:03:26] response
+[0407 23:03:26] PlaformMessage {cn1, 0, AZMSG, asxads, get-advert, {"ads":[{"hash":"VNWDWWERKCNIKOAFV4ZFV5QF4OXBBJDX"}],"hashes":["WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN"]}}
+[0407 23:03:26] web_ord: 485537487
+[0407 23:03:26] web_ad_id: 215167128
+[0407 23:03:26] playlist: <ASX version="3.0"><ENTRY ClientSkip="no">
+<TITLE>Vuze</TITLE>
+<AUTHOR>Vuze</AUTHOR>
+<COPYRIGHT>(c)2008 Vuze</COPYRIGHT>
+<PARAM NAME="Prebuffer" VALUE="true"/>
+<PARAM NAME="ShowWhileBuffering" VALUE="false"/>
+<REF HREF="<##-AD-PATH-##>"/>
+</ENTRY>
+<ENTRY ClientSkip="no">
+<TITLE>Vuze</TITLE>
+<AUTHOR>Vuze</AUTHOR>
+<COPYRIGHT>(c)2008 Vuze</COPYRIGHT>
+<PARAM NAME="Prebuffer" VALUE="false"/>
+<PARAM NAME="ShowWhileBuffering" VALUE="false"/>
+<DURATION VALUE="00:00:00.00"/>
+<REF HREF="http://www.vuze.com/imp;v7;x;215167128;0-0;4;29089759;1000/1000;31571631/31589507/1;;~okv=;dcmt=text/xml;vord=485537487;veg=1;vzone=p_20849235;uid=39219445;reso=hd;chan=688;cat=194;cat=195;uage=m;hash=WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN;azv=gt41;u=39219445,124494,93.97.30.189;dur=adhd;inaz=true;cca2=gb;pcat=194;cage=n;slot=t_pre;cont=124494;publ=20849235;sz=1000x1000;~cs=i%3frand=0.24796893515281193"/>
+</ENTRY>
+<ENTRY ClientSkip="yes">
+<TITLE>Content</TITLE>
+<PARAM NAME="Prebuffer" VALUE="true"/>
+<PARAM NAME="ShowWhileBuffering" VALUE="false"/>
+<REF HREF="<##-CONTENT-PATH-##>"/>
+</ENTRY>
+</ASX>
+[0407 23:03:26] -------------------------------------------------------------------------------
+[0407 23:03:26] data=_{"playlist":"<ASX version=\"3.0\"><ENTRY ClientSkip=\"no\">\n<TITLE>Vuze<\/TITLE>\n<AUTHOR>Vuze<\/AUTHOR>\n<COPYRIGHT>(c)2008 Vuze<\/COPYRIGHT>\n<PARAM NAME=\"Prebuffer\" VALUE=\"true\"\/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"\/>\n<REF HREF=\"<##-AD-PATH-##>\"\/>\n<\/ENTRY>\n<ENTRY ClientSkip=\"no\">\n<TITLE>Vuze<\/TITLE>\n<AUTHOR>Vuze<\/AUTHOR>\n<COPYRIGHT>(c)2008 Vuze<\/COPYRIGHT>\n<PARAM NAME=\"Prebuffer\" VALUE=\"false\"\/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"\/>\n<DURATION VALUE=\"00:00:00.00\"\/>\n<REF HREF=\"http:\/\/www.vuze.com\/imp;v7;x;215167128;0-0;4;29089759;1000\/1000;31571631\/31589507\/1;;~okv=;dcmt=text\/xml;vord=485537487;veg=1;vzone=p_20849235;uid=39219445;reso=hd;chan=688;cat=194;cat=195;uage=m;hash=WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN;azv=gt41;u=39219445,124494,93.97.30.189;dur=adhd;inaz=true;cca2=gb;pcat=194;cage=n;slot=t_pre;cont=124494;publ=20849235;sz=1000x1000;~cs=i%3frand=0.24796893515281193\"\/>\n<\/ENTRY>\n<ENTRY ClientSkip=\"yes\">\n<TITLE>Content<\/TITLE>\n<PARAM NAME=\"Prebuffer\" VALUE=\"true\"\/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"\/>\n<REF HREF=\"<##-CONTENT-PATH-##>\"\/>\n<\/ENTRY>\n<\/ASX>","web_ord":"485537487","az-expire-time":"1247349806726","web_nti":"","az-create-time":"1246745006726","ad_hash":["VNWDWWERKCNIKOAFV4ZFV5QF4OXBBJDX"],"web_ad_id":"215167128"}_  to azpd file=/Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client2/config/media/azpd/WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN.azpd
+[0407 23:03:26] DCAdManager: enter - adsReceived has #0 torrents
+[0407 23:03:26] DCAdManager: exit - adsReceived
+[0407 23:05:28] DCAdManager: calling createASX from ...Hook, in torrent has AD block content=Ice Age: Dawn of the Dinosaurs - Trailer 2 (HD)
+[0407 23:05:28] DCAdManager: enter - createASX
+[0407 23:05:28] DCAdManager: determineASXFileLocation
+[0407 23:05:28] DCAdManager: replaceASXParams
+[0407 23:05:28] DCAdManager:   contentPath: file:/Users/stain/Documents/Azureus Downloads/Ice_Age__Dawn_of_the_Dinosaurs_-_Trailer_2_(HD[FOX00000021].mkv
+[0407 23:05:28] DCAdManager: getAdMediaFromContentDownloadManager
+[0407 23:05:28] DCAdManager:   adPath: /Users/stain/Documents/Azureus Downloads/BCL-PALU024-030_Vuze.mkv
+[0407 23:05:28] DCAdManager: determineASXFileLocation
+[0407 23:05:28] DCAdManager: playing Ice Age: Dawn of the Dinosaurs - Trailer 2 (HD) using existing asx: /Users/stain/Documents/Azureus Downloads/Ice_Age__Dawn_of_the_Dinosaurs_-_Trailer_2_(HD[FOX00000021].mkv.asx

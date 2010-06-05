@@ -1,0 +1,91 @@
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 16:47:51] DDB transfer type registered
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:42:24] DDB transfer type registered
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:48:49] DDB transfer type registered
+[0407 17:54:13] Test starting
+
+[0407 17:54:13] Default public address is 93.97.30.189
+
+[0407 17:54:13] Testing routing for the following interfaces:
+
+[0407 17:54:13]     en3/en3: 10.211.55.2
+
+[0407 17:54:13]     en1/en1: 192.168.1.64
+
+[0407 17:54:13]     en2/en2: 10.37.129.2
+
+[0407 17:54:13] Can't run ping test as not supported
+
+[0407 17:54:13] Can't run trace route test as not supported
+
+[0407 17:54:13] 0 NAT devices found
+
+[0407 17:54:13] No SOCKS proxy found
+
+[0407 17:54:13] No HTTP proxy found
+
+[0407 17:54:13] No explicit bind address set
+
+[0407 17:54:13] Testing HTTP outbound
+
+[0407 17:54:14]     Test successful
+
+[0407 17:54:14] Testing TCP outbound
+
+[0407 17:54:14]     Test successful
+
+[0407 17:54:14] Testing UDP outbound
+
+[0407 17:54:29]     Test failed: Outbound test failed
+
+[0407 17:54:29] Testing TCP port 40444 inbound
+
+[0407 17:54:52]     Test failed: NAT test failed: Connect attempt to 93.97.30.189:40444 (your computer) timed out after 20 seconds. This means your port is probably closed
+
+[0407 17:54:52]     Check your port forwarding for TCP 40444
+
+[0407 17:54:52] Testing UDP port 40444 inbound
+
+[0407 17:54:52]     Sending outbound packet and waiting for reply probe (timeout=5000)
+
+[0407 17:54:59]     Sending outbound packet and waiting for reply probe (timeout=10000)
+
+[0407 17:55:09]     Sending outbound packet and waiting for reply probe (timeout=15000)
+
+[0407 17:55:25]     Sending completion event
+
+[0407 17:55:25]     Test failed: Inbound test failed
+
+[0407 17:55:25]     Check your port forwarding for UDP 40444
+
+[0407 17:55:25] 1 public/external addresses found
+
+[0407 17:55:25]     93.97.30.189
+
+[0407 17:55:40]     failed to lookup AS: DNS query failed
+
+[0407 17:55:40] Distributed protocol test
+
+[0407 17:55:40]   Incoming routing established for FD887FA769DC44957284AA69BE88E1567945FB73
+
+[0407 17:55:40] Incoming routing established for FD887FA769DC44957284AA69BE88E1567945FB73
+[0407 17:55:40]   Searching 0 contacts for 0 test targets
+
+[0407 17:55:40]   Searching complete, 0 targets found
+
+[0407 17:55:40]   Results
+
+[0407 17:55:40]       insufficient outbound connects for analysis
+
+[0407 17:55:40]   Incoming routing destroyed for FD887FA769DC44957284AA69BE88E1567945FB73
+
+[0407 17:55:40] Incoming routing destroyed for FD887FA769DC44957284AA69BE88E1567945FB73
+[0407 17:55:40] Test complete
+
+[0407 17:55:50]   Destroying tester
+

@@ -1,0 +1,34 @@
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 16:47:06] [fakeContext] Reseting sequence number
+[0407 16:47:10] [welcome] SUCCESS: browser.execute( clientSetLoadTime(452); )
+[0407 16:47:10] [welcome] 1 javascripts queued.  Executing now..
+[0407 16:47:10] [welcome] SUCCESS: browser.execute( az.msg.dispatch('browser', 'shown') )
+[0407 16:47:14] [fakeContext] Reseting sequence number
+[0407 16:47:17] [fakeContext] Reseting sequence number
+[0407 16:47:17] [fakeContext] Reseting sequence number
+[0407 16:47:17] [fakeContext] Reseting sequence number
+[0407 16:47:18] [fakeContext] Reseting sequence number
+[0407 16:47:18] [fakeContext] Reseting sequence number
+[0407 17:29:54] [welcome] SUCCESS: browser.execute( az.msg.dispatch('browser', 'hidden') )
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:40:36] [fakeContext] Reseting sequence number
+[0407 17:40:40] [browse] SUCCESS: browser.execute( clientSetLoadTime(311); )
+[0407 17:40:40] [browse] 1 javascripts queued.  Executing now..
+[0407 17:40:40] [browse] SUCCESS: browser.execute( az.msg.dispatch('browser', 'shown') )
+[0407 17:40:41] [browse] Received [1] dispatcher.reset-sequence(null)
+[0407 17:40:41] [browse]    browser url: http://www.vuze.com:80/browse.start?azid=ZXILFL2E56K6I5KFIFYBIUY3TPFTMFE4&azv=4.2.0.2&locale=en
+[0407 17:40:41] [browse] Reseting sequence number
+[0407 17:40:42] [browse] Received [2] status.login-status({"registration-open":true})
+[0407 17:40:42] [browse]    browser url: http://www.vuze.com:80/browse.start?azid=ZXILFL2E56K6I5KFIFYBIUY3TPFTMFE4&azv=4.2.0.2&locale=en
+[0407 17:40:42] [browse] Received [1] dispatcher.reset-sequence(null)
+[0407 17:40:42] [browse]    browser url: http://www.vuze.com:80/browse.start?azid=ZXILFL2E56K6I5KFIFYBIUY3TPFTMFE4&azv=4.2.0.2&locale=en
+[0407 17:40:42] [browse] Reseting sequence number
+[0407 17:40:44] [fakeContext] Reseting sequence number
+[0407 17:40:44] [browse] SUCCESS: browser.execute( az.msg.dispatch('browser', 'hidden') )
+[0407 17:40:48] [fakeContext] Reseting sequence number
+[0407 17:40:48] [welcome] SUCCESS: browser.execute( clientSetLoadTime(227); )
+[0407 17:40:48] [welcome] 1 javascripts queued.  Executing now..
+[0407 17:40:48] [welcome] SUCCESS: browser.execute( az.msg.dispatch('browser', 'shown') )
+[0407 17:40:49] [welcome] SUCCESS: browser.execute( az.msg.dispatch('browser', 'hidden') )

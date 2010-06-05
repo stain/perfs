@@ -1,0 +1,22 @@
+[18:23:02] Azureus4.2.0.0.jar found seed WS: http://81.19.23.5:80/webseed
+[18:23:02] Azureus4.2.0.0.jar found seed WS: http://81.19.23.6:80/webseed
+[18:23:02] Azureus4.2.0.0.jar found seed WS: http://81.19.23.14:80/webseed
+[18:23:02] Azureus4.2.0.0.jar found seed WS: http://209.34.91.41:80/webseed
+[18:23:02] Azureus4.2.0.0.jar found seed WS: http://81.19.23.37:80/webseed
+[18:23:02] Azureus4.2.0.0.jar found seed WS: http://209.34.91.49:80/webseed
+[18:23:02] Azureus4.2.0.0.jar found seed WS: http://209.34.91.45:80/webseed
+[18:23:02] Azureus4.2.0.0.jar found seed WS: http://81.19.23.42:80/webseed
+[18:23:02] Azureus4.2.0.0.jar found seed WS: http://81.19.23.43:80/webseed
+[23:03:21] Ice Age: Dawn of the Dinosaurs - Trailer 2 (HD) found seed WS: http://209.34.91.45:80/webseed
+[23:03:21] Ice Age: Dawn of the Dinosaurs - Trailer 2 (HD) found seed WS: http://209.34.91.43:80/webseed
+[23:03:21] Ice Age: Dawn of the Dinosaurs - Trailer 2 (HD) found seed WS: http://209.34.91.44:80/webseed
+[23:03:21] Ice Age: Dawn of the Dinosaurs - Trailer 2 (HD) found seed WS: http://84.78.250.30:80/webseed
+[23:03:21] Media for Ad Supported Content found seed WS: http://209.34.91.46:80/webseed
+[23:03:21] Media for Ad Supported Content found seed WS: http://209.34.91.42:80/webseed
+[23:03:21] Media for Ad Supported Content found seed WS: http://81.19.23.6:80/webseed
+[23:03:56] WS: http://84.78.250.30:80/webseed: activating as transient seed and nothing blocking it
+[23:05:11] WS: http://84.78.250.30:80/webseed failed - Failed: Connection failed: Operation timed out, permanent = true
+[23:05:11] WS: http://84.78.250.30:80/webseed: deactivating (remove peer)
+[23:05:11] Ice Age: Dawn of the Dinosaurs - Trailer 2 (HD) removed seed WS: http://84.78.250.30:80/webseed
+[23:05:26] Ice Age: Dawn of the Dinosaurs - Trailer 2 (HD) found seed WS: http://81.19.23.37:80/webseed
+[23:05:26] Ice Age: Dawn of the Dinosaurs - Trailer 2 (HD) found seed WS: http://81.19.23.42:80/webseed

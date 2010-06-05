@@ -1,0 +1,177 @@
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 16:47:05] set Authorized Sender
+[0407 16:47:05] push AUTH: AZMSG.config.login: PlaformMessage {cn1, -1, AZMSG, config, login, {"version":"4.2.0.2","vid":"UmoJbeJq6WYoDAfpyGI6","locale":"en","source-ref":"unknown","azCID":""}}
+[0407 16:47:05] q msg.1(1) AZMSG.cnetworks.list-networks: PlaformMessage {cn1, -1, AZMSG, cnetworks, list-networks, {"azver":"4.2.0.2"}} @ Sat Jul 04 16:47:16 BST 2009; in 11085ms
+[0407 16:47:05]  next q process for  msg.1 in 11085
+[0407 16:47:05] Open Auth URL: https://www.vuze.com:443/rpc in text/html
+https://www.vuze.com:443/rpc?service=rpc&cmd=AZMSG%3B0%3Bconfig%3Blogin%3B%7B%22version%22%3A%224.2.0.2%22%2C%22vid%22%3A%22UmoJbeJq6WYoDAfpyGI6%22%2C%22locale%22%3A%22en%22%2C%22source-ref%22%3A%22unknown%22%2C%22azCID%22%3A%22%22%7D&azid=ZXILFL2E56K6I5KFIFYBIUY3TPFTMFE4&azv=4.2.0.2&locale=en&responseType=text/html
+[0407 16:47:06] Got a 286 byte reply for AUTH: AZMSG.config.login
+		0;response;{"url-whitelist":["https?://([^.]+.?)?(vuze|azureusplatform|az3p|studiohd).com:?[0-9]*/.*","https?://192.168.0.*:?[0-9]*/.*","https?://localhost:?[0-9]*/.*","http://www.adobe.com/.*","http://ad.*doubleclick.net/.*"],"send-stats":false,"buddy-sync-on-share-min-time-secs":600}
+[0407 16:47:06] add whitelist of http://www.vuze.com:80/.*
+[0407 16:47:06] add whitelist of https://www.vuze.com:443/rpc.*
+[0407 16:47:06] add whitelist of http://www.vuze.com:80/msgrelay/rpc.*
+[0407 16:47:06] add whitelist of http://www.vuze.com:80/rpc/.*
+[0407 16:47:06] add whitelist of https?://([^.]+.?)?(vuze|azureusplatform|az3p|studiohd).com:?[0-9]*/.*
+[0407 16:47:06] add whitelist of https?://192.168.0.*:?[0-9]*/.*
+[0407 16:47:06] add whitelist of https?://localhost:?[0-9]*/.*
+[0407 16:47:06] add whitelist of http://www.adobe.com/.*
+[0407 16:47:06] add whitelist of http://ad.*doubleclick.net/.*
+[0407 16:47:06] setDelayAuthorized true
+[0407 16:47:08] q msg.1(2) AZMSG.vuzenews.get-entries: PlaformMessage {cn1, -1, AZMSG, vuzenews, get-entries, {"ago-ms":2592000000}} @ Sat Jul 04 16:47:13 BST 2009; in 5000ms
+[0407 16:47:08]  next q process for  msg.1 in 4988
+[0407 16:47:13] POST for 2: http://www.vuze.com:80/rpc/multi
+[0407 16:47:14] Got a 166 byte reply for AZMSG.cnetworks.list-networks
+		0;response;{"networks":[{"baseUrl":"http://www.studiohd.com/","id":2,"name":"StudioHD Network","iconUrl":"http://cache2.studiohd.com/icon/shd_icon.png","version":1}]}
+[0407 16:47:14] add whitelist of http://www.studiohd.com/.*
+[0407 16:47:14] add whitelist of http://www.studiohd.com/rpc/.*
+[0407 16:47:14] Got a 499 byte reply for AZMSG.vuzenews.get-entries
+		1;response;{"refresh-in-ms":86400000,"entries":[{"id":"1-1246583985180","text":"New Feature: <a href=\"http://www.vuze.com/app?news=59&redirect=http%3A%2F%2Fwww.vuze.com%2Ftoolbarwelcome&service=newsFeedClickTracking&user=ZXILFL2E56K6I5KFIFYBIUY3TPFTMFE4\" target=\"_blank\">Search for torrents, right from your browser<\/a>","age-ms":130823009,"icon-id":"frog","type-id":"VUZE_NEWS_ITEM","icon-url":"http://cache1.vuze.com/cdnassets/4/13748c3bf2f322e6e8b72204f63891fc/img/newsfeed/news_item.png"}]}
+[0407 16:47:17] q msg.1(1) AZMSG.searchtemplate.list-featured: PlaformMessage {cn1, -1, AZMSG, searchtemplate, list-featured, {"page-num":1,"items-per-page":512}} @ Sat Jul 04 16:47:17 BST 2009; in -1ms
+[0407 16:47:17]  next q process for  msg.1 in -13
+[0407 16:47:17] POST for 1: http://www.vuze.com:80/rpc/AZMSG-searchtemplate
+[0407 16:47:17] Got a 75 byte reply for AZMSG.searchtemplate.list-featured
+		0;response;{"templates":[{"id":3,"show":true,"modified_dt":1213952652000}]}
+[0407 16:47:17] q msg.1(1) AZMSG.searchtemplate.list-popular: PlaformMessage {cn1, -1, AZMSG, searchtemplate, list-popular, {}} @ Sat Jul 04 16:47:17 BST 2009; in -1ms
+[0407 16:47:17]  next q process for  msg.1 in -5
+[0407 16:47:17] POST for 1: http://www.vuze.com:80/rpc/AZMSG-searchtemplate
+[0407 16:47:17] Got a 193 byte reply for AZMSG.searchtemplate.list-popular
+		0;response;{"templates":[{"id":5,"modified_dt":1224888664000,"popularity":0.08903150881192619},{"id":4,"modified_dt":1226384959000,"popularity":0.08561134862550825}],"totalNumberOfTemplates":6}
+[0407 16:47:17] q msg.1(1) AZMSG.searchtemplate.get-template: PlaformMessage {cn1, -1, AZMSG, searchtemplate, get-template, {"templateId":3}} @ Sat Jul 04 16:47:17 BST 2009; in 0ms
+[0407 16:47:17]  next q process for  msg.1 in 0
+[0407 16:47:17] POST for 1: http://www.vuze.com:80/rpc/AZMSG-searchtemplate
+[0407 16:47:17] Got a 1620 byte reply for AZMSG.searchtemplate.get-template
+		0;response;{"id":3,"description":"Vuze Search","name":"Vuze","engine_id":"json","icon_url":"http://www.vuze.com/favicon.ico","value":"{\"name\": \"Vuze%20Search\", \"searchURL\": \"http%3A%2F%2Fwww.vuze.com%2Fxsearch%2Frpc%3Fq%3D%25s%26n%3D50%26mature%3D%25m%26format%3Djson2\", \"download_link\": \"%23bigDownloadButton%20a!!0\", \"timezone\": \"GMT-11\", \"time_format\": \"yyyy/MM/dd hh:mm:ss\", \"json_result_key\": \"response.contents\", \"column_map\": [{\"field_name\": \"drmKey\", \"vuze_field\": \"DRMKEY\"}, {\"field_name\": \"votes\", \"vuze_field\": \"VOTES\"}, {\"field_name\": \"superseeds\", \"vuze_field\": \"XSEEDS\"}, {\"field_name\": \"detailsUrl\", \"vuze_field\": \"CDP\"}, {\"field_name\": \"type\", \"vuze_field\": \"CAT\"}, {\"field_name\": \"date\", \"vuze_field\": \"DATE\"}, {\"field_name\": \"size\", \"vuze_field\": \"SIZE\"}, {\"field_name\": \"playUrl\", \"vuze_field\": \"PLAY\"}, {\"field_name\": \"name\", \"vuze_field\": \"TITLE\"}, {\"field_name\": \"peers\", \"vuze_field\": \"PEERS\"}, {\"field_name\": \"seeds\", \"vuze_field\": \"SEEDS\"}, {\"field_name\": \"comments\", \"vuze_field\": \"COMMENTS\"}, {\"field_name\": \"torrentUrl\", \"vuze_field\": \"TORRENT\"}], \"value_map\": {\"CAT\": [{\"from_string\": \"Game\", \"to_string\": \"Games\"}, {\"from_string\": \"Audio\", \"to_string\": \"Music\"}]}, \"ctype_map\": {\"CAT\": [{\"cat_string\": \"Video\", \"media_type\": \"video\"}, {\"cat_string\": \"Music\", \"media_type\": \"audio\"}, {\"cat_string\": \"Games\", \"media_type\": \"game\"}]}, \"regexp\": \"\"}","show":true,"modified_dt":1213952652000,"show_icon_url":true}
+[0407 16:47:17] q msg.1(1) AZMSG.searchtemplate.get-template: PlaformMessage {cn1, -1, AZMSG, searchtemplate, get-template, {"templateId":4}} @ Sat Jul 04 16:47:17 BST 2009; in -2ms
+[0407 16:47:17]  next q process for  msg.1 in -6
+[0407 16:47:17] POST for 1: http://www.vuze.com:80/rpc/AZMSG-searchtemplate
+[0407 16:47:18] Got a 3419 byte reply for AZMSG.searchtemplate.get-template
+		0;response;{"id":4,"description":"Btjunkie Search","name":"Btjunkie","engine_id":"regexp","icon_url":"http://www.btjunkie.com/favicon.ico","value":"{\r\n\t\"name\": \"BtJunkie\",\r\n\t\"searchURL\": \"http%3A%2F%2Fbtjunkie.org%2Fsearch%3Fq%3D%25s\",\r\n\t\"download_link\": \"%23header%20a%20font%21%210\",\r\n\t\"timezone\": \"UTC\",\r\n\t\"regexp\": \"(%3Fs)(%3F%3A%3Ca%20href%3D%22(http%3A%2F%2Fdl.btjunkie.org%2Ftorrent%2F%5B%5E%22%5D*)%22.*%3F)%3F%3Cimg%20src%3D%22%2Fimages%2F((locked.gif)%7C(down.gif)).*%3F%3Ca%20href%3D%22(%2Ftorrent%2F%5B%5E%22%5D%2B)%22%20class%3D%22BlckUnd%22%3E(.*%3F)%3C%2Fa%3E.*%3F%3C%2Fth%3E%3Cth%5B%5E%3E%5D*%3E(%3Cfont%20.*%3F%2Fimages%2F(%3F%3A(%3F%3Avote_up%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Fdiv%3E)%7C(%3F%3Avote_down%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Fdiv%3E)%7C(comment%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Fdiv%3E%3C%2Ffont%3E)))%3F(%3Ctable%20.*%3F((vote_up%5B%5E%3E%5D*%3E%3Cfont%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Ffont%3E%3C%2Fdiv%3E)%7C(vote_down%5B%5E%3E%5D*%3E%3Cfont%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Ffont%3E%3C%2Fdiv%3E)).*%3Fcomment%5B%5E%3E%5D*%3E%3Cfont%20%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Ffont%3E%3C%2Fdiv%3E.*%3F%3C%2Ftable%3E)%3F%3C%2Fth%3E%3C%2Ftable%3E%3C%2Fth%3E%5Cs*%3Cth%5B%5E%3E%5D*%3E%3Ca%20%5B%5E%3E%5D*%3E%3Cb%3E(%5B%5E%3C%5D*)%3C%2Fb%3E%3C%2Fa%3E%3C%2Fth%3E%5Cs*%3Cth%5B%5E%3E%5D*%3E%3Cfont%20%5B%5E%3E%5D*%3E(%5B%5E%3C%5D*)%3C%2Ffont%3E%3C%2Fth%3E%5Cs*%3Cth%5B%5E%3E%5D*%3E%3Cfont%20%5B%5E%3E%5D*%3E(%5B%5E%3C%5D*)%3C%2Ffont%3E%3C%2Fth%3E%5Cs*%3Cth%5B%5E%3E%5D*%3E%3Cfont%20%5B%5E%3E%5D*%3E(%5B%5E%3C%5D*)%3C%2Ffont%3E%3C%2Fth%3E%5Cs*%3Cth%5B%5E%3E%5D*%3E%3Cfont%20%5B%5E%3E%5D*%3E(%5B%5E%3C%5D*)%3C%2Ffont%3E%3C%2Fth%3E\",\r\n\t\"column_map\": [\r\n                { \"group_nb\" : \"1\", \"vuze_field\" : \"DLBTN\" },\r\n\t\t{ \"group_nb\" : \"3\", \"vuze_field\" : \"PRIVATE\" },\r\n\t\t{ \"group_nb\" : \"5\", \"vuze_field\" : \"CDP\" },\r\n\t\t{ \"group_nb\" : \"6\", \"vuze_field\" : \"TITLE\" },\r\n\t\t{ \"group_nb\" : \"8\", \"vuze_field\" : \"VOTES\" },\r\n\t\t{ \"group_nb\" : \"9\", \"vuze_field\" : \"VOTESDOWN\" },\r\n\t\t{ \"group_nb\" : \"11\", \"vuze_field\" : \"COMMENTS\" },\r\n\t\t{ \"group_nb\" : \"15\", \"vuze_field\" : \"VOTES\" },\r\n\t\t{ \"group_nb\" : \"17\", \"vuze_field\" : \"VOTESDOWN\" },\r\n\t\t{ \"group_nb\" : \"18\", \"vuze_field\" : \"COMMENTS\" },\r\n\t\t{ \"group_nb\" : \"19\", \"vuze_field\" : \"CAT\" },\r\n\t\t{ \"group_nb\" : \"20\", \"vuze_field\" : \"SIZE\" },\r\n\t\t{ \"group_nb\" : \"21\", \"vuze_field\" : \"DATE\" },\r\n\t\t{ \"group_nb\" : \"22\", \"vuze_field\" : \"SEEDS\" },\r\n\t\t{ \"group_nb\" : \"23\", \"vuze_field\" : \"PEERS\" }\r\n\t],\r\n        \"value_map\" : {\r\n                \"CAT\" : [\r\n                        {\"from_string\" : \"TV\", \"to_string\" : \"TV Shows\"},\r\n {\"from_string\" : \"Audio\", \"to_string\" : \"Music\"}\r\n                ]\r\n        },\r\n        \"ctype_map\": {\r\n\t\t\"CAT\": [\r\n\t\t\t{ \"cat_string\": \"Video\", \"media_type\": \"video\" },\r\n                        { \"cat_string\": \"TV Shows\", \"media_type\": \"video\" },\r\n                        { \"cat_string\": \"Anime\", \"media_type\": \"video\" },\r\n\t\t\t{ \"cat_string\": \"Music\", \"media_type\": \"audio\" },\r\n                        { \"cat_string\": \"Games\", \"media_type\": \"game\" }\r\n\t\t]\r\n\t}\r\n}\r\n","show":true,"modified_dt":1226384959000,"show_icon_url":true}
+[0407 16:47:18] q msg.1(1) AZMSG.searchtemplate.get-template: PlaformMessage {cn1, -1, AZMSG, searchtemplate, get-template, {"templateId":5}} @ Sat Jul 04 16:47:18 BST 2009; in -2ms
+[0407 16:47:18]  next q process for  msg.1 in -5
+[0407 16:47:18] POST for 1: http://www.vuze.com:80/rpc/AZMSG-searchtemplate
+[0407 16:47:18] Got a 1353 byte reply for AZMSG.searchtemplate.get-template
+		0;response;{"id":5,"description":"Mininova Search","name":"Mininova","engine_id":"json","icon_url":"http://www.mininova.org/favicon.ico","value":"{\"name\": \"Mininova\", \"searchURL\": \"http%3A%2F%2Fwww.mininova.org%2Fvuze.php%3Fsearch%3D%25s\", \"download_link\": \"23download%20a!!0\", \"timezone\": \"GMT+1\", \"json_result_key\": \"results\", \"column_map\": [ {\"field_name\": \"votes\", \"vuze_field\": \"VOTES\"}, {\"field_name\": \"cdp\", \"vuze_field\": \"CDP\"}, {\"field_name\": \"category\", \"vuze_field\": \"CAT\"}, {\"field_name\": \"date\", \"vuze_field\": \"DATE\"}, {\"field_name\": \"size\", \"vuze_field\": \"SIZE\"}, {\"field_name\": \"title\", \"vuze_field\": \"TITLE\"}, {\"field_name\": \"peers\", \"vuze_field\": \"PEERS\"}, {\"field_name\": \"seeds\", \"vuze_field\": \"SEEDS\"}, {\"field_name\": \"comments\", \"vuze_field\": \"COMMENTS\"}, {\"field_name\": \"download\", \"vuze_field\": \"DLBTN\"}], \"ctype_map\": {\"CAT\": [{\"cat_string\": \"Movies\", \"media_type\": \"video\"}, {\"cat_string\": \"TV%20Shows\", \"media_type\": \"video\"}, {\"cat_string\": \"Anime\", \"media_type\": \"video\"}, {\"cat_string\": \"Music\", \"media_type\": \"audio\"}, {\"cat_string\": \"Games\", \"media_type\": \"game\"}]}, \"value_map\": {\"CAT\": []}, \"regexp\": \"\"}","show":true,"modified_dt":1224888664000,"show_icon_url":true}
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:40:35] set Authorized Sender
+[0407 17:40:35] push AUTH: AZMSG.config.login: PlaformMessage {cn1, -1, AZMSG, config, login, {"version":"4.2.0.2","vid":"UmoJbeJq6WYoDAfpyGI6","locale":"en","source-ref":"unknown","azCID":""}}
+[0407 17:40:35] q msg.1(1) AZMSG.cnetworks.list-networks: PlaformMessage {cn1, -1, AZMSG, cnetworks, list-networks, {"azver":"4.2.0.2"}} @ Sat Jul 04 17:40:46 BST 2009; in 11110ms
+[0407 17:40:35]  next q process for  msg.1 in 11085
+[0407 17:40:35] Open Auth URL: https://www.vuze.com:443/rpc in text/html
+https://www.vuze.com:443/rpc?service=rpc&cmd=AZMSG%3B0%3Bconfig%3Blogin%3B%7B%22version%22%3A%224.2.0.2%22%2C%22vid%22%3A%22UmoJbeJq6WYoDAfpyGI6%22%2C%22locale%22%3A%22en%22%2C%22source-ref%22%3A%22unknown%22%2C%22azCID%22%3A%22%22%7D&azid=ZXILFL2E56K6I5KFIFYBIUY3TPFTMFE4&azv=4.2.0.2&locale=en&responseType=text/html
+[0407 17:40:36] Got a 286 byte reply for AUTH: AZMSG.config.login
+		0;response;{"url-whitelist":["https?://([^.]+.?)?(vuze|azureusplatform|az3p|studiohd).com:?[0-9]*/.*","https?://192.168.0.*:?[0-9]*/.*","https?://localhost:?[0-9]*/.*","http://www.adobe.com/.*","http://ad.*doubleclick.net/.*"],"send-stats":false,"buddy-sync-on-share-min-time-secs":600}
+[0407 17:40:36] add whitelist of http://www.studiohd.com/.*
+[0407 17:40:36] add whitelist of http://www.studiohd.com/rpc/.*
+[0407 17:40:36] add whitelist of http://www.vuze.com:80/.*
+[0407 17:40:36] add whitelist of https://www.vuze.com:443/rpc.*
+[0407 17:40:36] add whitelist of http://www.vuze.com:80/msgrelay/rpc.*
+[0407 17:40:36] add whitelist of http://www.vuze.com:80/rpc/.*
+[0407 17:40:36] add whitelist of https?://([^.]+.?)?(vuze|azureusplatform|az3p|studiohd).com:?[0-9]*/.*
+[0407 17:40:36] add whitelist of https?://192.168.0.*:?[0-9]*/.*
+[0407 17:40:36] add whitelist of https?://localhost:?[0-9]*/.*
+[0407 17:40:36] add whitelist of http://www.adobe.com/.*
+[0407 17:40:36] add whitelist of http://ad.*doubleclick.net/.*
+[0407 17:40:37] setDelayAuthorized true
+[0407 17:40:39] q msg.1(2) AZMSG.vuzenews.get-entries: PlaformMessage {cn1, -1, AZMSG, vuzenews, get-entries, {"ago-ms":3210624}} @ Sat Jul 04 17:40:44 BST 2009; in 5000ms
+[0407 17:40:39]  next q process for  msg.1 in 5000
+[0407 17:40:42] setDelayAuthorized true
+[0407 17:40:44] POST for 2: http://www.vuze.com:80/rpc/multi
+[0407 17:40:44] Got a 166 byte reply for AZMSG.cnetworks.list-networks
+		0;response;{"networks":[{"baseUrl":"http://www.studiohd.com/","id":2,"name":"StudioHD Network","iconUrl":"http://cache2.studiohd.com/icon/shd_icon.png","version":1}]}
+[0407 17:40:44] Got a 50 byte reply for AZMSG.vuzenews.get-entries
+		1;response;{"refresh-in-ms":86400000,"entries":[]}
+[0407 17:40:48] q msg.1(1) AZMSG.searchtemplate.list-featured: PlaformMessage {cn1, -1, AZMSG, searchtemplate, list-featured, {"page-num":1,"items-per-page":512}} @ Sat Jul 04 17:40:48 BST 2009; in 0ms
+[0407 17:40:48]  next q process for  msg.1 in 0
+[0407 17:40:48] POST for 1: http://www.vuze.com:80/rpc/AZMSG-searchtemplate
+[0407 17:40:48] Got a 75 byte reply for AZMSG.searchtemplate.list-featured
+		0;response;{"templates":[{"id":3,"show":true,"modified_dt":1213952652000}]}
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:47:21] set Authorized Sender
+[0407 17:47:21] push AUTH: AZMSG.config.login: PlaformMessage {cn1, -1, AZMSG, config, login, {"version":"4.2.0.2","vid":"UmoJbeJq6WYoDAfpyGI6","locale":"en","source-ref":"unknown","azCID":""}}
+[0407 17:47:21] q msg.1(1) AZMSG.cnetworks.list-networks: PlaformMessage {cn1, -1, AZMSG, cnetworks, list-networks, {"azver":"4.2.0.2"}} @ Sat Jul 04 17:47:33 BST 2009; in 11110ms
+[0407 17:47:21]  next q process for  msg.1 in 11084
+[0407 17:47:22] Open Auth URL: https://www.vuze.com:443/rpc in text/html
+https://www.vuze.com:443/rpc?service=rpc&cmd=AZMSG%3B0%3Bconfig%3Blogin%3B%7B%22version%22%3A%224.2.0.2%22%2C%22vid%22%3A%22UmoJbeJq6WYoDAfpyGI6%22%2C%22locale%22%3A%22en%22%2C%22source-ref%22%3A%22unknown%22%2C%22azCID%22%3A%22%22%7D&azid=ZXILFL2E56K6I5KFIFYBIUY3TPFTMFE4&azv=4.2.0.2&locale=en&responseType=text/html
+[0407 17:47:23] Got a 286 byte reply for AUTH: AZMSG.config.login
+		0;response;{"url-whitelist":["https?://([^.]+.?)?(vuze|azureusplatform|az3p|studiohd).com:?[0-9]*/.*","https?://192.168.0.*:?[0-9]*/.*","https?://localhost:?[0-9]*/.*","http://www.adobe.com/.*","http://ad.*doubleclick.net/.*"],"send-stats":false,"buddy-sync-on-share-min-time-secs":600}
+[0407 17:47:23] add whitelist of http://www.studiohd.com/.*
+[0407 17:47:23] add whitelist of http://www.studiohd.com/rpc/.*
+[0407 17:47:23] add whitelist of http://www.vuze.com:80/.*
+[0407 17:47:23] add whitelist of https://www.vuze.com:443/rpc.*
+[0407 17:47:23] add whitelist of http://www.vuze.com:80/msgrelay/rpc.*
+[0407 17:47:23] add whitelist of http://www.vuze.com:80/rpc/.*
+[0407 17:47:23] add whitelist of https?://([^.]+.?)?(vuze|azureusplatform|az3p|studiohd).com:?[0-9]*/.*
+[0407 17:47:23] add whitelist of https?://192.168.0.*:?[0-9]*/.*
+[0407 17:47:23] add whitelist of https?://localhost:?[0-9]*/.*
+[0407 17:47:23] add whitelist of http://www.adobe.com/.*
+[0407 17:47:23] add whitelist of http://ad.*doubleclick.net/.*
+[0407 17:47:33] POST for 1: http://www.vuze.com:80/rpc/AZMSG-cnetworks
+[0407 17:47:33] Got a 166 byte reply for AZMSG.cnetworks.list-networks
+		0;response;{"networks":[{"baseUrl":"http://www.studiohd.com/","id":2,"name":"StudioHD Network","iconUrl":"http://cache2.studiohd.com/icon/shd_icon.png","version":1}]}
+[0407 17:47:57] setDelayAuthorized true
+[0407 17:47:59] q msg.1(1) AZMSG.vuzenews.get-entries: PlaformMessage {cn1, -1, AZMSG, vuzenews, get-entries, {"ago-ms":3650672}} @ Sat Jul 04 17:48:04 BST 2009; in 4999ms
+[0407 17:47:59]  next q process for  msg.1 in 4995
+[0407 17:48:01] setDelayAuthorized true
+[0407 17:48:04] POST for 1: http://www.vuze.com:80/rpc/AZMSG-vuzenews
+[0407 17:48:04] Got a 50 byte reply for AZMSG.vuzenews.get-entries
+		0;response;{"refresh-in-ms":86400000,"entries":[]}
+[0407 17:48:08] q msg.1(1) AZMSG.searchtemplate.list-featured: PlaformMessage {cn1, -1, AZMSG, searchtemplate, list-featured, {"page-num":1,"items-per-page":512}} @ Sat Jul 04 17:48:08 BST 2009; in -9ms
+[0407 17:48:08]  next q process for  msg.1 in -13
+[0407 17:48:08] POST for 1: http://www.vuze.com:80/rpc/AZMSG-searchtemplate
+[0407 17:48:08] Got a 75 byte reply for AZMSG.searchtemplate.list-featured
+		0;response;{"templates":[{"id":3,"show":true,"modified_dt":1213952652000}]}
+[0407 23:03:25] q msg.1(1) AZMSG.torrent.get-metadata: PlaformMessage {cn1, -1, AZMSG, torrent, get-metadata, {"content-list":[{"last-revision":1238249969000,"hash":"WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN"}],"hashes":["WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN"]}} @ Sat Jul 04 23:03:30 BST 2009; in 4996ms
+[0407 23:03:25]  next q process for  msg.1 in 4957
+[0407 23:03:25] q msg.1(2) AZMSG.rating.get-global: PlaformMessage {cn1, -1, AZMSG, rating, get-global, {"rating-type":["content"],"torrent-hash":["WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN"]}} @ Sat Jul 04 23:03:30 BST 2009; in 5000ms
+[0407 23:03:25]  next q process for  msg.1 in 4932
+[0407 23:03:25] push AZMSG.asxads.get-advert: PlaformMessage {cn1, -1, AZMSG, asxads, get-advert, {"ads":[],"hashes":["WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN"]}}
+[0407 23:03:25] POST for 1: http://www.vuze.com:80/rpc/AZMSG-asxads
+[0407 23:03:25] Got a 4326 byte reply for AZMSG.asxads.get-advert
+		0;response;{"torrents":["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"],"ad_hash":["VNWDWWERKCNIKOAFV4ZFV5QF4OXBBJDX"],"web_ord":"732091651","web_ad_id":"215167128","playlist":"<ASX version=\"3.0\"><ENTRY ClientSkip=\"no\">\n<TITLE>Vuze<\/TITLE>\n<AUTHOR>Vuze<\/AUTHOR>\n<COPYRIGHT>(c)2008 Vuze<\/COPYRIGHT>\n<PARAM NAME=\"Prebuffer\" VALUE=\"true\"/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"/>\n<REF HREF=\"<##-AD-PATH-##>\"/>\n<\/ENTRY>\n<ENTRY ClientSkip=\"no\">\n<TITLE>Vuze<\/TITLE>\n<AUTHOR>Vuze<\/AUTHOR>\n<COPYRIGHT>(c)2008 Vuze<\/COPYRIGHT>\n<PARAM NAME=\"Prebuffer\" VALUE=\"false\"/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"/>\n<DURATION VALUE=\"00:00:00.00\"/>\n<REF HREF=\"http://www.vuze.com/imp;v7;x;215167128;0-0;4;29089759;1000/1000;31571631/31589507/1;;~okv=;dcmt=text/xml;vord=732091651;veg=1;vzone=p_20849235;uid=39219434;reso=hd;chan=688;cat=194;cat=195;uage=m;hash=WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN;azv=gt41;u=39219434,124494,93.97.30.189;dur=adhd;inaz=true;cca2=gb;pcat=194;cage=n;slot=t_pre;cont=124494;publ=20849235;sz=1000x1000;~cs=i%3frand=0.20494447612009226\"/>\n<\/ENTRY>\n<ENTRY ClientSkip=\"yes\">\n<TITLE>Content<\/TITLE>\n<PARAM NAME=\"Prebuffer\" VALUE=\"true\"/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"/>\n<REF HREF=\"<##-CONTENT-PATH-##>\"/>\n<\/ENTRY>\n<\/ASX>","web_nti":""}
+[0407 23:03:30] POST for 2: http://www.vuze.com:80/rpc/multi
+[0407 23:03:30] Got a 5719 byte reply for AZMSG.torrent.get-metadata
+		0;response;{"WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN":{"Description":"In \"Ice Age: Dawn of the Dinosaurs,\" much-loved characters from the worldwide blockbusters \"Ice Age\" and \"Ice Age: The Meltdown\" are back, on an incredible adventure... for the ages. Scrat is still trying to nab the ever-elusive nut (while, maybe, finding true love); Manny (Ray Romano) and Ellie (Queen Latifah) await the birth of their mini-mammoth, Sid (John Leguizamo) the sloth gets into trouble when he creates his own makeshift family by hijacking some dinosaur eggs; and Diego (Denis Leary) the saber-toothed tiger wonders if he's growing too \"soft\" hanging with his pals. On a mission to rescue the hapless Sid, the gang ventures into a mysterious underground world, where they have some close encounters with dinosaurs, battle flora and fauna run amuck   and meet a relentless, one-eyed, dino-hunting weasel named Buck. \n\nIn Theaters (US): July 2009 \nOfficial Website: http://iceagemovie.com/","Purchased":0,"useEMP":1,"Quality":"HD","QOS Class":1,"DRM":-1,"Thumbnail":"/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8KCwkMEQ8SEhEPERATFhwXExQaFRARGCEYGhwdHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCABQAIwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDxDS442tyFjU5frt6VBqcIWZf3admbgVa8PjFirk985+uRTbxCQwJ4FZrcoytkQb5YlySMjHao3iiUAbVGeelTkNvO3A9KZcKBg55x3qrkmp4ImjtfGGjTlE2reRhsgdCcH9DX1vFY2eP+PSDkf88xXxshaF45o+GR1cEexr7Nsp0uLWGdDlZEDD6EZroovctIiktLOOJnNnAQgJ/1Y7V8z+JvEus6t4va8tkIjEmyC1ijBG3PAAA5PvX1EQGJU4weDmsD4WeDdL8P6jdXGIp7yWZts2MmNMnaq+nB5/8ArVhj6vs4Js6sNBzlZF34Ky6hOhs/EOgyW7FN0M1xabNw9Dkdcc16Rq9/4T0aWOHVHsLeSRd6o0QJI9eBWdq19ZxL9nE8YmxnZvG78q8p8XCDWrq40+Sfy50g863nPJQBsMnuO49K4qWPl7PRbHY8O4ysz3LThoGrWgudOjsbmEnG5I1OD6Hipn0ux24Njbf9+l/wry74Nz2vhN/sGp6qks18F8uNFJwRnn8j6V7DL93PrXoYeuqsbmM4crMmTS9PI/48bbj/AKZL/hWNremWKBG+xW3X/nkv+FdS68DB61j+IV/0Pd6GulGL2MddOsygb7Fb/wDfpf8ACq81hYjj7Fb/APfof4VrWilrRG9qhuEpmUtUYUtjYicj7Hb8j/nmKkW0sgoH2K3/AO/a/wCFTTAfaAfbmkOM07GDR8Z6Ht+xCPGdqoWPpkmpNRH7vAPJdcjHbBqtozhY5weyRn8KsXylZj6ZUt/n8a8u+pfQzxD/AKUFH8IHJ9c1Wul6n05xV6T5XUnqwz+RzVS5XAG4cnj/AD+dWmTYqMxw4HtXv+k+OWtfBeirblXuDaIr5GcbRt/pXgSjDkEZFejeB9Cv9a8Kwz2LoWt5XiZWPTnd/Jqd5JPl3OjDqDn7+x2D6/qWoMGuLlmTOdoOB+VdLpfiE6cwVnxkArnvXmsFzJbSPbTxN58Z2kD1qjf6p4kmkWK10WZo0PDyttA+mTXmVYynL3me4uSnG6Oy1MXdx40/t+PWrpoyDi1BJXJ9vwrT092+03N5dsRPJH5SJ3VM5OT6k1wum/EC40fUItP1zRBbI4A8+M9R6+/517b4fsrK5tYryOOKaKVQyNjggivPxVeWHjZrR9S6FKNaV4s0fhRqOmacNX1rVJY4REsMYlfkqvPA+px+QrsJPFFlfaeNU0i9W4g3EblPBI6ivO/EOg6TqWk3WmXcJSG5GyQREqcDkHjvVfwvpMdha23hvQ1f7JG2SxbPGeSTU4PEe1mnF6hXwjp3ctj2y1uluLeOYcB0DD8RVDWSJLCUDnFR20iw2ywofljUKPwqO+lAtSuetfaRTsmzwHJXaJLZdljGv+yKq3WMGpLecSWaMD0GKr3DcUyJMzmG64f2FMOM8nmplwPMc+tUJZMuaZlI+N9IUGWVD0MSk1dvBl2QA4LLz+Iqto6f6V7vbKf0q9qwVXKAceVn8civJe5XQguoArsGGAOF+hrLutpB654rbvtklyI2bAVTg9u1Yd4pXKeh5qkxEdoiSTbWOD0B9+1WtL1rVtPhuNPtL6eC3kbc6RsV3HGO30pLSJHgcD/XIckf3h/9aop0/wBNWUj/AFi88d+9O5UdzV024ulk81pG65613eh+IvlVJSoAGMMODXAwEDHBH4da0IVY4PQegrkqU1Lc9mhWcVY7nxLaabrekee0KZikXdwCUyQCR+GT17V6/wDDTRn0rwXZ2UvmEpuI39VG4kD8q8P8A2c2t6hcaErH/TYWiU4yATxn8ATX1NHZxWlpFbRqFWNAq/QCvDzKVqapeZ6GGsqrqLqc1qMRJJC4+U8+vt/OuQ0rV5dE8YKjE/ZpRsZCegz1Fd/fxMpZQuc9PrXl/jCBl8Twv65wfbPSubJ24V7nXjbVKVj1xbg7NwOVbpSXsxZAoPGKydLkb+y4N5y20VZnkViDk5xX6HB80Uz42pHlk0WtLdhCyt0zkVLM/Gap2LlYCWPU8Us8o8s4NAtxksv7oj3rMmlUSEE4pby6SKIknpXM3d1NcTtIhKr0AqrXMmz5y8OKzXcPAP8Ao4H5Ve1jG6NXIO5COPx/wrN8LyFbmIvkDyGAGe+av6krO0DEHaH5JPfB4ryH8RotivdNvENwcfdwyhenSse6z856gnOa3JlEdm4ByXXA+uc/0rDkG+AAkDBPHrTRJZ0wK6ZjGLiLJx/fX/638qdfRKCHjyUIDr7EcEf59Kp2TtHcK6Egqc5rTvvLNsskYwp5K+jdx+NJlpjLdhheBx2rWtSoQsQOBnjtWRZqHAIwe9XA5dhbqSM8sR6VjM7KEnc9r/Zq0u3m1PUNZk5kgRYoh6bs5P5D9a9X8UeItE0aSNdX1a0smcfKsknzEeoA5ryD4AXL2N9qAZ9kHlIWJOACCef1rgfirdy3PxA1E6tO+Q5WLcf4R0xXkVcG6uItJ6WPVWI5KXPFa3sfRVp4l0LVDILHW9PuJDyEWUBj+BrB1vSk1HVbeXftKZLY79M18uNetBOTDMQFPHPIr2D4MeJtR1iU2V3LJMbbDK7NkhTkYJrqw+XKjVUk7o5pZhKpFxasz2ONhHbrGDwoxSLKGk69qoXFztQjPNEUpChjxkV9So2R4jk27s03nwgUdqq3FwcYBqm04wSSarz3AALE4FFhXGahJmEjPWswMF4p1xcF+/A6VRkl+c81SM2z560EgrG6DLbSvPbODWpdzbpY1U+7Z7HFZWgqVESZHL5J9MKKuXACMQDncN317V5L3NUSXku+yi24bYflxxwM5rGbDEHoAScCtGVglgkeAW6EjsCBWfKNjgg5BUEgdvWmIYAFBPQEirDzsLeRMk9aqkhgw3Y5pz/dODwwOaVhpmzojRw26PI5MeDkrxjHUgdDj04NXPJCXkTlUWR1O8J0yGIyPwxVDQ2ilt5LZgVD9s8dO1bJto4dB0m+L5nknnilQjlQNpX88t+VYSO2m9mek/ChV824icZVkV9p6Eg//Xro/GPgbT/FqrJJbTfa1+5LDweOmeCCKx/g9qGl6dqJn1N40iePYpccbiRXsP8AwlXhyGASDUrWOPOAdwAq6dSCjZxuzsjh3U15rI8Ck/Z21eS43QaoiRt2ljww/I16X4I+F/8Awi2ntDazRvPJjzZWPLY/kK7jT/E+i3yb7fU7c89C4BpmpeJ9EsLE3lxqEHl842tuJI7Ad6UKtneKN/qVK1mzEbwvfnl54evqajudCvlXAaM4HrWza69pt/bpcWt/A6MMjLgEfgaLq/jELOZEAAyW3cAetdCxVQylgKBx19DdWg/ewkD1HIrFvb3Jx0FdqLy2udqrcwylxuUK4OR61n6lYWUvLwID6gYrohiv5kcFXA/yM457hm6A1CzSk5xXQy6PbknypSp9+apyaTMHIV0I9a3VeD6nDPDVE9j/2Q==","Revision Date":1246745006030,"Content Hash":"WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN","Thumbnail.url":"http://cache2.vuze.com/assets/532/20849235/124494/tn_WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN_1.jpg","Title":"Ice Age: Dawn of the Dinosaurs - Trailer 2 (HD)","Publisher":"azFOX","Ad Enabled":1,"Content Type":"Movie","Creation Date":1238191825000,"Running Time":120,"Web Ad Enabled":1,"Progressive":0}}
+[0407 23:03:30] push AZMSG.asxads.get-advert: PlaformMessage {cn1, -1, AZMSG, asxads, get-advert, {"ads":[{"hash":"VNWDWWERKCNIKOAFV4ZFV5QF4OXBBJDX"}],"hashes":["WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN"]}}
+[0407 23:03:30] POST for 1: http://www.vuze.com:80/rpc/AZMSG-asxads
+[0407 23:03:31] Got a 127 byte reply for AZMSG.rating.get-global
+		1;response;{"WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN":{"content":{"count":2923,"value":"8.9","display-settings":{"color":"#FFFFFF"}}}}
+[0407 23:03:31] Got a 1286 byte reply for AZMSG.asxads.get-advert
+		0;response;{"ad_hash":["VNWDWWERKCNIKOAFV4ZFV5QF4OXBBJDX"],"web_ord":"968604047","web_ad_id":"215167128","playlist":"<ASX version=\"3.0\"><ENTRY ClientSkip=\"no\">\n<TITLE>Vuze<\/TITLE>\n<AUTHOR>Vuze<\/AUTHOR>\n<COPYRIGHT>(c)2008 Vuze<\/COPYRIGHT>\n<PARAM NAME=\"Prebuffer\" VALUE=\"true\"/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"/>\n<REF HREF=\"<##-AD-PATH-##>\"/>\n<\/ENTRY>\n<ENTRY ClientSkip=\"no\">\n<TITLE>Vuze<\/TITLE>\n<AUTHOR>Vuze<\/AUTHOR>\n<COPYRIGHT>(c)2008 Vuze<\/COPYRIGHT>\n<PARAM NAME=\"Prebuffer\" VALUE=\"false\"/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"/>\n<DURATION VALUE=\"00:00:00.00\"/>\n<REF HREF=\"http://www.vuze.com/imp;v7;x;215167128;0-0;4;29089759;1000/1000;31571631/31589507/1;;~okv=;dcmt=text/xml;vord=968604047;veg=1;vzone=p_20849235;uid=39219434;reso=hd;chan=688;cat=194;cat=195;uage=m;hash=WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN;azv=gt41;u=39219434,124494,93.97.30.189;dur=adhd;inaz=true;cca2=gb;pcat=194;cage=n;slot=t_pre;cont=124494;publ=20849235;sz=1000x1000;~cs=i%3frand=0.19685136845561046\"/>\n<\/ENTRY>\n<ENTRY ClientSkip=\"yes\">\n<TITLE>Content<\/TITLE>\n<PARAM NAME=\"Prebuffer\" VALUE=\"true\"/>\n<PARAM NAME=\"ShowWhileBuffering\" VALUE=\"false\"/>\n<REF HREF=\"<##-CONTENT-PATH-##>\"/>\n<\/ENTRY>\n<\/ASX>","web_nti":""}
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0507 17:48:06] set Authorized Sender
+[0507 17:48:06] push AUTH: AZMSG.config.login: PlaformMessage {cn1, -1, AZMSG, config, login, {"version":"4.2.0.2","vid":"UmoJbeJq6WYoDAfpyGI6","locale":"en","source-ref":"unknown","azCID":""}}
+[0507 17:48:06] q msg.1(1) AZMSG.cnetworks.list-networks: PlaformMessage {cn1, -1, AZMSG, cnetworks, list-networks, {"azver":"4.2.0.2"}} @ Sun Jul 05 17:48:17 BST 2009; in 11110ms
+[0507 17:48:06]  next q process for  msg.1 in 11110
+[0507 17:48:07] Open Auth URL: https://www.vuze.com:443/rpc in text/html
+https://www.vuze.com:443/rpc?service=rpc&cmd=AZMSG%3B0%3Bconfig%3Blogin%3B%7B%22version%22%3A%224.2.0.2%22%2C%22vid%22%3A%22UmoJbeJq6WYoDAfpyGI6%22%2C%22locale%22%3A%22en%22%2C%22source-ref%22%3A%22unknown%22%2C%22azCID%22%3A%22%22%7D&azid=ZXILFL2E56K6I5KFIFYBIUY3TPFTMFE4&azv=4.2.0.2&locale=en&responseType=text/html
+[0507 17:48:08] Got a 286 byte reply for AUTH: AZMSG.config.login
+		0;response;{"url-whitelist":["https?://([^.]+.?)?(vuze|azureusplatform|az3p|studiohd).com:?[0-9]*/.*","https?://192.168.0.*:?[0-9]*/.*","https?://localhost:?[0-9]*/.*","http://www.adobe.com/.*","http://ad.*doubleclick.net/.*"],"send-stats":false,"buddy-sync-on-share-min-time-secs":600}
+[0507 17:48:08] add whitelist of http://www.studiohd.com/.*
+[0507 17:48:08] add whitelist of http://www.studiohd.com/rpc/.*
+[0507 17:48:08] add whitelist of http://www.vuze.com:80/.*
+[0507 17:48:08] add whitelist of https://www.vuze.com:443/rpc.*
+[0507 17:48:08] add whitelist of http://www.vuze.com:80/msgrelay/rpc.*
+[0507 17:48:08] add whitelist of http://www.vuze.com:80/rpc/.*
+[0507 17:48:08] add whitelist of https?://([^.]+.?)?(vuze|azureusplatform|az3p|studiohd).com:?[0-9]*/.*
+[0507 17:48:08] add whitelist of https?://192.168.0.*:?[0-9]*/.*
+[0507 17:48:08] add whitelist of https?://localhost:?[0-9]*/.*
+[0507 17:48:08] add whitelist of http://www.adobe.com/.*
+[0507 17:48:08] add whitelist of http://ad.*doubleclick.net/.*
+[0507 17:48:09] setDelayAuthorized true
+[0507 17:48:11] q msg.1(2) AZMSG.vuzenews.get-entries: PlaformMessage {cn1, -1, AZMSG, vuzenews, get-entries, {"ago-ms":90062878}} @ Sun Jul 05 17:48:16 BST 2009; in 4995ms
+[0507 17:48:11]  next q process for  msg.1 in 4986
+[0507 17:48:16] setDelayAuthorized true
+[0507 17:48:16] POST for 2: http://www.vuze.com:80/rpc/multi
+[0507 17:48:17] Got a 166 byte reply for AZMSG.cnetworks.list-networks
+		0;response;{"networks":[{"baseUrl":"http://www.studiohd.com/","id":2,"name":"StudioHD Network","iconUrl":"http://cache2.studiohd.com/icon/shd_icon.png","version":1}]}
+[0507 17:48:17] Got a 499 byte reply for AZMSG.vuzenews.get-entries
+		1;response;{"refresh-in-ms":86400000,"entries":[{"id":"1-1246583985180","text":"New Feature: <a href=\"http://www.vuze.com/app?news=59&redirect=http%3A%2F%2Fwww.vuze.com%2Ftoolbarwelcome&service=newsFeedClickTracking&user=ZXILFL2E56K6I5KFIFYBIUY3TPFTMFE4\" target=\"_blank\">Search for torrents, right from your browser<\/a>","age-ms":220884965,"icon-id":"frog","type-id":"VUZE_NEWS_ITEM","icon-url":"http://cache1.vuze.com/cdnassets/4/13748c3bf2f322e6e8b72204f63891fc/img/newsfeed/news_item.png"}]}
+[0507 17:48:20] q msg.1(1) AZMSG.searchtemplate.list-featured: PlaformMessage {cn1, -1, AZMSG, searchtemplate, list-featured, {"page-num":1,"items-per-page":512}} @ Sun Jul 05 17:48:20 BST 2009; in -8ms
+[0507 17:48:20]  next q process for  msg.1 in -11
+[0507 17:48:20] POST for 1: http://www.vuze.com:80/rpc/AZMSG-searchtemplate
+[0507 17:48:20] Got a 75 byte reply for AZMSG.searchtemplate.list-featured
+		0;response;{"templates":[{"id":3,"show":true,"modified_dt":1213952652000}]}

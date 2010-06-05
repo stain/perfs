@@ -1,0 +1,72 @@
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 16:47:30] search :Loading configuration
+[0407 16:47:30] Refreshing engines
+[0407 16:47:31] Featured templates: 3
+[0407 16:47:31] Popular templates: 
+[0407 16:47:31] Pre-load templates: 
+[0407 16:47:31] Manual templates: 
+[0407 16:47:31] Existing templates: 
+[0407 16:47:31] Downloading definition of template 3
+[0407 16:47:31] {"name": "Vuze%20Search", "searchURL": "http%3A%2F%2Fwww.vuze.com%2Fxsearch%2Frpc%3Fq%3D%25s%26n%3D50%26mature%3D%25m%26format%3Djson2", "download_link": "%23bigDownloadButton%20a!!0", "timezone": "GMT-11", "time_format": "yyyy/MM/dd hh:mm:ss", "json_result_key": "response.contents", "column_map": [{"field_name": "drmKey", "vuze_field": "DRMKEY"}, {"field_name": "votes", "vuze_field": "VOTES"}, {"field_name": "superseeds", "vuze_field": "XSEEDS"}, {"field_name": "detailsUrl", "vuze_field": "CDP"}, {"field_name": "type", "vuze_field": "CAT"}, {"field_name": "date", "vuze_field": "DATE"}, {"field_name": "size", "vuze_field": "SIZE"}, {"field_name": "playUrl", "vuze_field": "PLAY"}, {"field_name": "name", "vuze_field": "TITLE"}, {"field_name": "peers", "vuze_field": "PEERS"}, {"field_name": "seeds", "vuze_field": "SEEDS"}, {"field_name": "comments", "vuze_field": "COMMENTS"}, {"field_name": "torrentUrl", "vuze_field": "TORRENT"}], "value_map": {"CAT": [{"from_string": "Game", "to_string": "Games"}, {"from_string": "Audio", "to_string": "Music"}]}, "ctype_map": {"CAT": [{"cat_string": "Video", "media_type": "video"}, {"cat_string": "Music", "media_type": "audio"}, {"cat_string": "Games", "media_type": "game"}]}, "regexp": ""}
+[0407 16:47:31] search :Engine 'Vuze' added
+[0407 16:47:31] search :Saving configuration
+[0407 16:47:31] Auto-selecting id=3, name=Vuze, source=vuze, selected=no, auth=false
+[0407 16:47:31] Downloading pre-load definition of template 4
+[0407 16:47:31] {
+	"name": "BtJunkie",
+	"searchURL": "http%3A%2F%2Fbtjunkie.org%2Fsearch%3Fq%3D%25s",
+	"download_link": "%23header%20a%20font%21%210",
+	"timezone": "UTC",
+	"regexp": "(%3Fs)(%3F%3A%3Ca%20href%3D%22(http%3A%2F%2Fdl.btjunkie.org%2Ftorrent%2F%5B%5E%22%5D*)%22.*%3F)%3F%3Cimg%20src%3D%22%2Fimages%2F((locked.gif)%7C(down.gif)).*%3F%3Ca%20href%3D%22(%2Ftorrent%2F%5B%5E%22%5D%2B)%22%20class%3D%22BlckUnd%22%3E(.*%3F)%3C%2Fa%3E.*%3F%3C%2Fth%3E%3Cth%5B%5E%3E%5D*%3E(%3Cfont%20.*%3F%2Fimages%2F(%3F%3A(%3F%3Avote_up%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Fdiv%3E)%7C(%3F%3Avote_down%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Fdiv%3E)%7C(comment%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Fdiv%3E%3C%2Ffont%3E)))%3F(%3Ctable%20.*%3F((vote_up%5B%5E%3E%5D*%3E%3Cfont%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Ffont%3E%3C%2Fdiv%3E)%7C(vote_down%5B%5E%3E%5D*%3E%3Cfont%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Ffont%3E%3C%2Fdiv%3E)).*%3Fcomment%5B%5E%3E%5D*%3E%3Cfont%20%5B%5E%3E%5D*%3E(%5B0-9%5D*)%3C%2Ffont%3E%3C%2Fdiv%3E.*%3F%3C%2Ftable%3E)%3F%3C%2Fth%3E%3C%2Ftable%3E%3C%2Fth%3E%5Cs*%3Cth%5B%5E%3E%5D*%3E%3Ca%20%5B%5E%3E%5D*%3E%3Cb%3E(%5B%5E%3C%5D*)%3C%2Fb%3E%3C%2Fa%3E%3C%2Fth%3E%5Cs*%3Cth%5B%5E%3E%5D*%3E%3Cfont%20%5B%5E%3E%5D*%3E(%5B%5E%3C%5D*)%3C%2Ffont%3E%3C%2Fth%3E%5Cs*%3Cth%5B%5E%3E%5D*%3E%3Cfont%20%5B%5E%3E%5D*%3E(%5B%5E%3C%5D*)%3C%2Ffont%3E%3C%2Fth%3E%5Cs*%3Cth%5B%5E%3E%5D*%3E%3Cfont%20%5B%5E%3E%5D*%3E(%5B%5E%3C%5D*)%3C%2Ffont%3E%3C%2Fth%3E%5Cs*%3Cth%5B%5E%3E%5D*%3E%3Cfont%20%5B%5E%3E%5D*%3E(%5B%5E%3C%5D*)%3C%2Ffont%3E%3C%2Fth%3E",
+	"column_map": [
+                { "group_nb" : "1", "vuze_field" : "DLBTN" },
+		{ "group_nb" : "3", "vuze_field" : "PRIVATE" },
+		{ "group_nb" : "5", "vuze_field" : "CDP" },
+		{ "group_nb" : "6", "vuze_field" : "TITLE" },
+		{ "group_nb" : "8", "vuze_field" : "VOTES" },
+		{ "group_nb" : "9", "vuze_field" : "VOTESDOWN" },
+		{ "group_nb" : "11", "vuze_field" : "COMMENTS" },
+		{ "group_nb" : "15", "vuze_field" : "VOTES" },
+		{ "group_nb" : "17", "vuze_field" : "VOTESDOWN" },
+		{ "group_nb" : "18", "vuze_field" : "COMMENTS" },
+		{ "group_nb" : "19", "vuze_field" : "CAT" },
+		{ "group_nb" : "20", "vuze_field" : "SIZE" },
+		{ "group_nb" : "21", "vuze_field" : "DATE" },
+		{ "group_nb" : "22", "vuze_field" : "SEEDS" },
+		{ "group_nb" : "23", "vuze_field" : "PEERS" }
+	],
+        "value_map" : {
+                "CAT" : [
+                        {"from_string" : "TV", "to_string" : "TV Shows"},
+ {"from_string" : "Audio", "to_string" : "Music"}
+                ]
+        },
+        "ctype_map": {
+		"CAT": [
+			{ "cat_string": "Video", "media_type": "video" },
+                        { "cat_string": "TV Shows", "media_type": "video" },
+                        { "cat_string": "Anime", "media_type": "video" },
+			{ "cat_string": "Music", "media_type": "audio" },
+                        { "cat_string": "Games", "media_type": "game" }
+		]
+	}
+}
+
+[0407 16:47:31] search :Engine 'Btjunkie' added
+[0407 16:47:31] search :Saving configuration
+[0407 16:47:32] Downloading pre-load definition of template 5
+[0407 16:47:32] {"name": "Mininova", "searchURL": "http%3A%2F%2Fwww.mininova.org%2Fvuze.php%3Fsearch%3D%25s", "download_link": "23download%20a!!0", "timezone": "GMT+1", "json_result_key": "results", "column_map": [ {"field_name": "votes", "vuze_field": "VOTES"}, {"field_name": "cdp", "vuze_field": "CDP"}, {"field_name": "category", "vuze_field": "CAT"}, {"field_name": "date", "vuze_field": "DATE"}, {"field_name": "size", "vuze_field": "SIZE"}, {"field_name": "title", "vuze_field": "TITLE"}, {"field_name": "peers", "vuze_field": "PEERS"}, {"field_name": "seeds", "vuze_field": "SEEDS"}, {"field_name": "comments", "vuze_field": "COMMENTS"}, {"field_name": "download", "vuze_field": "DLBTN"}], "ctype_map": {"CAT": [{"cat_string": "Movies", "media_type": "video"}, {"cat_string": "TV%20Shows", "media_type": "video"}, {"cat_string": "Anime", "media_type": "video"}, {"cat_string": "Music", "media_type": "audio"}, {"cat_string": "Games", "media_type": "game"}]}, "value_map": {"CAT": []}, "regexp": ""}
+[0407 16:47:32] search :Engine 'Mininova' added
+[0407 16:47:32] search :Saving configuration
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:42:04] search :Loading configuration
+[0407 17:42:04] search :    loaded id=3, name=Vuze, source=vuze, selected=auto, auth=false
+[0407 17:42:04] search :    loaded id=4, name=Btjunkie, source=vuze, selected=no, auth=false
+[0407 17:42:04] search :    loaded id=5, name=Mininova, source=vuze, selected=no, auth=false
+[0407 17:42:04] Refreshing engines
+[0407 17:42:04] Featured templates: 3
+[0407 17:42:04] Manual templates: 
+[0407 17:42:04] Existing templates: 3[source=vuze,type=2,selected=auto],4[source=vuze,type=1,selected=no],5[source=vuze,type=2,selected=no]
+[0407 17:42:04] Not updating id=3, name=Vuze, source=vuze, selected=auto, auth=false as unchanged

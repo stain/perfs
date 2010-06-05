@@ -1,0 +1,443 @@
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 16:47:16] [stderr] DEBUG::Sat Jul 04 16:47:16 BST 2009::org.gudy.azureus2.platform.macosx.access.jnilib.OSXAccess::<clinit>::41:
+[0407 16:47:16] DEBUG::Sat Jul 04 16:47:16 BST 2009::org.gudy.azureus2.platform.macosx.access.jnilib.OSXAccess::<clinit>::41:
+[0407 16:47:16] [stderr]   Could not find libOSXAccess.jnilib
+[0407 16:47:16]   Could not find libOSXAccess.jnilib
+[0407 16:47:16] [stderr]     PlatformManagerImpl::<init>::133,PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 16:47:16]     PlatformManagerImpl::<init>::133,PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 16:47:16] [stderr] DEBUG::Sat Jul 04 16:47:16 BST 2009::org.gudy.azureus2.platform.macosx.PlatformManagerImpl::<init>::138:
+[0407 16:47:16] DEBUG::Sat Jul 04 16:47:16 BST 2009::org.gudy.azureus2.platform.macosx.PlatformManagerImpl::<init>::138:
+[0407 16:47:16] [stderr]   Failed to update plist
+[0407 16:47:16]   Failed to update plist
+[0407 16:47:16] [stderr]     PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 16:47:16]     PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 16:47:16] [stderr] java.io.IOException: plist file '/Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client2/Azureus.app/Contents/Info.plist' doesn't exist
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.platform.macosx.PListEditor.<init>(PListEditor.java:48)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.getPList(PlatformManagerImpl.java:170)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.checkPList(PlatformManagerImpl.java:179)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<init>(PlatformManagerImpl.java:138)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.initializeSingleton(PlatformManagerImpl.java:99)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<clinit>(PlatformManagerImpl.java:88)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.platform.PlatformManagerFactory.getPlatformManager(PlatformManagerFactory.java:55)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.util.SystemProperties.getDocPath(SystemProperties.java:392)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.<init>(ConfigurationDefaults.java:225)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.getInstance(ConfigurationDefaults.java:97)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getBooleanParameter(ConfigurationManager.java:296)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.logging.impl.LoggerImpl.init(LoggerImpl.java:96)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.logging.Logger.<clinit>(Logger.java:48)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.util.SystemProperties.getUserPath(SystemProperties.java:201)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.util.FileUtil.readResilientConfigFile(FileUtil.java:522)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:160)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:208)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getInstance(ConfigurationManager.java:84)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.core3.config.COConfigurationManager.initialise(COConfigurationManager.java:124)
+[0407 16:47:16] [stderr] 	at com.aelitis.azureus.core.impl.AzureusCoreImpl.<init>(AzureusCoreImpl.java:166)
+[0407 16:47:16] [stderr] 	at com.aelitis.azureus.core.impl.AzureusCoreImpl.create(AzureusCoreImpl.java:105)
+[0407 16:47:16] [stderr] 	at com.aelitis.azureus.core.AzureusCoreFactory.create(AzureusCoreFactory.java:46)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.ui.swt.Main.<init>(Main.java:70)
+[0407 16:47:16] [stderr] 	at org.gudy.azureus2.ui.swt.Main.main(Main.java:217)
+[0407 16:47:16] java.io.IOException: plist file '/Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client2/Azureus.app/Contents/Info.plist' doesn't exist
+	at org.gudy.azureus2.platform.macosx.PListEditor.<init>(PListEditor.java:48)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.getPList(PlatformManagerImpl.java:170)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.checkPList(PlatformManagerImpl.java:179)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<init>(PlatformManagerImpl.java:138)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.initializeSingleton(PlatformManagerImpl.java:99)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<clinit>(PlatformManagerImpl.java:88)
+	at org.gudy.azureus2.platform.PlatformManagerFactory.getPlatformManager(PlatformManagerFactory.java:55)
+	at org.gudy.azureus2.core3.util.SystemProperties.getDocPath(SystemProperties.java:392)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.<init>(ConfigurationDefaults.java:225)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.getInstance(ConfigurationDefaults.java:97)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getBooleanParameter(ConfigurationManager.java:296)
+	at org.gudy.azureus2.core3.logging.impl.LoggerImpl.init(LoggerImpl.java:96)
+	at org.gudy.azureus2.core3.logging.Logger.<clinit>(Logger.java:48)
+	at org.gudy.azureus2.core3.util.SystemProperties.getUserPath(SystemProperties.java:201)
+	at org.gudy.azureus2.core3.util.FileUtil.readResilientConfigFile(FileUtil.java:522)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:160)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:208)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getInstance(ConfigurationManager.java:84)
+	at org.gudy.azureus2.core3.config.COConfigurationManager.initialise(COConfigurationManager.java:124)
+	at com.aelitis.azureus.core.impl.AzureusCoreImpl.<init>(AzureusCoreImpl.java:166)
+	at com.aelitis.azureus.core.impl.AzureusCoreImpl.create(AzureusCoreImpl.java:105)
+	at com.aelitis.azureus.core.AzureusCoreFactory.create(AzureusCoreFactory.java:46)
+	at org.gudy.azureus2.ui.swt.Main.<init>(Main.java:70)
+	at org.gudy.azureus2.ui.swt.Main.main(Main.java:217)
+
+[0407 16:47:35] [stderr] DEBUG::Sat Jul 04 16:47:35 BST 2009::com.aelitis.azureus.core.versioncheck.VersionCheckClient::preProcessReply::935:
+[0407 16:47:35] DEBUG::Sat Jul 04 16:47:35 BST 2009::com.aelitis.azureus.core.versioncheck.VersionCheckClient::preProcessReply::935:
+[0407 16:47:35] [stderr]   com.aelitis.azureus.core.networkmanager.admin.NetworkAdminException: DNS query failed
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:257)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:161)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookup(NetworkAdminASNLookupImpl.java:70)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminImpl.lookupCurrentASN(NetworkAdminImpl.java:1199)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.preProcessReply(VersionCheckClient.java:913)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.executeAZMessage(VersionCheckClient.java:614)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.performVersionCheck(VersionCheckClient.java:538)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getVersionCheckInfoSupport(VersionCheckClient.java:266)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getExternalIpAddress(VersionCheckClient.java:434)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.readExternalAddress(AZMyInstanceImpl.java:239)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.getExternalAddress(AZMyInstanceImpl.java:396)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceImpl.encode(AZInstanceImpl.java:47)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:371)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:353)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$request.<init>(AZInstanceManagerImpl.java:1284)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendRequest(AZInstanceManagerImpl.java:1243)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.search(AZInstanceManagerImpl.java:692)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$4.run(AZInstanceManagerImpl.java:244)
+[0407 16:47:35] [stderr] 	at org.gudy.azureus2.core3.util.AEThread2$threadWrapper.run(AEThread2.java:255)
+[0407 16:47:35] [stderr] Caused by: javax.naming.CommunicationException: DNS error [Root exception is java.net.SocketTimeoutException: Receive timed out]; remaining name '189.30.97.93.origin.asn.cymru.com'
+[0407 16:47:35] [stderr] 	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:283)
+[0407 16:47:35] [stderr] 	at com.sun.jndi.dns.Resolver.query(Resolver.java:64)
+[0407 16:47:35] [stderr] 	at com.sun.jndi.dns.DnsContext.c_getAttributes(DnsContext.java:413)
+[0407 16:47:35] [stderr] 	at com.sun.jndi.toolkit.ctx.ComponentDirContext.p_getAttributes(ComponentDirContext.java:213)
+[0407 16:47:35] [stderr] 	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:121)
+[0407 16:47:35] [stderr] 	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:109)
+[0407 16:47:35] [stderr] 	at javax.naming.directory.InitialDirContext.getAttributes(InitialDirContext.java:123)
+[0407 16:47:35] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:217)
+[0407 16:47:35] [stderr] 	... 18 more
+[0407 16:47:35] [stderr] Caused by: java.net.SocketTimeoutException: Receive timed out
+[0407 16:47:35] [stderr] 	at java.net.PlainDatagramSocketImpl.receive0(Native Method)
+[0407 16:47:35] [stderr] 	at java.net.PlainDatagramSocketImpl.receive(PlainDatagramSocketImpl.java:136)
+[0407 16:47:35] [stderr] 	at java.net.DatagramSocket.receive(DatagramSocket.java:712)
+[0407 16:47:35] [stderr] 	at com.sun.jndi.dns.DnsClient.doUdpQuery(DnsClient.java:394)
+[0407 16:47:35] [stderr] 	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:186)
+[0407 16:47:35] [stderr] 	... 25 more
+[0407 16:47:35] [stderr] 
+[0407 16:47:35]   com.aelitis.azureus.core.networkmanager.admin.NetworkAdminException: DNS query failed
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:257)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:161)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookup(NetworkAdminASNLookupImpl.java:70)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminImpl.lookupCurrentASN(NetworkAdminImpl.java:1199)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.preProcessReply(VersionCheckClient.java:913)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.executeAZMessage(VersionCheckClient.java:614)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.performVersionCheck(VersionCheckClient.java:538)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getVersionCheckInfoSupport(VersionCheckClient.java:266)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getExternalIpAddress(VersionCheckClient.java:434)
+	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.readExternalAddress(AZMyInstanceImpl.java:239)
+	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.getExternalAddress(AZMyInstanceImpl.java:396)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceImpl.encode(AZInstanceImpl.java:47)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:371)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:353)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$request.<init>(AZInstanceManagerImpl.java:1284)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendRequest(AZInstanceManagerImpl.java:1243)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.search(AZInstanceManagerImpl.java:692)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$4.run(AZInstanceManagerImpl.java:244)
+	at org.gudy.azureus2.core3.util.AEThread2$threadWrapper.run(AEThread2.java:255)
+Caused by: javax.naming.CommunicationException: DNS error [Root exception is java.net.SocketTimeoutException: Receive timed out]; remaining name '189.30.97.93.origin.asn.cymru.com'
+	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:283)
+	at com.sun.jndi.dns.Resolver.query(Resolver.java:64)
+	at com.sun.jndi.dns.DnsContext.c_getAttributes(DnsContext.java:413)
+	at com.sun.jndi.toolkit.ctx.ComponentDirContext.p_getAttributes(ComponentDirContext.java:213)
+	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:121)
+	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:109)
+	at javax.naming.directory.InitialDirContext.getAttributes(InitialDirContext.java:123)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:217)
+	... 18 more
+Caused by: java.net.SocketTimeoutException: Receive timed out
+	at java.net.PlainDatagramSocketImpl.receive0(Native Method)
+	at java.net.PlainDatagramSocketImpl.receive(PlainDatagramSocketImpl.java:136)
+	at java.net.DatagramSocket.receive(DatagramSocket.java:712)
+	at com.sun.jndi.dns.DnsClient.doUdpQuery(DnsClient.java:394)
+	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:186)
+	... 25 more
+
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:41:49] [stderr] DEBUG::Sat Jul 04 17:41:49 BST 2009::org.gudy.azureus2.platform.macosx.access.jnilib.OSXAccess::<clinit>::41:
+[0407 17:41:49] DEBUG::Sat Jul 04 17:41:49 BST 2009::org.gudy.azureus2.platform.macosx.access.jnilib.OSXAccess::<clinit>::41:
+[0407 17:41:49] [stderr]   Could not find libOSXAccess.jnilib
+[0407 17:41:49]   Could not find libOSXAccess.jnilib
+[0407 17:41:49] [stderr]     PlatformManagerImpl::<init>::133,PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 17:41:49]     PlatformManagerImpl::<init>::133,PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 17:41:49] [stderr] DEBUG::Sat Jul 04 17:41:49 BST 2009::org.gudy.azureus2.platform.macosx.PlatformManagerImpl::<init>::138:
+[0407 17:41:49] DEBUG::Sat Jul 04 17:41:49 BST 2009::org.gudy.azureus2.platform.macosx.PlatformManagerImpl::<init>::138:
+[0407 17:41:49] [stderr]   Failed to update plist
+[0407 17:41:49]   Failed to update plist
+[0407 17:41:49] [stderr]     PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 17:41:49]     PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 17:41:49] [stderr] java.io.IOException: plist file '/Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client2/Azureus.app/Contents/Info.plist' doesn't exist
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.platform.macosx.PListEditor.<init>(PListEditor.java:48)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.getPList(PlatformManagerImpl.java:170)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.checkPList(PlatformManagerImpl.java:179)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<init>(PlatformManagerImpl.java:138)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.initializeSingleton(PlatformManagerImpl.java:99)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<clinit>(PlatformManagerImpl.java:88)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.platform.PlatformManagerFactory.getPlatformManager(PlatformManagerFactory.java:55)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.util.SystemProperties.getDocPath(SystemProperties.java:392)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.<init>(ConfigurationDefaults.java:225)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.getInstance(ConfigurationDefaults.java:97)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getBooleanParameter(ConfigurationManager.java:296)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.logging.impl.LoggerImpl.init(LoggerImpl.java:96)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.logging.Logger.<clinit>(Logger.java:48)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.util.SystemProperties.getUserPath(SystemProperties.java:201)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.util.FileUtil.readResilientConfigFile(FileUtil.java:522)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:160)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:208)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getInstance(ConfigurationManager.java:84)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.core3.config.COConfigurationManager.initialise(COConfigurationManager.java:124)
+[0407 17:41:49] [stderr] 	at com.aelitis.azureus.core.impl.AzureusCoreImpl.<init>(AzureusCoreImpl.java:166)
+[0407 17:41:49] [stderr] 	at com.aelitis.azureus.core.impl.AzureusCoreImpl.create(AzureusCoreImpl.java:105)
+[0407 17:41:49] [stderr] 	at com.aelitis.azureus.core.AzureusCoreFactory.create(AzureusCoreFactory.java:46)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.ui.swt.Main.<init>(Main.java:70)
+[0407 17:41:49] [stderr] 	at org.gudy.azureus2.ui.swt.Main.main(Main.java:217)
+[0407 17:41:49] java.io.IOException: plist file '/Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client2/Azureus.app/Contents/Info.plist' doesn't exist
+	at org.gudy.azureus2.platform.macosx.PListEditor.<init>(PListEditor.java:48)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.getPList(PlatformManagerImpl.java:170)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.checkPList(PlatformManagerImpl.java:179)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<init>(PlatformManagerImpl.java:138)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.initializeSingleton(PlatformManagerImpl.java:99)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<clinit>(PlatformManagerImpl.java:88)
+	at org.gudy.azureus2.platform.PlatformManagerFactory.getPlatformManager(PlatformManagerFactory.java:55)
+	at org.gudy.azureus2.core3.util.SystemProperties.getDocPath(SystemProperties.java:392)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.<init>(ConfigurationDefaults.java:225)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.getInstance(ConfigurationDefaults.java:97)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getBooleanParameter(ConfigurationManager.java:296)
+	at org.gudy.azureus2.core3.logging.impl.LoggerImpl.init(LoggerImpl.java:96)
+	at org.gudy.azureus2.core3.logging.Logger.<clinit>(Logger.java:48)
+	at org.gudy.azureus2.core3.util.SystemProperties.getUserPath(SystemProperties.java:201)
+	at org.gudy.azureus2.core3.util.FileUtil.readResilientConfigFile(FileUtil.java:522)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:160)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:208)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getInstance(ConfigurationManager.java:84)
+	at org.gudy.azureus2.core3.config.COConfigurationManager.initialise(COConfigurationManager.java:124)
+	at com.aelitis.azureus.core.impl.AzureusCoreImpl.<init>(AzureusCoreImpl.java:166)
+	at com.aelitis.azureus.core.impl.AzureusCoreImpl.create(AzureusCoreImpl.java:105)
+	at com.aelitis.azureus.core.AzureusCoreFactory.create(AzureusCoreFactory.java:46)
+	at org.gudy.azureus2.ui.swt.Main.<init>(Main.java:70)
+	at org.gudy.azureus2.ui.swt.Main.main(Main.java:217)
+
+[0407 17:42:09] [stderr] DEBUG::Sat Jul 04 17:42:09 BST 2009::com.aelitis.azureus.core.versioncheck.VersionCheckClient::preProcessReply::935:
+[0407 17:42:09] DEBUG::Sat Jul 04 17:42:09 BST 2009::com.aelitis.azureus.core.versioncheck.VersionCheckClient::preProcessReply::935:
+[0407 17:42:09] [stderr]   com.aelitis.azureus.core.networkmanager.admin.NetworkAdminException: DNS query failed
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:257)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:161)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookup(NetworkAdminASNLookupImpl.java:70)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminImpl.lookupCurrentASN(NetworkAdminImpl.java:1199)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.preProcessReply(VersionCheckClient.java:913)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.executeAZMessage(VersionCheckClient.java:614)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.performVersionCheck(VersionCheckClient.java:538)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getVersionCheckInfoSupport(VersionCheckClient.java:266)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getExternalIpAddress(VersionCheckClient.java:434)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.readExternalAddress(AZMyInstanceImpl.java:239)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.getExternalAddress(AZMyInstanceImpl.java:396)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceImpl.encode(AZInstanceImpl.java:47)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:371)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:353)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$request.<init>(AZInstanceManagerImpl.java:1284)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendRequest(AZInstanceManagerImpl.java:1243)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.search(AZInstanceManagerImpl.java:692)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$4.run(AZInstanceManagerImpl.java:244)
+[0407 17:42:09] [stderr] 	at org.gudy.azureus2.core3.util.AEThread2$threadWrapper.run(AEThread2.java:255)
+[0407 17:42:09] [stderr] Caused by: javax.naming.CommunicationException: DNS error [Root exception is java.net.SocketTimeoutException: Receive timed out]; remaining name '189.30.97.93.origin.asn.cymru.com'
+[0407 17:42:09] [stderr] 	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:283)
+[0407 17:42:09] [stderr] 	at com.sun.jndi.dns.Resolver.query(Resolver.java:64)
+[0407 17:42:09] [stderr] 	at com.sun.jndi.dns.DnsContext.c_getAttributes(DnsContext.java:413)
+[0407 17:42:09] [stderr] 	at com.sun.jndi.toolkit.ctx.ComponentDirContext.p_getAttributes(ComponentDirContext.java:213)
+[0407 17:42:09] [stderr] 	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:121)
+[0407 17:42:09] [stderr] 	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:109)
+[0407 17:42:09] [stderr] 	at javax.naming.directory.InitialDirContext.getAttributes(InitialDirContext.java:123)
+[0407 17:42:09] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:217)
+[0407 17:42:09] [stderr] 	... 18 more
+[0407 17:42:09] [stderr] Caused by: java.net.SocketTimeoutException: Receive timed out
+[0407 17:42:09] [stderr] 	at java.net.PlainDatagramSocketImpl.receive0(Native Method)
+[0407 17:42:09] [stderr] 	at java.net.PlainDatagramSocketImpl.receive(PlainDatagramSocketImpl.java:136)
+[0407 17:42:09] [stderr] 	at java.net.DatagramSocket.receive(DatagramSocket.java:712)
+[0407 17:42:09] [stderr] 	at com.sun.jndi.dns.DnsClient.doUdpQuery(DnsClient.java:394)
+[0407 17:42:09] [stderr] 	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:186)
+[0407 17:42:09] [stderr] 	... 25 more
+[0407 17:42:09] [stderr] 
+[0407 17:42:09]   com.aelitis.azureus.core.networkmanager.admin.NetworkAdminException: DNS query failed
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:257)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:161)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookup(NetworkAdminASNLookupImpl.java:70)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminImpl.lookupCurrentASN(NetworkAdminImpl.java:1199)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.preProcessReply(VersionCheckClient.java:913)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.executeAZMessage(VersionCheckClient.java:614)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.performVersionCheck(VersionCheckClient.java:538)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getVersionCheckInfoSupport(VersionCheckClient.java:266)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getExternalIpAddress(VersionCheckClient.java:434)
+	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.readExternalAddress(AZMyInstanceImpl.java:239)
+	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.getExternalAddress(AZMyInstanceImpl.java:396)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceImpl.encode(AZInstanceImpl.java:47)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:371)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:353)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$request.<init>(AZInstanceManagerImpl.java:1284)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendRequest(AZInstanceManagerImpl.java:1243)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.search(AZInstanceManagerImpl.java:692)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$4.run(AZInstanceManagerImpl.java:244)
+	at org.gudy.azureus2.core3.util.AEThread2$threadWrapper.run(AEThread2.java:255)
+Caused by: javax.naming.CommunicationException: DNS error [Root exception is java.net.SocketTimeoutException: Receive timed out]; remaining name '189.30.97.93.origin.asn.cymru.com'
+	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:283)
+	at com.sun.jndi.dns.Resolver.query(Resolver.java:64)
+	at com.sun.jndi.dns.DnsContext.c_getAttributes(DnsContext.java:413)
+	at com.sun.jndi.toolkit.ctx.ComponentDirContext.p_getAttributes(ComponentDirContext.java:213)
+	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:121)
+	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:109)
+	at javax.naming.directory.InitialDirContext.getAttributes(InitialDirContext.java:123)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:217)
+	... 18 more
+Caused by: java.net.SocketTimeoutException: Receive timed out
+	at java.net.PlainDatagramSocketImpl.receive0(Native Method)
+	at java.net.PlainDatagramSocketImpl.receive(PlainDatagramSocketImpl.java:136)
+	at java.net.DatagramSocket.receive(DatagramSocket.java:712)
+	at com.sun.jndi.dns.DnsClient.doUdpQuery(DnsClient.java:394)
+	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:186)
+	... 25 more
+
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:48:12] [stderr] DEBUG::Sat Jul 04 17:48:12 BST 2009::org.gudy.azureus2.platform.macosx.access.jnilib.OSXAccess::<clinit>::41:
+[0407 17:48:12] DEBUG::Sat Jul 04 17:48:12 BST 2009::org.gudy.azureus2.platform.macosx.access.jnilib.OSXAccess::<clinit>::41:
+[0407 17:48:12] [stderr]   Could not find libOSXAccess.jnilib
+[0407 17:48:12]   Could not find libOSXAccess.jnilib
+[0407 17:48:12] [stderr]     PlatformManagerImpl::<init>::133,PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 17:48:12]     PlatformManagerImpl::<init>::133,PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 17:48:12] [stderr] DEBUG::Sat Jul 04 17:48:12 BST 2009::org.gudy.azureus2.platform.macosx.PlatformManagerImpl::<init>::138:
+[0407 17:48:12] DEBUG::Sat Jul 04 17:48:12 BST 2009::org.gudy.azureus2.platform.macosx.PlatformManagerImpl::<init>::138:
+[0407 17:48:12] [stderr]   Failed to update plist
+[0407 17:48:12]   Failed to update plist
+[0407 17:48:12] [stderr]     PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 17:48:12]     PlatformManagerImpl::initializeSingleton::99,PlatformManagerImpl::<clinit>::88,PlatformManagerFactory::getPlatformManager::55,SystemProperties::getDocPath::392,ConfigurationDefaults::<init>::225,ConfigurationDefaults::getInstance::97,ConfigurationManager::getBooleanParameter::296,LoggerImpl::init::96,Logger::<clinit>::48,SystemProperties::getUserPath::201,FileUtil::readResilientConfigFile::522,ConfigurationManager::load::160,ConfigurationManager::load::208,ConfigurationManager::getInstance::84,COConfigurationManager::initialise::124,AzureusCoreImpl::<init>::166,AzureusCoreImpl::create::105,AzureusCoreFactory::create::46,Main::<init>::70,Main::main::217
+[0407 17:48:12] [stderr] java.io.IOException: plist file '/Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client2/Azureus.app/Contents/Info.plist' doesn't exist
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.platform.macosx.PListEditor.<init>(PListEditor.java:48)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.getPList(PlatformManagerImpl.java:170)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.checkPList(PlatformManagerImpl.java:179)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<init>(PlatformManagerImpl.java:138)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.initializeSingleton(PlatformManagerImpl.java:99)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<clinit>(PlatformManagerImpl.java:88)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.platform.PlatformManagerFactory.getPlatformManager(PlatformManagerFactory.java:55)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.util.SystemProperties.getDocPath(SystemProperties.java:392)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.<init>(ConfigurationDefaults.java:225)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.getInstance(ConfigurationDefaults.java:97)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getBooleanParameter(ConfigurationManager.java:296)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.logging.impl.LoggerImpl.init(LoggerImpl.java:96)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.logging.Logger.<clinit>(Logger.java:48)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.util.SystemProperties.getUserPath(SystemProperties.java:201)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.util.FileUtil.readResilientConfigFile(FileUtil.java:522)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:160)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:208)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getInstance(ConfigurationManager.java:84)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.core3.config.COConfigurationManager.initialise(COConfigurationManager.java:124)
+[0407 17:48:12] [stderr] 	at com.aelitis.azureus.core.impl.AzureusCoreImpl.<init>(AzureusCoreImpl.java:166)
+[0407 17:48:12] [stderr] 	at com.aelitis.azureus.core.impl.AzureusCoreImpl.create(AzureusCoreImpl.java:105)
+[0407 17:48:12] [stderr] 	at com.aelitis.azureus.core.AzureusCoreFactory.create(AzureusCoreFactory.java:46)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.ui.swt.Main.<init>(Main.java:70)
+[0407 17:48:12] [stderr] 	at org.gudy.azureus2.ui.swt.Main.main(Main.java:217)
+[0407 17:48:12] java.io.IOException: plist file '/Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client2/Azureus.app/Contents/Info.plist' doesn't exist
+	at org.gudy.azureus2.platform.macosx.PListEditor.<init>(PListEditor.java:48)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.getPList(PlatformManagerImpl.java:170)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.checkPList(PlatformManagerImpl.java:179)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<init>(PlatformManagerImpl.java:138)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.initializeSingleton(PlatformManagerImpl.java:99)
+	at org.gudy.azureus2.platform.macosx.PlatformManagerImpl.<clinit>(PlatformManagerImpl.java:88)
+	at org.gudy.azureus2.platform.PlatformManagerFactory.getPlatformManager(PlatformManagerFactory.java:55)
+	at org.gudy.azureus2.core3.util.SystemProperties.getDocPath(SystemProperties.java:392)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.<init>(ConfigurationDefaults.java:225)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationDefaults.getInstance(ConfigurationDefaults.java:97)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getBooleanParameter(ConfigurationManager.java:296)
+	at org.gudy.azureus2.core3.logging.impl.LoggerImpl.init(LoggerImpl.java:96)
+	at org.gudy.azureus2.core3.logging.Logger.<clinit>(Logger.java:48)
+	at org.gudy.azureus2.core3.util.SystemProperties.getUserPath(SystemProperties.java:201)
+	at org.gudy.azureus2.core3.util.FileUtil.readResilientConfigFile(FileUtil.java:522)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:160)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.load(ConfigurationManager.java:208)
+	at org.gudy.azureus2.core3.config.impl.ConfigurationManager.getInstance(ConfigurationManager.java:84)
+	at org.gudy.azureus2.core3.config.COConfigurationManager.initialise(COConfigurationManager.java:124)
+	at com.aelitis.azureus.core.impl.AzureusCoreImpl.<init>(AzureusCoreImpl.java:166)
+	at com.aelitis.azureus.core.impl.AzureusCoreImpl.create(AzureusCoreImpl.java:105)
+	at com.aelitis.azureus.core.AzureusCoreFactory.create(AzureusCoreFactory.java:46)
+	at org.gudy.azureus2.ui.swt.Main.<init>(Main.java:70)
+	at org.gudy.azureus2.ui.swt.Main.main(Main.java:217)
+
+[0407 17:48:33] [stderr] DEBUG::Sat Jul 04 17:48:33 BST 2009::com.aelitis.azureus.core.versioncheck.VersionCheckClient::preProcessReply::935:
+[0407 17:48:33] DEBUG::Sat Jul 04 17:48:33 BST 2009::com.aelitis.azureus.core.versioncheck.VersionCheckClient::preProcessReply::935:
+[0407 17:48:33] [stderr]   com.aelitis.azureus.core.networkmanager.admin.NetworkAdminException: DNS query failed
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:257)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:161)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookup(NetworkAdminASNLookupImpl.java:70)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminImpl.lookupCurrentASN(NetworkAdminImpl.java:1199)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.preProcessReply(VersionCheckClient.java:913)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.executeAZMessage(VersionCheckClient.java:614)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.performVersionCheck(VersionCheckClient.java:538)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getVersionCheckInfoSupport(VersionCheckClient.java:266)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getExternalIpAddress(VersionCheckClient.java:434)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.readExternalAddress(AZMyInstanceImpl.java:239)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.getExternalAddress(AZMyInstanceImpl.java:396)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceImpl.encode(AZInstanceImpl.java:47)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:371)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:353)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$request.<init>(AZInstanceManagerImpl.java:1284)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendRequest(AZInstanceManagerImpl.java:1243)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.search(AZInstanceManagerImpl.java:692)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$4.run(AZInstanceManagerImpl.java:244)
+[0407 17:48:33] [stderr] 	at org.gudy.azureus2.core3.util.AEThread2$threadWrapper.run(AEThread2.java:255)
+[0407 17:48:33] [stderr] Caused by: javax.naming.CommunicationException: DNS error [Root exception is java.net.SocketTimeoutException: Receive timed out]; remaining name '189.30.97.93.origin.asn.cymru.com'
+[0407 17:48:33] [stderr] 	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:283)
+[0407 17:48:33] [stderr] 	at com.sun.jndi.dns.Resolver.query(Resolver.java:64)
+[0407 17:48:33] [stderr] 	at com.sun.jndi.dns.DnsContext.c_getAttributes(DnsContext.java:413)
+[0407 17:48:33] [stderr] 	at com.sun.jndi.toolkit.ctx.ComponentDirContext.p_getAttributes(ComponentDirContext.java:213)
+[0407 17:48:33] [stderr] 	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:121)
+[0407 17:48:33] [stderr] 	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:109)
+[0407 17:48:33] [stderr] 	at javax.naming.directory.InitialDirContext.getAttributes(InitialDirContext.java:123)
+[0407 17:48:33] [stderr] 	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:217)
+[0407 17:48:33] [stderr] 	... 18 more
+[0407 17:48:33] [stderr] Caused by: java.net.SocketTimeoutException: Receive timed out
+[0407 17:48:33] [stderr] 	at java.net.PlainDatagramSocketImpl.receive0(Native Method)
+[0407 17:48:33] [stderr] 	at java.net.PlainDatagramSocketImpl.receive(PlainDatagramSocketImpl.java:136)
+[0407 17:48:33] [stderr] 	at java.net.DatagramSocket.receive(DatagramSocket.java:712)
+[0407 17:48:33] [stderr] 	at com.sun.jndi.dns.DnsClient.doUdpQuery(DnsClient.java:394)
+[0407 17:48:33] [stderr] 	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:186)
+[0407 17:48:33] [stderr] 	... 25 more
+[0407 17:48:33] [stderr] 
+[0407 17:48:33]   com.aelitis.azureus.core.networkmanager.admin.NetworkAdminException: DNS query failed
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:257)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:161)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookup(NetworkAdminASNLookupImpl.java:70)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminImpl.lookupCurrentASN(NetworkAdminImpl.java:1199)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.preProcessReply(VersionCheckClient.java:913)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.executeAZMessage(VersionCheckClient.java:614)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.performVersionCheck(VersionCheckClient.java:538)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getVersionCheckInfoSupport(VersionCheckClient.java:266)
+	at com.aelitis.azureus.core.versioncheck.VersionCheckClient.getExternalIpAddress(VersionCheckClient.java:434)
+	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.readExternalAddress(AZMyInstanceImpl.java:239)
+	at com.aelitis.azureus.core.instancemanager.impl.AZMyInstanceImpl.getExternalAddress(AZMyInstanceImpl.java:396)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceImpl.encode(AZInstanceImpl.java:47)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:371)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendMessage(AZInstanceManagerImpl.java:353)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$request.<init>(AZInstanceManagerImpl.java:1284)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.sendRequest(AZInstanceManagerImpl.java:1243)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl.search(AZInstanceManagerImpl.java:692)
+	at com.aelitis.azureus.core.instancemanager.impl.AZInstanceManagerImpl$4.run(AZInstanceManagerImpl.java:244)
+	at org.gudy.azureus2.core3.util.AEThread2$threadWrapper.run(AEThread2.java:255)
+Caused by: javax.naming.CommunicationException: DNS error [Root exception is java.net.SocketTimeoutException: Receive timed out]; remaining name '189.30.97.93.origin.asn.cymru.com'
+	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:283)
+	at com.sun.jndi.dns.Resolver.query(Resolver.java:64)
+	at com.sun.jndi.dns.DnsContext.c_getAttributes(DnsContext.java:413)
+	at com.sun.jndi.toolkit.ctx.ComponentDirContext.p_getAttributes(ComponentDirContext.java:213)
+	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:121)
+	at com.sun.jndi.toolkit.ctx.PartialCompositeDirContext.getAttributes(PartialCompositeDirContext.java:109)
+	at javax.naming.directory.InitialDirContext.getAttributes(InitialDirContext.java:123)
+	at com.aelitis.azureus.core.networkmanager.admin.impl.NetworkAdminASNLookupImpl.lookupDNS(NetworkAdminASNLookupImpl.java:217)
+	... 18 more
+Caused by: java.net.SocketTimeoutException: Receive timed out
+	at java.net.PlainDatagramSocketImpl.receive0(Native Method)
+	at java.net.PlainDatagramSocketImpl.receive(PlainDatagramSocketImpl.java:136)
+	at java.net.DatagramSocket.receive(DatagramSocket.java:712)
+	at com.sun.jndi.dns.DnsClient.doUdpQuery(DnsClient.java:394)
+	at com.sun.jndi.dns.DnsClient.query(DnsClient.java:186)
+	... 25 more
+
+[0407 17:54:51] [net] NAT CHECK FAILED: Connect attempt to 93.97.30.189:40444 (your computer) timed out after 20 seconds. This means your port is probably closed
+[0407 17:56:14] [stderr] Already created view ConfigView.section.plugins.dhttracker
+[0407 23:27:07] [stderr] DEBUG::Sat Jul 04 23:27:07 BST 2009::org.gudy.azureus2.core3.util.ThreadPool::checkWarning::350:
+[0407 23:27:09] DEBUG::Sat Jul 04 23:27:07 BST 2009::org.gudy.azureus2.core3.util.ThreadPool::checkWarning::350:
+[0407 23:27:09] [stderr]   Thread pool 'Simple Timer' is full (busy=StartStop:check,PRUDP:timeouts)
+[0407 23:27:11]   Thread pool 'Simple Timer' is full (busy=StartStop:check,PRUDP:timeouts)
+[0407 23:27:11] [stderr]     ThreadPool::run::232,ThreadPool::run::199,Timer::runSupport::201,AERunnable::run::38,Thread::run::613
+[0407 23:27:11]     ThreadPool::run::232,ThreadPool::run::199,Timer::runSupport::201,AERunnable::run::38,Thread::run::613
+[0407 23:33:02] [stderr] DEBUG::Sat Jul 04 23:33:02 BST 2009::com.aelitis.azureus.core.impl.AzureusCoreImpl$14::run::1098:
+[0407 23:33:02] DEBUG::Sat Jul 04 23:33:02 BST 2009::com.aelitis.azureus.core.impl.AzureusCoreImpl$14::run::1098:
+[0407 23:33:02] [stderr]   Non-daemon thread found 'main', force closing VM
+[0407 23:33:02]   Non-daemon thread found 'main', force closing VM
+[0407 23:33:02] [stderr]     AEThread2$threadWrapper::run::255
+[0407 23:33:02]     AEThread2$threadWrapper::run::255

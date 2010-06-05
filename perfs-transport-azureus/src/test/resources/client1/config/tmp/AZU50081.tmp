@@ -1,0 +1,31 @@
+**** Update check starts ****
+*Azureus Update Support, id = azupdater, version = 1.8.8, loc = /Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client1/Azureus.app/Contents/plugins/azupdater
+-Embedded Media Player, id = azemp, version = 2.1.03, loc = /Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client1/config/plugins/azemp
+-UPnP Media Server, id = azupnpav, version = 0.2.17, loc = /Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client1/config/plugins/azupnpav
+-Azureus Updater Support Patcher, id = azupdaterpatcher, version = 1.8.8, loc = /Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client1/Azureus.app/Contents/plugins/azupdater
+-Start/Stop Rules, id = azbpstartstoprules, version = 1.0, loc = 
+-PerFS, id = perfs, version = 0.1, loc = /Users/stain/Documents/perfs-workspace/perfs/perfs-transport-azureus/src/test/resources/client1/config/plugins/perfs
+-Download Remove Rules, id = azbpremovalrules, version = 1.0, loc = 
+-Plugin Updater, id = azbppluginupdate, version = 1.0, loc = 
+-Share Hoster, id = azbpsharehoster, version = 1.0, loc = 
+-Distributed DB, id = azbpdht, version = 1.0, loc = 
+-Distributed Tracker, id = azbpdhdtracker, version = 1.0, loc = 
+-Universal Plug and Play (UPnP), id = azbpupnp, version = 1.0, loc = 
+-Core Updater, id = azbpcoreupdater, version = 4.2.0.2, loc = 
+-Magnet URI Handler, id = azbpmagnet, version = 1.0, loc = 
+-Core Patcher (level=2), id = azbpcorepatcher, version = 1.0, loc = 
+-Platform-Specific Support, id = azplatform2, version = 1.0, loc = 
+-LAN Peer Finder, id = azlocaltracker, version = 1.0, loc = 
+-External Seed, id = azextseed, version = 1.0, loc = 
+-Network Status, id = aznetstat, version = 1.0, loc = 
+-Friends, id = azbuddy, version = 1.0, loc = 
+Downloaded plugin info = xml_http_if=1.1.3/1.1.4_CVS,azupdater=1.8.8/1.8.8_CVS,azpeerinjector=0.4/0.4_CVS,mlDHT=1.2.6/1.2.6_CVS,torrentnameutils=1.0/1.0_CVS,safepeer=2.5.3/2.5.3_CVS,ono=1.9.9/1.9.9_CVS,seedingcolumns1=1.3.2/1.3.2,azconfigbackup=1.1.1/1.1.1_CVS,azexec=1.2/1.2_CVS,snarl=/,CountryLocator=1.8.2/1.8.2_CVS,azplugins=2.1.4/2.1.6_CVS,aesmsclient=0.2.1/0.2.1_CVS,i18nAZ=1.2/1.2_CVS,3DView=0.3.1/0.3.1_CVS,uploadshaper=1.0.1/1.0.1_CVS,firefrog=1.0.1/1.0.1_CVS,atelnetui=0.0.2/,azdowndel=0.2/0.2_CVS,azcatdest=0.0.1/0.0.1_CVS,scanerss=0.9.9/0.9.9_CVS,azlockr=0.1/0.1_CVS,dopal=/,aesudoku=0.4.4/0.4.4_CVS,azcategorychanger=0.2.1/0.2.1_CVS,azjabber=1.0.4/1.0.4_CVS,azteamseeder=0.1.1/0.1.2_CVS,azautoseeder=0.1.1/0.1.1_CVS,TimedAutoStart=1.7/1.7_CVS,statusicon=1.1/1.1_CVS,autostop=2.0.2/2.0.2_CVS,azcvsupdater=2.8.3/2.8.3_CVS,Example=1.0/,azrating=1.3.1/1.3.1_CVS,hyperspace=0.35/0.35_CVS,izureus=0.1/0.1_CVS,azjython=0.6.5/0.6.5_CVS,azrssgen=0.1.1/0.1.1_CVS,p4p=0.3.2/0.3.2_CVS,azdhtfeed=0.3.4/0.3.4_CVS,azemp=2.1.03/2.1.03_CVS,azstatusmailer=0.11/0.11_CVS,winstartstop=/,ColumnExample2=1.1/,ColumnExample1=1.1/,rssfeed=1.3.5/1.3.5_CVS,autocat=1.2.0/1.2.0_CVS,azcron=0.5.3/0.5.3_CVS,azdhtscraper=0.1/0.1_CVS,RSSImport=2.2.2/2.2.2_CVS,test=/0.1.2_CVS,webui=1.6.20/1.7.0_CVS,p4p_package=/,vuzexcode=0.2.6/0.2.6_CVS,azitunes=0.2.4/0.2.4_CVS,swarmscreen=0.4/0.4_CVS,aznetmon=0.3.1/,azupnpav=0.2.17/0.2.20_CVS,azplatform2=/,azneti2p=0.2.1/0.2.1_CVS,SpeedScheduler=1.6.0/1.6.0_CVS,azsmrc=1.0.0/1.0.0_CVS,SampleMainView2=1.0/,azsavepath=1.2.1/1.2.1_CVS,SampleMainView1=1.0/,azfocus=0.3/0.3_CVS,azhtmlwebui=0.7.6/0.7.6_CVS,azblog=1.0/1.0_CVS,phpcontrollayer=/,multi-ports=1.0/,aeimp=0.29/0.29_CVS,azlanpeerscanner=0.85/0.85_CVS,news=1.3/1.3_CVS,yaleinstrumentation=0.5/0.5_CVS,advancedstatistics=2.0.1/2.0.1_CVS,bdcc=2.2.3/2.2.3_CVS,azplatform=1.4/1.4_CVS,monitoringplugin=0.4.1/0.4.2_CVS,autospeed=0.9.0/0.9.0_CVS,azjpc=1.0/1.0_CVS,ietorrentbar=0.1.4/0.1.4_CVS,azshareexporter=0.4/0.4_CVS,GlobalInformationStatusEntry=1.6/1.6_CVS,progressbar=0.2.2/0.2.3_CVS,azump=1.4/1.3_CVS,chat=1.9/1.9_CVS,azzeroconf=0.2/0.2_CVS
+Checking azupdater
+Checking azemp
+    Current: 1.8.8, Latest: 1.8.8
+    Current: 2.1.03, Latest: 2.1.03
+Checking azupnpav
+    Current: 0.2.17, Latest: 0.2.17
+Skipping perfs as not listed on web site
+Checking azplatform2
+Skipping azplatform2 as no valid version to check

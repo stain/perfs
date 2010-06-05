@@ -1,0 +1,84 @@
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 16:47:17] Publishing Associations Complete
+[0407 16:47:17] Publishing Subscriptions Complete
+[0407 16:47:24] Association lookup starts for Azureus Updater Component/FED7A1E01D803D25E25447F483418C184186B623
+[0407 16:47:24] Looking up associations for 'FED7A1E01D803D25E25447F483418C184186B623
+[0407 16:47:52]     Association lookup complete - 0 found
+[0407 16:47:52] Association lookup complete for FED7A1E01D803D25E25447F483418C184186B623
+[0407 16:47:52] Association lookup starts for azupnpav_0.2.17.zip/2EE25AE8B8333B7427FC689E673E5C44EF14EC26
+[0407 16:47:52] Looking up associations for '2EE25AE8B8333B7427FC689E673E5C44EF14EC26
+[0407 16:47:52]     Association lookup complete - 0 found
+[0407 16:47:52] Association lookup complete for 2EE25AE8B8333B7427FC689E673E5C44EF14EC26
+[0407 16:47:52] Association lookup starts for azemp-osx_2.1.03.zip/64E3B8234A1A2697FEC0FD8F6A32063DB28A6257
+[0407 16:47:52] Looking up associations for '64E3B8234A1A2697FEC0FD8F6A32063DB28A6257
+[0407 16:47:52]     Association lookup complete - 0 found
+[0407 16:47:52] Association lookup complete for 64E3B8234A1A2697FEC0FD8F6A32063DB28A6257
+[0407 16:50:17] Popularity update: No selected, public subscriptions
+[0407 17:30:23] Association lookup starts for channel/85F0D27CDC2B961012A7F70EC3D2D9E077F2EC04
+[0407 17:30:23] Looking up associations for '85F0D27CDC2B961012A7F70EC3D2D9E077F2EC04
+[0407 17:30:23]     Association lookup complete - 0 found
+[0407 17:30:23] Association lookup complete for 85F0D27CDC2B961012A7F70EC3D2D9E077F2EC04
+[0407 17:33:52] Association lookup starts for perfs-rendezvous/65460227795F343B2078D136938919A06B3A82DF
+[0407 17:33:52] Looking up associations for '65460227795F343B2078D136938919A06B3A82DF
+[0407 17:33:52]     Association lookup complete - 0 found
+[0407 17:33:52] Association lookup complete for 65460227795F343B2078D136938919A06B3A82DF
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:40:48] Publishing Associations Complete
+[0407 17:40:48] Publishing Subscriptions Complete
+[0407 17:43:48] Popularity update: No selected, public subscriptions
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:48:08] Publishing Associations Complete
+[0407 17:48:08] Publishing Subscriptions Complete
+[0407 17:51:08] Popularity update: No selected, public subscriptions
+[0407 17:53:08] Association lookup starts for perfs-rendezvous/65460227795F343B2078D136938919A06B3A82DF
+[0407 17:53:08] Looking up associations for '65460227795F343B2078D136938919A06B3A82DF
+[0407 17:53:08]     Association lookup complete - 0 found
+[0407 17:53:08] Association lookup complete for 65460227795F343B2078D136938919A06B3A82DF
+[0407 17:59:38] Association lookup starts for perfs-rendezvous/65460227795F343B2078D136938919A06B3A82DF
+[0407 17:59:38] Looking up associations for '65460227795F343B2078D136938919A06B3A82DF
+[0407 17:59:38]     Association lookup complete - 0 found
+[0407 17:59:38] Association lookup complete for 65460227795F343B2078D136938919A06B3A82DF
+[0407 18:02:12] Checking potential association: http://prdownloads.sourceforge.net/azureus/Azureus4.2.0.2.jar.torrent?download -> 470D6BB1B29B29AC041863C588E9DBFF19F00FD1
+[0407 18:02:12]     no potential associations found
+[0407 18:02:18] Association lookup starts for Azureus4.2.0.2.jar/470D6BB1B29B29AC041863C588E9DBFF19F00FD1
+[0407 18:02:18] Looking up associations for '470D6BB1B29B29AC041863C588E9DBFF19F00FD1
+[0407 18:02:18]     Association lookup complete - 0 found
+[0407 18:02:18] Association lookup complete for 470D6BB1B29B29AC041863C588E9DBFF19F00FD1
+[0407 18:03:25] Checking potential association: http://downloads.sourceforge.net/sourceforge/azureus/Azureus4.2.0.2.jar.torrent?use_mirror=heanet -> 470D6BB1B29B29AC041863C588E9DBFF19F00FD1
+[0407 18:03:25]     no potential associations found
+[0407 18:23:28] Checking potential association: http://downloads.sourceforge.net/sourceforge/azureus/Azureus4.2.0.0.jar.torrent?use_mirror=heanet -> A37A2FE36AAA9BE6E18BA49DD13F5563C18BA34B
+[0407 18:23:28]     no potential associations found
+[0407 18:23:33] Association lookup starts for Azureus4.2.0.0.jar/A37A2FE36AAA9BE6E18BA49DD13F5563C18BA34B
+[0407 18:23:33] Looking up associations for 'A37A2FE36AAA9BE6E18BA49DD13F5563C18BA34B
+[0407 18:24:03]     Association lookup complete - 0 found
+[0407 18:24:03] Association lookup complete for A37A2FE36AAA9BE6E18BA49DD13F5563C18BA34B
+[0407 22:55:22] Association lookup starts for slowly_provenance.t2flow/AC6D623BA50FF49C9EAA83AD00ED7B04D7243D21
+[0407 22:55:22] Looking up associations for 'AC6D623BA50FF49C9EAA83AD00ED7B04D7243D21
+[0407 22:56:00]     Association lookup complete - 0 found
+[0407 22:56:00] Association lookup complete for AC6D623BA50FF49C9EAA83AD00ED7B04D7243D21
+[0407 23:03:24] Checking potential association: http://www.vuze.com/download/WHS2F3KQWWVJPX7MN2PVM2IXIYJ6DTUN.torrent;jsessionid=E7E49E43C3EE626E595D0F12C7349437.web03?referal=homepagebucket&title=Ice+Age%3A+Dawn+of+the+Dinosaurs+-+Trailer+2+%28HD%29&dlContext=%2Fhome%2FMOVIE%2Fbs%2F%5Btype%3A%20MOVIE%5D%5Bage%3A%20TODAY%5D%5Bprice%3A%20PARTNER%5D%5Bsort%3A%20AZHOT%5D%5B%231x60%5D%2FWhat's%20Hot%2F0%2F3&referal=homepagebucket&azid=ZXILFL2E56K6I5KFIFYBIUY3TPFTMFE4&azv=4.2.0.2&locale=en -> B1E5A2ED50B5AA97DFEC6E9F5669174613E1CE8D
+[0407 23:03:24]     no potential associations found
+[0407 23:03:25] Association lookup starts for Ice_Age__Dawn_of_the_Dinosaurs_-_Trailer_2_(HD[FOX00000021].mkv/B1E5A2ED50B5AA97DFEC6E9F5669174613E1CE8D
+[0407 23:03:25] Looking up associations for 'B1E5A2ED50B5AA97DFEC6E9F5669174613E1CE8D
+[0407 23:04:02]     Association lookup complete - 0 found
+[0407 23:04:02] Association lookup complete for B1E5A2ED50B5AA97DFEC6E9F5669174613E1CE8D
+[0407 23:04:02] Association lookup starts for Media for Ad Supported Content/AB6C3B5891509A853805AF325AF605E3AE10A477
+[0407 23:04:02] Looking up associations for 'AB6C3B5891509A853805AF325AF605E3AE10A477
+[0407 23:04:52]     Association lookup complete - 0 found
+[0407 23:04:52] Association lookup complete for AB6C3B5891509A853805AF325AF605E3AE10A477
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0507 17:48:20] Publishing Associations Complete
+[0507 17:48:20] Publishing Subscriptions Complete
+[0507 17:51:20] Popularity update: No selected, public subscriptions
+[0507 21:00:05] Association lookup starts for perfs-rendezvous/65460227795F343B2078D136938919A06B3A82DF
+[0507 21:00:05] Looking up associations for '65460227795F343B2078D136938919A06B3A82DF
+[0507 21:00:05]     Association lookup complete - 0 found
+[0507 21:00:05] Association lookup complete for 65460227795F343B2078D136938919A06B3A82DF
+[0807 20:47:00] Association lookup starts for Media for Ad Supported Content/AB6C3B5891509A853805AF325AF605E3AE10A477
+[0807 20:47:00] Looking up associations for 'AB6C3B5891509A853805AF325AF605E3AE10A477
+[0807 20:47:00]     Association lookup complete - 0 found
+[0807 20:47:00] Association lookup complete for AB6C3B5891509A853805AF325AF605E3AE10A477

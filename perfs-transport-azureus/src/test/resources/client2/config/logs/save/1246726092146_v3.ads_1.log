@@ -1,0 +1,15 @@
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 16:47:37] DCAdManager: enter - downloadManagerAddedHook
+[0407 16:47:37] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 16:47:37] DCAdManager: azupdater_1.8.8.zip reasons: 
+[0407 16:47:38] DCAdManager: enter - downloadManagerAddedHook
+[0407 16:47:38] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 16:47:38] DCAdManager: azemp-osx_2.1.03.zip reasons: 
+[0407 16:47:44] DCAdManager: enter - downloadManagerAddedHook
+[0407 16:47:44] DCAdManager: none of the 1 new torrent(s) are ad enabled.  SKIPPING getAdvert
+[0407 16:47:44] DCAdManager: azupnpav_0.2.17.zip reasons: 
+[0407 16:49:19] DCAdManager: determineASXFileLocation
+[0407 16:49:19] DCAdManager: determineASXFileLocation
+[0407 16:49:19] DCAdManager: determineASXFileLocation
+[0407 17:26:45] DCAdManager: azpdFileExpireThread: exit. Nothing to check.

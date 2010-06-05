@@ -422,6 +422,8 @@
 		<module>perfs-frontend-rest</module>
 		<module>perfs-frontend-vfs</module>
 		<module>perfs-ontologies</module>
+		<module>perfs-transport-jain-sip</module>
+		<module>perfs-transport-jxta</module>
 	</modules>
 	<properties>
 		<perfs.version>${project.version}</perfs.version>

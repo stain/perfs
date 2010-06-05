@@ -1,0 +1,17 @@
+[17:48:33] Obtaining external address
+[17:48:33]     Contacts to search = 0
+[17:48:33]     External IP address obtained: 93.97.30.189
+[17:48:33] Initial external address: /93.97.30.189:40444
+[17:48:34] DHT integration starts
+[17:48:44] Initial integration completed, waiting 4745 ms for second phase to start
+[17:48:49] Transfer handler (NAT Traversal) registered for key '537F6B2F6E1E05C674DA9DEEF00DFB1825E96190
+[17:48:49] Removing seed 3D289978...[dht.aelitis.com/85.31.105.2:6881,V22]
+[17:48:49] DHT integration complete: elapsed = 15025
+[17:48:49] DHT Details: external IP = /93.97.30.189:40444, network = 0, protocol = V22, nps = [0,0,0,0,h0],er=1.0,age=1246726129077,0,0,0 : 10.0
+[17:48:49] DHT: B668E023..., node count = 1, contacts =1
+[17:48:49] : buckets = 1{B668E023...[hba=Y,bad=0,OK=0]}, replacements = null * tsll=14997
+[17:48:49] Stored keys = 0, values = 0
+[17:48:49] NATPuncher: No rendezvous found: candidates=0,tried=0,skipped=0
+[17:48:49] Transfer handler (Torrent Transfer) registered for key '76681B6ED0CEFFB919DDE2C0AD463E34D96B5D9A
+[17:48:49] Transfer handler (Plugin Defined) registered for key 'DAB74BF8EB54C64B529EA62FFF9D417666BC7E3F
+[17:53:49] NATPuncher: No rendezvous found: candidates=0,tried=0,skipped=0

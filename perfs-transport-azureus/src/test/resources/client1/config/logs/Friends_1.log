@@ -1,0 +1,266 @@
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 16:47:06] Tracker: Tracker enabled state changed to true
+[0407 16:47:29] Tracker: Seeding-only state changed to true
+[0407 16:47:38] Tracker: Plugin enabled state changed to true
+[0407 16:49:24] Tracker: Seeding-only state changed to false
+[0407 17:10:35] Checking YGM
+[0407 17:10:35] YGM check failed: No password handlers returned a password
+[0407 17:15:36] Checking YGM
+[0407 17:15:36] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 17:15:36] YGM check failed: No password handlers returned a password
+[0407 17:20:36] Checking YGM
+[0407 17:20:36] YGM check failed: No password handlers returned a password
+[0407 17:25:37] Checking YGM
+[0407 17:25:37] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 17:25:37] YGM check failed: No password handlers returned a password
+[0407 17:30:37] Checking YGM
+[0407 17:30:37] YGM check failed: No password handlers returned a password
+[0407 17:33:52] Tracker: Seeding-only state changed to true
+[0407 17:34:26] Tracker: Seeding-only state changed to false
+[0407 17:35:37] Checking YGM
+[0407 17:35:37] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 17:35:37] YGM check failed: No password handlers returned a password
+[0407 17:40:19] Closing down
+[0407 17:40:19]    closing buddy connections
+[0407 17:40:19]    updating online status
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:40:37] Tracker: Tracker enabled state changed to true
+[0407 17:41:08] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 17:41:08] Tracker: Plugin enabled state changed to true
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0407 17:47:23] Tracker: Tracker enabled state changed to true
+[0407 17:48:29] Tracker: Plugin enabled state changed to true
+[0407 17:48:29] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 17:53:29] Checking YGM
+[0407 17:53:29] YGM check failed: No password handlers returned a password
+[0407 17:58:29] Checking YGM
+[0407 17:58:29] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 17:58:29] YGM check failed: No password handlers returned a password
+[0407 18:03:29] Checking YGM
+[0407 18:03:29] YGM check failed: No password handlers returned a password
+[0407 18:23:27] Checking YGM
+[0407 18:23:27] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 18:23:27] YGM check failed: No password handlers returned a password
+[0407 18:28:27] Checking YGM
+[0407 18:28:27] YGM check failed: No password handlers returned a password
+[0407 18:33:28] Checking YGM
+[0407 18:33:28] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 18:33:28] YGM check failed: No password handlers returned a password
+[0407 18:38:28] Checking YGM
+[0407 18:38:28] YGM check failed: No password handlers returned a password
+[0407 18:43:28] Checking YGM
+[0407 18:43:28] YGM check failed: No password handlers returned a password
+[0407 18:43:28] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 18:48:28] Checking YGM
+[0407 18:48:28] YGM check failed: No password handlers returned a password
+[0407 18:53:28] Checking YGM
+[0407 18:53:28] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 18:53:28] YGM check failed: No password handlers returned a password
+[0407 18:58:29] Checking YGM
+[0407 18:58:29] YGM check failed: No password handlers returned a password
+[0407 19:03:29] Checking YGM
+[0407 19:03:29] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 19:03:29] YGM check failed: No password handlers returned a password
+[0407 19:08:29] Checking YGM
+[0407 19:08:29] YGM check failed: No password handlers returned a password
+[0407 19:13:29] Checking YGM
+[0407 19:13:29] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 19:13:29] YGM check failed: No password handlers returned a password
+[0407 19:18:30] Checking YGM
+[0407 19:18:30] YGM check failed: No password handlers returned a password
+[0407 19:23:30] Checking YGM
+[0407 19:23:30] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 19:23:30] YGM check failed: No password handlers returned a password
+[0407 19:28:30] Checking YGM
+[0407 19:28:30] YGM check failed: No password handlers returned a password
+[0407 19:33:31] Checking YGM
+[0407 19:33:31] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 19:33:31] YGM check failed: No password handlers returned a password
+[0407 19:38:31] Checking YGM
+[0407 19:38:31] YGM check failed: No password handlers returned a password
+[0407 19:43:31] Checking YGM
+[0407 19:43:31] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 19:43:31] YGM check failed: No password handlers returned a password
+[0407 19:48:32] Checking YGM
+[0407 19:48:32] YGM check failed: No password handlers returned a password
+[0407 19:53:32] Checking YGM
+[0407 19:53:32] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 19:53:32] YGM check failed: No password handlers returned a password
+[0407 19:58:32] Checking YGM
+[0407 19:58:32] YGM check failed: No password handlers returned a password
+[0407 20:03:33] Checking YGM
+[0407 20:03:33] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 20:03:33] YGM check failed: No password handlers returned a password
+[0407 20:08:33] Checking YGM
+[0407 20:08:33] YGM check failed: No password handlers returned a password
+[0407 20:13:33] Checking YGM
+[0407 20:13:33] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 20:13:33] YGM check failed: No password handlers returned a password
+[0407 20:18:33] Checking YGM
+[0407 20:18:33] YGM check failed: No password handlers returned a password
+[0407 20:23:34] Checking YGM
+[0407 20:23:34] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 20:23:34] YGM check failed: No password handlers returned a password
+[0407 20:28:34] Checking YGM
+[0407 20:28:34] YGM check failed: No password handlers returned a password
+[0407 20:33:34] Checking YGM
+[0407 20:33:34] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 20:33:34] YGM check failed: No password handlers returned a password
+[0407 20:38:34] Checking YGM
+[0407 20:38:34] YGM check failed: No password handlers returned a password
+[0407 20:43:35] Checking YGM
+[0407 20:43:35] YGM check failed: No password handlers returned a password
+[0407 20:43:35] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 20:48:35] Checking YGM
+[0407 20:48:35] YGM check failed: No password handlers returned a password
+[0407 20:53:35] Checking YGM
+[0407 20:53:35] YGM check failed: No password handlers returned a password
+[0407 20:53:35] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 20:58:35] Checking YGM
+[0407 20:58:35] YGM check failed: No password handlers returned a password
+[0407 21:03:36] Checking YGM
+[0407 21:03:36] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 21:03:36] YGM check failed: No password handlers returned a password
+[0407 21:08:36] Checking YGM
+[0407 21:08:36] YGM check failed: No password handlers returned a password
+[0407 21:13:36] Checking YGM
+[0407 21:13:36] YGM check failed: No password handlers returned a password
+[0407 21:13:36] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 21:18:36] Checking YGM
+[0407 21:18:36] YGM check failed: No password handlers returned a password
+[0407 21:23:37] Checking YGM
+[0407 21:23:37] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 21:23:37] YGM check failed: No password handlers returned a password
+[0407 21:28:37] Checking YGM
+[0407 21:28:37] YGM check failed: No password handlers returned a password
+[0407 21:33:37] Checking YGM
+[0407 21:33:37] YGM check failed: No password handlers returned a password
+[0407 21:33:37] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 21:38:37] Checking YGM
+[0407 21:38:37] YGM check failed: No password handlers returned a password
+[0407 21:43:38] Checking YGM
+[0407 21:43:38] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 21:43:38] YGM check failed: No password handlers returned a password
+[0407 21:48:38] Checking YGM
+[0407 21:48:38] YGM check failed: No password handlers returned a password
+[0407 21:53:38] Checking YGM
+[0407 21:53:38] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 21:53:38] YGM check failed: No password handlers returned a password
+[0407 21:58:39] Checking YGM
+[0407 21:58:39] YGM check failed: No password handlers returned a password
+[0407 22:03:39] Checking YGM
+[0407 22:03:39] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 22:03:39] YGM check failed: No password handlers returned a password
+[0407 22:08:39] Checking YGM
+[0407 22:08:39] YGM check failed: No password handlers returned a password
+[0407 22:13:39] Checking YGM
+[0407 22:13:39] YGM check failed: No password handlers returned a password
+[0407 22:13:39] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 22:18:40] Checking YGM
+[0407 22:18:40] YGM check failed: No password handlers returned a password
+[0407 22:23:40] Checking YGM
+[0407 22:23:40] YGM check failed: No password handlers returned a password
+[0407 22:23:40] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 22:28:40] Checking YGM
+[0407 22:28:40] YGM check failed: No password handlers returned a password
+[0407 22:33:40] Checking YGM
+[0407 22:33:40] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 22:33:40] YGM check failed: No password handlers returned a password
+[0407 22:38:40] Checking YGM
+[0407 22:38:41] YGM check failed: No password handlers returned a password
+[0407 22:43:41] Checking YGM
+[0407 22:43:41] YGM check failed: No password handlers returned a password
+[0407 22:43:41] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 22:48:41] Checking YGM
+[0407 22:48:41] YGM check failed: No password handlers returned a password
+[0407 22:53:41] Checking YGM
+[0407 22:53:41] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 22:53:41] YGM check failed: No password handlers returned a password
+[0407 22:58:42] Checking YGM
+[0407 22:58:42] YGM check failed: No password handlers returned a password
+[0407 23:03:42] Checking YGM
+[0407 23:03:42] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 23:03:42] YGM check failed: No password handlers returned a password
+[0407 23:08:42] Checking YGM
+[0407 23:08:42] YGM check failed: No password handlers returned a password
+[0407 23:13:42] Checking YGM
+[0407 23:13:43] YGM check failed: No password handlers returned a password
+[0407 23:13:43] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 23:18:43] Checking YGM
+[0407 23:18:43] YGM check failed: No password handlers returned a password
+[0407 23:23:43] Checking YGM
+[0407 23:23:43] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0407 23:23:43] YGM check failed: No password handlers returned a password
+[0407 23:32:58] Closing down
+[0407 23:32:58]    closing buddy connections
+[0407 23:32:58]    updating online status
+
+[2009] Log File Opened for Vuze 4.2.0.2
+[0507 17:48:09] Tracker: Tracker enabled state changed to true
+[0507 17:48:09] Tracker: Seeding-only state changed to true
+[0507 17:48:21] Tracker: Seeding-only state changed to false
+[0507 17:48:41] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0507 17:48:41] Tracker: Plugin enabled state changed to true
+[0507 17:53:41] Checking YGM
+[0507 17:53:41] YGM check failed: No password handlers returned a password
+[0507 17:58:41] Checking YGM
+[0507 17:58:41] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0507 17:58:41] YGM check failed: No password handlers returned a password
+[0507 18:03:41] Checking YGM
+[0507 18:03:41] YGM check failed: No password handlers returned a password
+[0507 20:55:26] Checking YGM
+[0507 20:55:26] YGM check failed: No password handlers returned a password
+[0507 20:55:26] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0507 21:00:26] Checking YGM
+[0507 21:00:26] YGM check failed: No password handlers returned a password
+[0507 21:05:26] Checking YGM
+[0507 21:05:27] YGM check failed: No password handlers returned a password
+[0507 21:05:27] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0507 21:10:27] Checking YGM
+[0507 21:10:27] YGM check failed: No password handlers returned a password
+[0507 21:15:27] Checking YGM
+[0507 21:15:27] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0507 21:15:27] YGM check failed: No password handlers returned a password
+[0507 21:20:27] Checking YGM
+[0507 21:20:27] YGM check failed: No password handlers returned a password
+[0507 21:25:27] Checking YGM
+[0507 21:25:27] YGM check failed: No password handlers returned a password
+[0507 21:25:27] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0507 21:30:28] Checking YGM
+[0507 21:30:28] YGM check failed: No password handlers returned a password
+[0507 21:35:28] Checking YGM
+[0507 21:35:28] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0507 21:35:28] YGM check failed: No password handlers returned a password
+[0507 21:40:29] Checking YGM
+[0507 21:40:29] YGM check failed: No password handlers returned a password
+[0507 21:45:30] Checking YGM
+[0507 21:45:30] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0507 21:45:30] YGM check failed: No password handlers returned a password
+[0507 21:50:30] Checking YGM
+[0507 21:50:30] YGM check failed: No password handlers returned a password
+[0507 21:55:30] Checking YGM
+[0507 21:55:30] YGM check failed: No password handlers returned a password
+[0507 21:55:30] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0507 22:00:31] Checking YGM
+[0507 22:00:31] YGM check failed: No password handlers returned a password
+[0507 22:05:31] Checking YGM
+[0507 22:05:31] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0507 22:05:31] YGM check failed: No password handlers returned a password
+[0507 22:10:31] Checking YGM
+[0507 22:10:31] YGM check failed: No password handlers returned a password
+[0807 20:28:51] Checking YGM
+[0807 20:28:51] YGM check failed: No password handlers returned a password
+[0807 20:28:51] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0807 20:33:51] Checking YGM
+[0807 20:33:51] YGM check failed: No password handlers returned a password
+[0807 20:39:23] Checking YGM
+[0807 20:39:24] Failed to publish details: No password handlers returned a password, CryptoManagerImpl::getPassword::460,CryptoHandlerECC::createAndStoreKeys::659,CryptoHandlerECC::getMyPublicKey::579,CryptoHandlerECC::getPublicKey::296,BuddyPlugin::updatePublishSupport::1632,BuddyPlugin$19::runSupport::1600,AsyncDispatcher$1::run::84,AEThread2$threadWrapper::run::255
+[0807 20:39:24] YGM check failed: No password handlers returned a password
+[0807 20:44:24] Checking YGM
+[0807 20:44:24] YGM check failed: No password handlers returned a password
+[0807 20:47:08] Closing down
+[0807 20:47:08]    closing buddy connections
+[0807 20:47:08]    updating online status

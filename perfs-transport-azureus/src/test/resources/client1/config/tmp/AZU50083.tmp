@@ -1,0 +1,18 @@
+[17:48:09] group = /239.255.255.250:0/en1:en1-/192.168.1.64: started
+[17:48:09] group = /239.255.255.250:0/en2:en2-/10.37.129.2,/fe80:0:0:0:21c:42ff:fe00:0%8: started
+[17:48:09] ignoring IPv6 address /fe80:0:0:0:21c:42ff:fe00:0%8, interface en2
+[17:48:09] group = /239.255.255.250:0/en3:en3-/10.211.55.2,/fe80:0:0:0:21c:42ff:fe00:1%7: started
+[17:48:09] ignoring IPv6 address /fe80:0:0:0:21c:42ff:fe00:1%7, interface en3
+[17:48:09] ignoring loopback address /127.0.0.1, interface lo0
+[17:48:09] ignoring loopback address /0:0:0:0:0:0:0:1, interface lo0
+[17:48:09] ignoring IPv6 address /fe80:0:0:0:0:0:0:1%1, interface lo0
+[17:48:09] Mapping request: Incoming Peer Data Port (UDP/10290), enabled = true
+[17:48:09] Mapping request: UDP Tracker Client Port (UDP/10290), enabled = true
+[17:48:09] Mapping request: Incoming Peer Data Port (TCP/10290), enabled = true
+[17:48:09] Mapping request: Incoming Peer Data Port (TCP/8080), enabled = false
+[17:48:09] Mapping request: TCP Tracker Port (TCP/6969), enabled = false
+[17:48:09] Mapping request: TCP SSL Tracker Port (TCP/7000), enabled = false
+[17:48:09] Mapping request: UDP Tracker Port (UDP/6969), enabled = false
+[17:48:09] Mapping request: Distributed DB (UDP/10290), enabled = true
+[20:47:05] group = /239.255.255.250:0/en3:en3 - /10.211.55.2: stopped
+[20:47:05] group = /239.255.255.250:0/en2:en2 - /10.37.129.2: stopped
