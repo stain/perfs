@@ -91,11 +91,24 @@
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
+		<!-- Override to get Sesame 2.3.1 instead of 2.2.3 that elmo depends on
 			<dependency>
 				<groupId>org.openrdf.sesame</groupId>
 				<artifactId>sesame</artifactId>
 				<version>${sesame.version}</version>
 			</dependency>
+					 -->
+			<dependency> 
+				<groupId>org.openrdf.sesame</groupId>
+				<artifactId>sesame-rio-rdfxml</artifactId>
+				<version>${sesame.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.openrdf.sesame</groupId>
+				<artifactId>sesame-queryparser-sparql</artifactId>
+				<version>${sesame.version}</version>
+			</dependency>
+			
 		</dependencies>
 	</dependencyManagement>
 	<repositories>
